@@ -71,3 +71,6 @@ dist/
 *.sublime-project
 *.sublime-workspace
 .tern-port
+
+# Flow type
+flow-typed/

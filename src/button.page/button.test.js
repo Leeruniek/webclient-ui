@@ -5,6 +5,9 @@ import TestRenderer from "react-test-renderer"
 import { LUButton } from "./button.component"
 
 test("LUButton", t => {
+  /**
+   * { constant_description }
+   */
   const LUButtonRenderer = TestRenderer.create(<LUButton label="foo" />)
   const button = LUButtonRenderer.toJSON()
 
