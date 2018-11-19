@@ -6,11 +6,11 @@ import * as React from "react"
 
 type LUButtonPropsType = {|
   label: string,
-  onClick: Function,
+  onClick: ?Function,
 |}
 
 const LUButton = React.memo(
-  ({ label = "asd", onClick }: LUButtonPropsType): React.Node => (
+  ({ label = "", onClick }: LUButtonPropsType): React.Node => (
     <div onClick={onClick}>{label}</div>
   )
 )
