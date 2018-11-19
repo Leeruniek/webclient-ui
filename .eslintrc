@@ -1,0 +1,37 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "extends": [
+    "@leeruniek/eslint-config/targets/react",
+    "@leeruniek/eslint-config/rules/flow"
+  ],
+
+  "globals": {
+    "require": true,
+    "module": true
+  },
+
+  "rules": {
+    // disable since our pattern of naming does not match any defined case
+    "unicorn/filename-case": "off",
+  },
+  "settings": {
+    "react": {
+      "version": "16.6",
+      "flowVersion": "0.86"
+    },
+
+    // Recommended if you use eslint_d
+    "import/cache": {
+      "lifetime": 5,
+    },
+
+    // Can add a path segment here that will act like a source root, for
+    // in-project aliasing (i.e. `import MyStore from 'stores/my-store'`)
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  }
+}

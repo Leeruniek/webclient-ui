@@ -1,0 +1,93 @@
+{
+  "name": "@leeruniek/webclient-ui",
+  "version": "0.1.0",
+  "description": "Pure UI components",
+  "homepage": "https://github.com/leeruniek/webclient-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeruniek/webclient-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leeruniek/webclient-ui/issues"
+  },
+  "browserslist": [
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "last 2 ie versions"
+  ],
+  "author": {
+    "name": "Andrei Dumitrescu",
+    "url": "https://github.com/andreidcm"
+  },
+  "main": "src/index.html",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "----UTILS------------------------------------": "",
+    "clean": "rm -rf dist/*",
+    "setup": "rm -rf ./node_modules && npm i && npm audit fix",
+    "update": "npm-check -u",
+    "----LOCAL SERVER-----------------------------": "",
+    "start": "parcel src/index.html",
+    "----BUNDLE-----------------------------------": "",
+    "build": "parcel build src/index.html",
+    "prepare": "npm audit fix && npm test && npm run lint",
+    "----LINTING----------------------------------": "",
+    "lint:css": "stylelint src/**/*.css",
+    "lint:js": "eslint --ext .jsx,.js src",
+    "lint": "npm run lint:js && npm run lint:css",
+    "----TESTS------------------------------------": "",
+    "test": "tape src/**/*.test.js",
+    "tdd": "nodemon --watch src --exec \"npm run test | tap-diff\""
+  },
+  "dependencies": {
+    "@leeruniek/functies": "0.19.1",
+    "classnames": "2.2.6",
+    "cuid": "2.1.4",
+    "debug": "4.1.0",
+    "prop-types": "15.6.2",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "react-router-dom": "4.3.1",
+    "sanitize.css": "8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.6",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-proposal-decorators": "7.1.6",
+    "@babel/plugin-proposal-export-default-from": "7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.1.0",
+    "@babel/preset-env": "7.1.6",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@leeruniek/eslint-config": "3.0.1",
+    "babel-eslint": "10.0.1",
+    "eslint": "5.9.0",
+    "eslint-config-prettier": "3.3.0",
+    "eslint-plugin-compat": "2.6.3",
+    "eslint-plugin-flowtype": "3.2.0",
+    "eslint-plugin-flowtype-errors": "3.6.0",
+    "eslint-plugin-html": "5.0.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-json": "1.2.1",
+    "eslint-plugin-jsx-control-statements": "2.2.1",
+    "eslint-plugin-no-inferred-method-name": "1.0.2",
+    "eslint-plugin-prettier": "3.0.0",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-unicorn": "6.0.1",
+    "flow-bin": "0.86.0",
+    "jsx-control-statements": "3.2.8",
+    "npm-check": "5.9.0",
+    "parcel-bundler": "1.10.3",
+    "postcss": "7.0.6",
+    "postcss-modules": "1.4.1",
+    "prettier": "1.15.2",
+    "stylelint": "9.8.0",
+    "stylelint-config-standard": "18.2.0",
+    "stylelint-order": "1.0.0",
+    "tap-diff": "0.1.1",
+    "tape": "4.9.1"
+  }
+}

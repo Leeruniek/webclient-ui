@@ -1,0 +1,72 @@
+{
+  "presets": [
+    [ "@babel/preset-env", {
+       "useBuiltIns": "entry",
+       "debug": false,
+       "targets": {
+         "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+       },
+       "modules": false
+     } ],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+
+  "plugins": [
+    // custom jsx tags If, Choose, For
+    "module:jsx-control-statements",
+
+    // Babel uses very small helpers for common functions such as _extend. By
+    // default this will be added to every file that requires it. This
+    // duplication is sometimes unnecessary, especially when your application
+    // is spread out over multiple files.
+    "@babel/plugin-transform-runtime",
+
+    // class decorators
+    [ "@babel/plugin-proposal-decorators", {
+      "legacy": true,
+    } ],
+
+    // class static properties
+    [ "@babel/plugin-proposal-class-properties", { "loose" : true } ],
+
+    // let n = { x, y, ...z };
+    // "@babel/plugin-proposal-object-rest-spread",
+
+    // export v from 'mod';
+    "@babel/plugin-proposal-export-default-from",
+
+    // var foo = object.foo ?? "default"
+    //
+    // || gives false positives for "" , 0 or false
+    "@babel/plugin-proposal-nullish-coalescing-operator",
+
+    // let result = "hello"
+    //   |> doubleSay
+    //   |> capitalize
+    //   |> exclaim;
+    // result //=> "Hello, hello!"
+    [ "@babel/plugin-proposal-pipeline-operator", {
+      "proposal": "minimal"
+    } ],
+  ],
+
+  "env": {
+    "development": {
+      "plugins": [
+      ]
+    },
+    "production": {
+      "plugins": [
+        // Can speed up reconciliation and reduce garbage collection pressure
+        // by hoisting React elements to the highest possible scope,
+        // preventing multiple unnecessary reinstantiations.
+        "@babel/plugin-transform-react-constant-elements",
+
+        // Remove React propTypes from the production build, as they are only
+        // used in development
+        "babel-plugin-transform-react-remove-prop-types"
+      ]
+    }
+  }
+}
