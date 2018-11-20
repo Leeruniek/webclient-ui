@@ -1,10 +1,5 @@
-/* stylelint-disable */
+@import "sanitize.css";
 
-@import "sanitize.css"
-
-/* hack to make variables exportable in other files */
-body {}
-
-:root {
-  --distancer: 30px;
+body {
+  padding: var(--distancer);
 }

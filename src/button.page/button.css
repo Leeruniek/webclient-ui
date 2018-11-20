@@ -1,0 +1,5 @@
+.button {
+  padding: var(--distancer);
+
+  background: red;
+}

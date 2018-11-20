@@ -1,4 +1,9 @@
 {
   "modules": true,
-  "plugins": {}
+  "plugins": {
+    "postcss-custom-properties": {
+      "preserve": false,
+      "importFrom": "src/styles/variables.css"
+    }
+  }
 }
