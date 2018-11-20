@@ -2,7 +2,7 @@ import test from "tape"
 import React from "react"
 import TestRenderer from "react-test-renderer"
 
-import { LUButton } from "./button.component"
+import { LUButton } from "./button"
 
 test("LUButton", t => {
   const labelRenderer = TestRenderer.create(<LUButton label="foo" />)
