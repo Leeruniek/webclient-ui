@@ -4,7 +4,8 @@ import React from "react"
 import { render } from "react-dom"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
-import { LUButtonPage } from "/button.page/button.page"
+import { LUButtonPage } from "./button.page/button.page"
+import "./index.css"
 
 render(
   <BrowserRouter>

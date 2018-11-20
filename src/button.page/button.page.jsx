@@ -1,15 +1,10 @@
-const debug = require("debug")("WebclientUI:LULUButtonPage")
+const debug = require("debug")("WebclientUI:LUButtonPage")
 
 import React from "react"
-import PropTypes from "prop-types"
 
-import { LUButton } from "button.page/button.component"
+import { LUButton } from "./button"
 
 class LUButtonPage extends React.Component {
-  static propTypes = {
-    text: PropTypes.string,
-  }
-
   static defaultProps = {
     text: "asd",
   }
