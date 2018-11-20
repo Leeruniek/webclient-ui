@@ -2,7 +2,6 @@
   "presets": [
     [ "@babel/preset-env", {
        "useBuiltIns": "entry",
-       "debug": false,
        "targets": {
          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
        },
@@ -12,28 +11,19 @@
   ],
 
   "plugins": [
-    // custom jsx tags If, Choose, For
-    "module:jsx-control-statements",
-
     // Babel uses very small helpers for common functions such as _extend. By
     // default this will be added to every file that requires it. This
     // duplication is sometimes unnecessary, especially when your application
     // is spread out over multiple files.
     "@babel/plugin-transform-runtime",
 
-    // class decorators
-    [ "@babel/plugin-proposal-decorators", {
-      "legacy": true,
-    } ],
-
     // class static properties
     [ "@babel/plugin-proposal-class-properties", { "loose" : true } ],
 
+    // --- Currently crashes parcel. Duplicate plugin.
+    // --- https://github.com/parcel-bundler/parcel/pull/2032
     // let n = { x, y, ...z };
     // "@babel/plugin-proposal-object-rest-spread",
-
-    // export v from 'mod';
-    "@babel/plugin-proposal-export-default-from",
 
     // var foo = object.foo ?? "default"
     //
@@ -61,10 +51,6 @@
         // by hoisting React elements to the highest possible scope,
         // preventing multiple unnecessary reinstantiations.
         "@babel/plugin-transform-react-constant-elements",
-
-        // Remove React propTypes from the production build, as they are only
-        // used in development
-        "babel-plugin-transform-react-remove-prop-types"
       ]
     }
   }
