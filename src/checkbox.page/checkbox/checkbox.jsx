@@ -20,6 +20,7 @@ type LUCheckboxPropsType = {|
 
 const LUCheckbox = React.memo((props: LUCheckboxPropsType): React.Node  =>  (
     <label className={cx(css.field, {
+      [css["disabled"]]: props.isDisabled,
       [props.className]: !isEmpty(props.className),
       [css[props.customStyle]]: !isEmpty(props.customStyle),
     })}>
