@@ -1,0 +1,241 @@
+:root {
+  --checkbox-color: var(--color-primary);
+  --checkbox-disabled-color: color(var(--color-black) a(26%));
+  --checkbox-focus-checked-color: color(var(--color-primary) a(26%));
+  --checkbox-ripple-duration: 650ms;
+  --checkbox-size: calc(1.5 * var(--unit));
+  --checkbox-focus-color: color(var(--color-black) a(1%));
+  --checkbox-focus-size: calc(var(--checkbox-size) * 2.3);
+  --checkbox-text-color: var(--color-black);
+  --checkbox-text-font-size: var(--font-size);
+  --checkbox-total-height: calc(1.5 * var(--unit));
+  --checkbox-transition-duration: .2s;
+  --yellow-checkbox-color: var(--color-dark-yellow);
+  --yellow-checkbox-disabled-color: color(var(--color-black) a(26%));
+  --yellow-checkbox-text-color: var(--color-black);
+}
+
+.field {
+  position: relative;
+
+  display: block;
+
+  box-sizing: border-box;
+  height: var(--checkbox-size);
+
+  margin-bottom: 0;
+
+  white-space: nowrap;
+
+  font-family: var(--preferred-font);
+  font-size: var(--checkbox-text-font-size);
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.field *,
+.field *::after,
+.field *::before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+}
+
+.text {
+  display: inline-block;
+
+  padding-left: calc(var(--distancer) / 3);
+
+  vertical-align: top;
+  white-space: nowrap;
+
+  color: var(--checkbox-text-color);
+
+  font-weight: var(--font-weight-normal);
+  line-height: var(--checkbox-size);
+}
+
+.input {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+
+  opacity: 0;
+}
+
+.input ~ .check::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: var(--checkbox-focus-size);
+  height: var(--checkbox-focus-size);
+  margin-top: calc(-1 * var(--checkbox-focus-size) / 2);
+  margin-left: calc(-1 * var(--checkbox-focus-size) / 2);
+
+  content: "";
+  transform: scale(0);
+  pointer-events: none;
+
+  border-radius: 50%;
+  background-color: var(--checkbox-focus-color);
+}
+
+.input:focus ~ .check::before {
+  animation: ripple var(--checkbox-ripple-duration) ease-out;
+
+  opacity: .3;
+  background-color: var(--checkbox-color);
+}
+
+.check {
+  position: relative;
+
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+
+  cursor: pointer;
+  transition-timing-function: var(--animation-curve-default);
+  transition-duration: var(--checkbox-transition-duration);
+  transition-property: background-color;
+  vertical-align: top;
+
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--checkbox-text-color);
+  border-radius: 2px;
+
+  font-family: var(--preferred-font);
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.check *,
+.check *::after,
+.check *::before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+}
+
+.check.checked {
+  border-color: var(--checkbox-color);
+  background-color: var(--checkbox-color);
+}
+
+.check.checked::after {
+  position: absolute;
+  top: calc(-.1 * var(--unit));
+  left: calc(.4 * var(--unit));
+
+  width: calc(.7 * var(--unit));
+  height: var(--unit);
+
+  content: "";
+  transform: rotate(45deg);
+  animation: checkmark-expand 140ms ease-out forwards;
+
+  border-style: solid;
+  border-color: var(--color-background);
+  border-top: 0;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left: 0;
+}
+
+.disabled > .text {
+  color: var(--checkbox-disabled-color);
+}
+
+.disabled > .check {
+  cursor: auto;
+
+  border-color: var(--checkbox-disabled-color);
+}
+
+.disabled > .check.checked {
+  cursor: auto;
+
+  border-color: transparent;
+  background-color: var(--checkbox-disabled-color);
+}
+
+@keyframes checkmark-expand {
+  0% {
+    top: calc(.9 * var(--unit));
+    left: calc(.6 * var(--unit));
+
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    top: calc(-.1 * var(--unit));
+    left: calc(.4 * var(--unit));
+
+    width: calc(.7 * var(--unit));
+    height: var(--unit);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+
+    opacity: 0;
+  }
+}
+
+/* CSS rules for comonents with not empty props.customStyle */
+
+.yellow {
+  color: var(--yellow-checkbox-text-color);
+}
+
+.yellow .text {
+  color: var(--yellow-checkbox-text-color);
+}
+
+.yellow .input:focus ~ .check::before {
+  background-color: var(--yellow-checkbox-color);
+}
+
+.yellow .check {
+  border-color: var(--yellow-checkbox-text-color);
+}
+
+.yellow .check.checked {
+  border-color: var(--yellow-checkbox-color);
+  background-color: var(--yellow-checkbox-color);
+}
+
+.yellow .check.checked::after {
+  border-color: var(--color-background);
+}
+
+.yellow.disabled > .text {
+  color: var(--yellow-checkbox-disabled-color);
+}
+
+.yellow.disabled > .check {
+  border-color: var(--yellow-checkbox-disabled-color);
+}
+
+.yellow.disabled > .check.checked {
+  border-color: transparent;
+  background-color: var(--yellow-checkbox-disabled-color);
+}
