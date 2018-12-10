@@ -10,8 +10,8 @@ type LUButtonPropsType = {|
   onClick: ?Function,
 |}
 
-const LUButton = React.memo(
-  ({ label = "test", onClick }: LUButtonPropsType): React.Node => (
+const LUButton = React.memo<LUButtonPropsType>(
+  ({ label = "test", onClick }): React.Node => (
     <div className={css.button} onClick={onClick}>
       {label}
     </div>

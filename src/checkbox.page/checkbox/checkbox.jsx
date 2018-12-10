@@ -2,39 +2,52 @@
 
 const debug = require("debug")("WebclientUI:LUCheckbox")
 
-import React from "react"
+import * as React from "react"
 import cx from "classnames"
 import { isEmpty } from "@leeruniek/functies"
 
 import css from "./css/checkbox.css"
+import type { LUCheckboxType } from "./checkbox.types"
 
+export class LUCheckbox extends React.Component<LUCheckboxType> {
+  static defaultProps = {
+    isDisabled: false,
+    isChecked: false,
+    value: '',
+    label: '',
+    className: '',
+    customStyle: '',
+  };
 
-type LUCheckboxPropsType = {|
-  className: string,
-  customStyle: string,
-  label: string,
-  isDisabled: boolean,
-  isChecked: boolean,
-  onChange: Function
-|}
+  render(): React.Node {
+    const{
+      isDisabled,
+      isChecked,
+      value,
+      label,
+      className,
+      customStyle,
+      onChange
+    } = this.props;
 
-const LUCheckbox = React.memo((props: LUCheckboxPropsType): React.Node  =>  (
-    <label className={cx(css.field, {
-      [css["disabled"]]: props.isDisabled,
-      [props.className]: !isEmpty(props.className),
-      [css[props.customStyle]]: !isEmpty(props.customStyle),
-    })}>
-      <input
-        type="checkbox"
-        disabled={props.isDisabled}
-        checked={props.isChecked}
-        className={css.input}
-        onChange={props.onChange}
-      />
-      <div className={cx(css.check, { [css.checked]: props.isChecked })}/>
-      {props.label ? <span className={css.text}>{props.label}</span> : null}
-    </label>
-  )
-)
-
-export { LUCheckbox }
+    return (
+      <label
+        className={cx(css.field, {
+          [css["disabled"]]: isDisabled,
+          [className || ""]: !isEmpty(className),
+          [css[customStyle]]: !isEmpty(customStyle),
+        })}>
+        <input
+          type="checkbox"
+          value={value}
+          disabled={isDisabled}
+          checked={isChecked}
+          className={css.input}
+          onChange={onChange}
+        />
+        <div className={cx(css.check, { [css.checked]: isChecked })} />
+        {label ? <span className={css.text}>{label}</span> : null}
+      </label>
+    )
+  }
+}
