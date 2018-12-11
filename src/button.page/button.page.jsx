@@ -1,18 +1,20 @@
+// @flow
+
 const debug = require("debug")("WebclientUI:LUButtonPage")
 
-import React from "react"
+import * as React from "react"
 
 import { LUButton } from "./button"
 
-class LUButtonPage extends React.Component {
-  static defaultProps = {
-    text: "asd",
-  }
+type PropsType = {
+  text: string,
+}
 
-  render = () => {
+class LUButtonPage extends React.Component<PropsType> {
+  render = (): React.Node => {
     const { text } = this.props
 
-    return <LUButton text={text} />
+    return <LUButton label={text} onClick={null} />
   }
 }
 

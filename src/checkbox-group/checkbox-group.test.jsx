@@ -1,3 +1,5 @@
+/* eslint react/jsx-no-bind: 0 */
+
 import tape from "tape"
 import React from "react"
 import Adapter from "enzyme-adapter-react-16"
@@ -12,9 +14,9 @@ import { LUCheckboxGroupHeader } from "../checkbox-group/checkbox-group__header"
 tape("Checkboxgroup contains 3 checkboxes", t => {
   t.plan(1)
   const wrapper = shallow(<LUCheckboxGroupPage />)
-  const checkboxGroup = wrapper.find(x => LUCheckboxGroup(x))
+  const checkboxGroup = wrapper.find(LUCheckboxGroup)
 
-  t.equal(checkboxGroup.find(x => LUCheckbox(x)).length, 3)
+  t.equal(checkboxGroup.find(LUCheckbox).length, 3)
 })
 
 tape("Checkbox header rendering with text", t => {
@@ -32,7 +34,7 @@ tape("Checkboxgroup passsed onChange handler into children", t => {
       <LUCheckbox label="checkboxOne" />
     </LUCheckboxGroup>
   )
-  const checkbox = wrapper.find(x => LUCheckbox(x))
+  const checkbox = wrapper.find(LUCheckbox)
 
   t.equal(checkbox.props().onChange(), "OK")
 })

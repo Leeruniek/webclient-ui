@@ -1,3 +1,4 @@
+/* eslint react/jsx-filename-extension: 0 */
 const debug = require("debug")("Leeruniek:ReactUtils")
 
 import React from "react"

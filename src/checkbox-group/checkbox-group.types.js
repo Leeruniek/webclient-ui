@@ -1,15 +1,14 @@
 // @flow
 
-import type { LUCheckboxType } from "../checkbox.page/checkbox/checkbox.types"
 import { LUCheckbox } from "../checkbox.page/checkbox/checkbox"
 import { LUCheckboxGroupHeader } from "./checkbox-group__header"
 
-export type LUCheckboxGroupHeaderType = {
+export type LUCheckboxGroupHeaderPropsType = {
   className?: string,
   label: string,
 }
 
-export type LUCheckboxGroupType = {
+export type LUCheckboxGroupPropsType = {
   children: React.ChildrenArray<
     React.Element<typeof LUCheckbox | typeof LUCheckboxGroupHeader>
   >,

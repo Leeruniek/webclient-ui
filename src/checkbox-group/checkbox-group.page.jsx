@@ -1,3 +1,4 @@
+/* eslint flowtype/no-weak-types: 0 */
 // @flow
 
 const debug = require("debug")("WebclientUI:LUCheckboxPage")
@@ -21,6 +22,8 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
   }
 
   render(): React.Node {
+    const { groupItems } = this.state
+
     return (
       <div>
         <LUCheckboxGroup onChange={this.handleCheckboxGroupChange}>
@@ -28,19 +31,11 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
           <LUCheckbox
             label="1"
             name="1"
-            isChecked={this.state.groupItems.get("1")}
+            isChecked={groupItems.get("1")}
             customStyle="yellow"
           />
-          <LUCheckbox
-            label="2"
-            name="2"
-            isChecked={this.state.groupItems.get("2")}
-          />
-          <LUCheckbox
-            label="3"
-            name="3"
-            isChecked={this.state.groupItems.get("3")}
-          />
+          <LUCheckbox label="2" name="2" isChecked={groupItems.get("2")} />
+          <LUCheckbox label="3" name="3" isChecked={groupItems.get("3")} />
         </LUCheckboxGroup>
       </div>
     )

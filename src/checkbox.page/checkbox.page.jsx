@@ -23,36 +23,46 @@ class LUCheckboxPage extends React.Component<PropsType, StateType> {
   }
 
   render(): React.Node {
+    const { isDisabled, isChecked } = this.state
+
     return (
       <div>
         <div className={css.demo_controllers}>
           <LUCheckbox
             label="Set Disabled"
-            isChecked={this.state.isDisabled}
+            isChecked={isDisabled}
             onChange={this.handleDisableStateChange}
             customStyle="yellow"
           />
           <LUCheckbox
             label="Set Checked"
             onChange={this.handleCheckedStateChange}
-            isChecked={this.state.isChecked}
+            isChecked={isChecked}
           />
         </div>
         <LUCheckbox
           label="Test example"
-          isChecked={this.state.isChecked}
-          isDisabled={this.state.isDisabled}
+          isChecked={isChecked}
+          isDisabled={isDisabled}
         />
       </div>
     )
   }
 
   handleDisableStateChange = () => {
-    this.setState({ isDisabled: !this.state.isDisabled })
+    this.setState(
+      (prevState): { isDisabled: boolean } => ({
+        isDisabled: !prevState.isDisabled,
+      })
+    )
   }
 
   handleCheckedStateChange = () => {
-    this.setState({ isChecked: !this.state.isChecked })
+    this.setState(
+      (prevState): { isChecked: boolean } => ({
+        isChecked: !prevState.isChecked,
+      })
+    )
   }
 }
 

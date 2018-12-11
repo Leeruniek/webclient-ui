@@ -1,6 +1,6 @@
 // @flow
 
-export type LUCheckboxType = {
+export type LUCheckboxPropsType = {
   className?: string,
   customStyle?: string,
   label: string,
