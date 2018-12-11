@@ -1,3 +1,16 @@
-.checkbox-group__checkbox {
+.checkbox-group__header {
+  margin-bottom: calc(var(--distancer) / 3);
 
+  color: var(--color-petrol);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-bold);
+}
+
+.checkbox-group__checkbox {
+  margin: calc(var(--distancer) / 3);
+}
+
+.checkbox-group label + div {
+  margin-top: calc(var(--distancer) / 2);
 }

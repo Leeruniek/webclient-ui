@@ -44,19 +44,3 @@ tape("LUCheckbox isChecked props passed from container state", t => {
   checkboxComponent = wrapper.find({ label: "Test example" })
   t.equal(checkboxComponent.props().isChecked, false)
 })
-
-tape(
-  "LUCheckbox onChange event affects container state and other component",
-  t => {
-    t.plan(3)
-    const wrapper = shallow(<LUCheckboxPage />)
-    const checkboxController = wrapper.find({ label: "Set Disable" })
-    let testCheckbox = wrapper.find({ label: "Test example" })
-
-    t.equal(testCheckbox.props().isDisabled, false)
-    checkboxController.simulate("change")
-    t.equal(wrapper.state("isDisabled"), true)
-    testCheckbox = wrapper.find({ label: "Test example" })
-    t.equal(testCheckbox.props().isDisabled, true)
-  }
-)

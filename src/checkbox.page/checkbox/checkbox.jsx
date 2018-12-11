@@ -13,17 +13,21 @@ export class LUCheckbox extends React.Component<LUCheckboxType> {
   static defaultProps = {
     isDisabled: false,
     isChecked: false,
-    value: '',
+    name: '',
     label: '',
     className: '',
     customStyle: '',
   };
 
+  constructor(props: LUCheckboxType) {
+    super(props)
+  }
+
   render(): React.Node {
     const{
       isDisabled,
       isChecked,
-      value,
+      name,
       label,
       className,
       customStyle,
@@ -39,7 +43,7 @@ export class LUCheckbox extends React.Component<LUCheckboxType> {
         })}>
         <input
           type="checkbox"
-          value={value}
+          name={name}
           disabled={isDisabled}
           checked={isChecked}
           className={css.input}

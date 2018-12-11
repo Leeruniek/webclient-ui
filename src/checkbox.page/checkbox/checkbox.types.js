@@ -1,12 +1,11 @@
 // @flow
 
-
 export type LUCheckboxType = {
   className?: string,
   customStyle?: string,
   label: string,
-  value?: string,
+  name?: string,
   isDisabled?: boolean,
   isChecked: boolean,
-  onChange?: Function
+  onChange?: Function,
 }
