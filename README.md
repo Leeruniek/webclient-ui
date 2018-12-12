@@ -15,7 +15,19 @@
 
 ## Install
 
+```bash
+npm i eslint @leeruniek/webclient-ui --save-dev
+```
+
 ## Use 
+
+```js
+import { LUCheckbox } from "@leeruniek/webclient-ui"
+
+render() {
+  return <LUCheckbox label="UI component from separate repo"/>
+}
+```
 
 ## Develop
 
@@ -31,5 +43,8 @@ npm test
 npm run tdd
 ```
 
-
 ## Changelog
+
+0.1.0 - 12 December
+
+First
