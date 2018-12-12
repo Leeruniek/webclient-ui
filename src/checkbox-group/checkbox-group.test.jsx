@@ -7,8 +7,8 @@ import { shallow, configure } from "enzyme"
 configure({ adapter: new Adapter() })
 
 import { LUCheckboxGroup } from "./checkbox-group"
+import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroupPage } from "./checkbox-group.page"
-import { LUCheckbox } from "../checkbox.page/checkbox/checkbox"
 import { LUCheckboxGroupHeader } from "../checkbox-group/checkbox-group__header"
 
 tape("Checkboxgroup contains 3 checkboxes", t => {

@@ -4,7 +4,7 @@
 const debug = require("debug")("WebclientUI:LUCheckboxPage")
 
 import * as React from "react"
-import { LUCheckbox } from "../checkbox.page/checkbox/checkbox"
+import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroup } from "./checkbox-group"
 import { LUCheckboxGroupHeader } from "./checkbox-group__header"
 

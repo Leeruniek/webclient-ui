@@ -1,28 +1,32 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUCheckboxGroup")
+const debug = require("debug")("WebclientUI:LUCheckboxGroup")
 
 import * as React from "react"
 import cx from "classnames"
 import Scrollbars from "react-custom-scrollbars"
 import { is } from "@leeruniek/functies"
 
-import type { LUCheckboxGroupPropsType } from "./checkbox-group.types"
-import { LUCheckbox } from "../checkbox.page/checkbox/checkbox"
+import { LUCheckbox } from "../checkbox/checkbox"
+import { LUCheckboxGroupHeader } from "./checkbox-group__header"
 import { isOfComponentType } from "../utils/react.utils"
 
 import css from "./checkbox-group.css"
 
-export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
+export type PropsType = {
+  children: React.ChildrenArray<
+    React.Element<typeof LUCheckbox | typeof LUCheckboxGroupHeader>
+  >,
+  className?: string,
+  scrollHeight?: number | string,
+  onChange: Function,
+}
+
+export class LUCheckboxGroup extends React.Component<PropsType> {
   static defaultProps = {
-    children: [],
     value: [],
     className: "",
     scrollHeight: 0,
-  }
-
-  constructor(props: LUCheckboxGroupPropsType) {
-    super(props)
   }
 
   render(): React.Node {
@@ -57,12 +61,13 @@ export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
 
     return React.Children.map(
       children,
-      (child): React.Node => {
+      (child: React.Node): React.Node => {
         if (isOfComponentType([LUCheckbox])(child)) {
           return React.cloneElement(child, {
-            className: `${child.props.className} ${
+            className: cx(
+              child.props.className,
               css["checkbox-group__checkbox"]
-            }`,
+            ),
             isChecked: child.props.isChecked,
             onChange,
           })

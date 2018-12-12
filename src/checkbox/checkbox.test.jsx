@@ -5,7 +5,7 @@ import { shallow, configure } from "enzyme"
 import TestRenderer from "react-test-renderer"
 configure({ adapter: new Adapter() })
 
-import { LUCheckbox } from "./checkbox/checkbox"
+import { LUCheckbox } from "./checkbox"
 import { LUCheckboxPage } from "./checkbox.page"
 
 tape("Checbox with label 'Enable'", t => {

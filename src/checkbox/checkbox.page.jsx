@@ -3,7 +3,7 @@
 const debug = require("debug")("WebclientUI:LUCheckboxPage")
 
 import * as React from "react"
-import { LUCheckbox } from "./checkbox/checkbox"
+import { LUCheckbox } from "./checkbox"
 
 import css from "./checkbox.page.css"
 

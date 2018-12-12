@@ -6,17 +6,26 @@ import * as React from "react"
 import cx from "classnames"
 import { isEmpty } from "@leeruniek/functies"
 
-import css from "./css/checkbox.css"
-import type { LUCheckboxPropsType } from "./checkbox.types"
+import css from "./checkbox.css"
+
+type LUCheckboxPropsType = {
+  className?: string,
+  customStyle?: string,
+  label: string,
+  name?: string,
+  isDisabled?: boolean,
+  isChecked?: boolean,
+  onChange?: Function,
+}
 
 export class LUCheckbox extends React.Component<LUCheckboxPropsType> {
   static defaultProps = {
+    className: "",
+    name: "",
+    customStyle: "",
     isDisabled: false,
     isChecked: false,
-    name: "",
-    label: "",
-    className: "",
-    customStyle: "",
+    onChange: null,
   }
 
   render(): React.Node {
