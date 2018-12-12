@@ -3,7 +3,9 @@
   "plugins": {
     "postcss-custom-properties": {
       "preserve": false,
-      "importFrom": "src/styles/variables.css"
+      "importFrom": [
+        "src/styles/variables.css",
+        ]
     }
   }
 }
