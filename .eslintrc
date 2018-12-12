@@ -12,17 +12,11 @@
   },
 
   "rules": {
-    // disable since our pattern of naming does not match any defined case
-    "unicorn/filename-case": "off",
-
-    "flowtype-errors/enforce-min-coverage": ["error", 60],
-
-    "flowtype/type-id-match": ["error", "^([A-Z]+[a-z0-9]+)+Type$"],
   },
   "settings": {
     "react": {
       "version": "16.6",
-      "flowVersion": "0.86"
+      "flowVersion": "0.87"
     },
 
     // Recommended if you use eslint_d

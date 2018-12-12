@@ -2,8 +2,8 @@
 
 const debug = require("debug")("WebclientUI:LUCheckboxPage")
 
-import React from "react"
-import { LUCheckbox } from "./checkbox/checkbox"
+import * as React from "react"
+import { LUCheckbox } from "./checkbox"
 
 import css from "./checkbox.page.css"
 
@@ -14,48 +14,55 @@ type StateType = {|
 |}
 
 class LUCheckboxPage extends React.Component<PropsType, StateType> {
-  constructor(props) {
+  constructor(props: PropsType) {
     super(props)
     this.state = {
       isDisabled: false,
       isChecked: false,
     }
-    this.handleDisableStateChange = this.handleDisableStateChange.bind(this)
-    this.handleCheckedStateChange = this.handleCheckedStateChange.bind(this)
   }
 
   render(): React.Node {
+    const { isDisabled, isChecked } = this.state
+
     return (
       <div>
         <div className={css.demo_controllers}>
-          <span>Demo controls</span>
           <LUCheckbox
-            label="Set Disable"
+            label="Set Disabled"
+            isChecked={isDisabled}
             onChange={this.handleDisableStateChange}
-            isChecked={this.state.isDisabled}
             customStyle="yellow"
           />
           <LUCheckbox
             label="Set Checked"
             onChange={this.handleCheckedStateChange}
-            isChecked={this.state.isChecked}
+            isChecked={isChecked}
           />
         </div>
         <LUCheckbox
           label="Test example"
-          isChecked={this.state.isChecked}
-          isDisabled={this.state.isDisabled}
+          isChecked={isChecked}
+          isDisabled={isDisabled}
         />
       </div>
     )
   }
 
-  handleDisableStateChange() {
-    this.setState({ isDisabled: !this.state.isDisabled })
+  handleDisableStateChange = () => {
+    this.setState(
+      (prevState): { isDisabled: boolean } => ({
+        isDisabled: !prevState.isDisabled,
+      })
+    )
   }
 
-  handleCheckedStateChange() {
-    this.setState({ isChecked: !this.state.isChecked })
+  handleCheckedStateChange = () => {
+    this.setState(
+      (prevState): { isChecked: boolean } => ({
+        isChecked: !prevState.isChecked,
+      })
+    )
   }
 }
 
