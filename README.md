@@ -10,6 +10,7 @@
 - [Use](#use)
 - [Develop](#develop)
 - [Changelog](#changelog)
+  - [0.1.1 - 12 December](#011---12-december)
 
 <!-- /MarkdownTOC -->
 
@@ -45,6 +46,15 @@ npm run tdd
 
 ## Changelog
 
-0.1.0 - 12 December
+### 0.1.1 - 12 December
 
-First
+Make components usable (with styles) in other projects
+
+#### Add
+
+- Install [`postcss-cli`](https://github.com/postcss/postcss-cli) and compiling css before npm publish
+
+#### Change
+
+- Cleanup [`variables.css`](src/styles/variables.css)
+- Rework [`checkbox.css`](src/checkbox/checkbox.css) to use only existing variables
