@@ -15,23 +15,31 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "author": {
-    "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andreidcm"
-  },
-  "main": "src/index.html",
+  "maintainers": [
+    {
+      "name": "Ivan Gunchenko",
+      "url": "https://github.com/whois42"
+    },
+    {
+      "name": "Andrei Dumitrescu",
+      "url": "https://github.com/andreidcm"
+    }
+  ],
+  "main": "dist/components.js",
   "license": "BSD-3-Clause",
   "scripts": {
     "----UTILS------------------------------------": "",
-    "clean": "rm -rf dist/* && rm -rf ./node_modules && rm -rf ./flow-typed",
+    "clean:build": "rm -rf dist/*",
+    "clean": "npm run clean:build && rm -rf ./node_modules && rm -rf ./flow-typed",
     "setup": "npm run clean &&  npm i && flow-typed install && npm audit fix",
     "update": "npm-check -u",
     "----DEV--------------------------------------": "",
     "start": "parcel src/index.html",
-    "----BUILD-----------------------------------": "",
-    "build": "parcel build src/index.html",
-    "build:babel": "babel src --out-dir compile",
-    "prepublishOnly": "npm audit fix && npm test && npm run lint",
+    "----BUILD------------------------------------": "",
+    "build:css": "cpx \"./src/**/*.css\" ./dist",
+    "build:babel": "babel src --out-dir dist",
+    "build": "npm run build:babel && npm run build:css",
+    "prepare": "npm run clean:build && npm audit fix && npm test && npm run build",
     "----LINT-------------------------------------": "",
     "lint:css": "stylelint src/**/*.css",
     "lint:flow": "flow",
@@ -66,6 +74,7 @@
     "@babel/register": "7.0.0",
     "@leeruniek/eslint-config": "4.0.0",
     "babel-eslint": "10.0.1",
+    "cpx": "1.5.0",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.7.1",
     "eslint": "5.10.0",
