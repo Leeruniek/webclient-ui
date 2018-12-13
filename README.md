@@ -10,7 +10,7 @@
 - [Use](#use)
 - [Develop](#develop)
 - [Changelog](#changelog)
-  - [0.1.1 - 12 December](#011---12-december)
+  - [0.2.0 - 13 December](#020---13-december)
 
 <!-- /MarkdownTOC -->
 
@@ -46,8 +46,8 @@ npm run tdd
 
 ## Changelog
 
-### 0.1.2 - 13 December
+### 0.2.0 - 13 December
 
-#### Change
+#### Add
 
-- Export [LUCheckboxGroupHeader](src/components.js#L4) component
+- Render LUCheckboxGroupHeader when passing label props to LUCheckboxGroup
