@@ -14,3 +14,7 @@
 .checkbox-group label + div {
   margin-top: calc(var(--distancer) / 2);
 }
+
+.checkbox-group__header__test {
+  border-bottom: 2px solid var(--color-petrol);
+}

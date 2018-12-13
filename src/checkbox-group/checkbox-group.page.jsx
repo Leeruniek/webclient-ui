@@ -6,18 +6,19 @@ const debug = require("debug")("WebclientUI:LUCheckboxPage")
 import * as React from "react"
 import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroup } from "./checkbox-group"
-import { LUCheckboxGroupHeader } from "./checkbox-group__header"
+import { toggle } from "@leeruniek/functies"
+import css from "./checkbox-group.css"
 
 type PropsType = {||}
 type StateType = {|
-  groupItems: Map<string, any>,
+  groupItems: string[],
 |}
 
 class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props)
     this.state = {
-      groupItems: new Map(),
+      groupItems: [],
     }
   }
 
@@ -26,16 +27,14 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
 
     return (
       <div>
-        <LUCheckboxGroup onChange={this.handleCheckboxGroupChange}>
-          <LUCheckboxGroupHeader label="LUCheckboxGroup" />
-          <LUCheckbox
-            label="1"
-            name="1"
-            isChecked={groupItems.get("1")}
-            customStyle="yellow"
-          />
-          <LUCheckbox label="2" name="2" isChecked={groupItems.get("2")} />
-          <LUCheckbox label="3" name="3" isChecked={groupItems.get("3")} />
+        <LUCheckboxGroup
+          onChange={this.handleCheckboxGroupChange}
+          selectedValues={groupItems}
+          label="Checkbox Group Header"
+          headerClassName={css["checkbox-group__header__test"]}>
+          <LUCheckbox label="1" name="1" customStyle="yellow" />
+          <LUCheckbox label="2" name="2" />
+          <LUCheckbox label="3" name="3" />
         </LUCheckboxGroup>
       </div>
     )
@@ -43,11 +42,10 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
 
   handleCheckboxGroupChange = (event: SyntheticEvent<HTMLInputElement>) => {
     const item = event.currentTarget.name
-    const isChecked = event.currentTarget.checked
 
     this.setState(
-      (prevState): { groupItems: Map<string, any> } => ({
-        groupItems: prevState.groupItems.set(item, isChecked),
+      (prevState): { groupItems: string[] } => ({
+        groupItems: toggle(item)(prevState.groupItems),
       })
     )
   }

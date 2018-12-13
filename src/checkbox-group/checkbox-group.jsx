@@ -5,7 +5,7 @@ const debug = require("debug")("WebclientUI:LUCheckboxGroup")
 import * as React from "react"
 import cx from "classnames"
 import Scrollbars from "react-custom-scrollbars"
-import { is } from "@leeruniek/functies"
+import { is, has } from "@leeruniek/functies"
 
 import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroupHeader } from "./checkbox-group__header"
@@ -13,18 +13,22 @@ import { isOfComponentType } from "../utils/react.utils"
 
 import css from "./checkbox-group.css"
 
-export type PropsType = {
+export type LUCheckboxGroupPropsType = {
   children: React.ChildrenArray<
     React.Element<typeof LUCheckbox | typeof LUCheckboxGroupHeader>
   >,
+  label?: string,
   className?: string,
+  headerClassName?: string,
   scrollHeight?: number | string,
+  selectedValues: number[] | string[],
   onChange: Function,
 }
 
-export class LUCheckboxGroup extends React.Component<PropsType> {
+export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
   static defaultProps = {
-    value: [],
+    label: "",
+    headerClassName: "",
     className: "",
     scrollHeight: 0,
   }
@@ -57,9 +61,15 @@ export class LUCheckboxGroup extends React.Component<PropsType> {
   }
 
   renderChildren = (): React.Node => {
-    const { children, onChange } = this.props
+    const {
+      children,
+      onChange,
+      label,
+      selectedValues,
+      headerClassName,
+    } = this.props
 
-    return React.Children.map(
+    const childrenArr = React.Children.map(
       children,
       (child: React.Node): React.Node => {
         if (isOfComponentType([LUCheckbox])(child)) {
@@ -68,7 +78,8 @@ export class LUCheckboxGroup extends React.Component<PropsType> {
               child.props.className,
               css["checkbox-group__checkbox"]
             ),
-            isChecked: child.props.isChecked,
+            isChecked:
+              child.props.isChecked || has(child.props.name)(selectedValues),
             onChange,
           })
         }
@@ -76,5 +87,16 @@ export class LUCheckboxGroup extends React.Component<PropsType> {
         return child
       }
     )
+
+    if (label) {
+      const header = React.createElement(LUCheckboxGroupHeader, {
+        label,
+        className: headerClassName,
+      })
+
+      return [header, ...childrenArr]
+    }
+
+    return childrenArr
   }
 }
