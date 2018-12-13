@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 import { LUButtonPage } from "./button/button.page"
 import { LUCheckboxPage } from "./checkbox/checkbox.page"
-import { LUCheckboxGroupPage } from "./checkbox-group/checkbox-group"
+import { LUCheckboxGroupPage } from "./checkbox-group/checkbox-group.page"
 
 import "./index.css"
 

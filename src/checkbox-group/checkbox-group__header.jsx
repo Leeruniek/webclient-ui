@@ -13,7 +13,7 @@ export type PropType = {
 }
 
 export const LUCheckboxGroupHeader = ({
-  className,
+  className = "",
   label,
 }: PropType): React.Node => (
   <div className={cx(css["checkbox-group__header"], className)}>{label}</div>

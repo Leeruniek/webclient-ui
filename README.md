@@ -10,6 +10,7 @@
 - [Use](#use)
 - [Develop](#develop)
 - [Changelog](#changelog)
+  - [0.1.1 - 12 December](#011---12-december)
 
 <!-- /MarkdownTOC -->
 
@@ -45,6 +46,8 @@ npm run tdd
 
 ## Changelog
 
-0.1.0 - 12 December
+### 0.1.2 - 13 December
 
-First
+#### Change
+
+- Export [LUCheckboxGroupHeader](src/components.js#L4) component

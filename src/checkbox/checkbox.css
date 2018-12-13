@@ -2,17 +2,17 @@
   --checkbox-color: var(--color-primary);
   --checkbox-disabled-color: color(var(--color-black) a(26%));
   --checkbox-focus-checked-color: color(var(--color-primary) a(26%));
-  --checkbox-ripple-duration: 650ms;
   --checkbox-size: calc(1.5 * var(--unit));
   --checkbox-focus-color: color(var(--color-black) a(1%));
   --checkbox-focus-size: calc(var(--checkbox-size) * 2.3);
   --checkbox-text-color: var(--color-black);
   --checkbox-text-font-size: var(--font-size);
   --checkbox-total-height: calc(1.5 * var(--unit));
-  --checkbox-transition-duration: .2s;
-  --yellow-checkbox-color: var(--color-dark-yellow);
+  --checkbox-is-checked-color: var(--color-white);
+  --yellow-checkbox-color: var(--color-yellow);
   --yellow-checkbox-disabled-color: color(var(--color-black) a(26%));
   --yellow-checkbox-text-color: var(--color-black);
+  --yellow-checkbox-is-checked-color: var(--color-white);
 }
 
 .field {
@@ -27,7 +27,6 @@
 
   white-space: nowrap;
 
-  font-family: var(--preferred-font);
   font-size: var(--checkbox-text-font-size);
   font-smoothing: antialiased;
   text-size-adjust: 100%;
@@ -86,7 +85,7 @@
 }
 
 .input:focus ~ .check::before {
-  animation: ripple var(--checkbox-ripple-duration) ease-out;
+  animation: ripple var(--animation-duration) ease-out;
 
   opacity: .3;
   background-color: var(--checkbox-color);
@@ -103,7 +102,7 @@
 
   cursor: pointer;
   transition-timing-function: var(--animation-curve-default);
-  transition-duration: var(--checkbox-transition-duration);
+  transition-duration: var(--animation-duration);
   transition-property: background-color;
   vertical-align: top;
 
@@ -112,7 +111,6 @@
   border-color: var(--checkbox-text-color);
   border-radius: 2px;
 
-  font-family: var(--preferred-font);
   font-smoothing: antialiased;
   text-size-adjust: 100%;
 }
@@ -144,7 +142,7 @@
   animation: checkmark-expand 140ms ease-out forwards;
 
   border-style: solid;
-  border-color: var(--color-background);
+  border-color: var(--checkbox-is-checked-color);
   border-top: 0;
   border-right-width: 2px;
   border-bottom-width: 2px;
@@ -224,7 +222,7 @@
 }
 
 .yellow .check.checked::after {
-  border-color: var(--color-background);
+  border-color: var(--yellow-checkbox-is-checked-color);
 }
 
 .yellow.disabled > .text {
