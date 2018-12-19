@@ -2,6 +2,8 @@
 
 > Pure UI components
 
+[![Coverage Status](https://coveralls.io/repos/github/Leeruniek/webclient-ui/badge.svg?branch=master)](https://coveralls.io/github/Leeruniek/webclient-ui?branch=master)
+
 ---
 
 <!-- MarkdownTOC levels="1,2,3" autolink="true" indent="  " -->
