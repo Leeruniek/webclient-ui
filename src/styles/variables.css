@@ -5,14 +5,15 @@
   --global-radius: 3px;
   --global-line-height: 1.42857143;
 
-  --color-primary: #3DCCB4;
+  --color-primary: #3dccb4;
 
-  --color-white: #FFF;
-  --color-black: #676A6C;
-  --color-blue: #2DACE3;
-  --color-yellow: #F49606;
-  --color-gray: #8A8C8E;
-  --color-purple: #766D91;
+  --color-white: #fff;
+  --color-black: #676a6c;
+  --color-blue: #2dace3;
+  --color-yellow: #f49606;
+  --color-gray: #8a8c8e;
+  --color-light-gray: #f3f3f4;
+  --color-purple: #766d91;
   --color-petrol: #293846;
 
   --font-size: var(--unit);

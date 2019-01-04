@@ -1,0 +1,52 @@
+:root {
+  --tag-padding: 2px var(--distancer-small);
+  --tag-margin: 0 var(--distancer-small) 0 0;
+  --tag--small__font-size: 10px;
+}
+
+.tag {
+  margin: var(--tag-margin);
+  padding: var(--tag-padding);
+
+  border-radius: var(--global-radius);
+
+  background-color: var(--color-light-gray);
+}
+
+.tag--is-clickable {
+  cursor: pointer;
+}
+
+.tag--is-active {
+  color: var(--color-white);
+
+  background-color: var(--color-primary);
+
+  composes: tag;
+}
+
+.tag--warning {
+  color: var(--color-white);
+
+  background-color: var(--color-yellow);
+
+  composes: tag;
+}
+
+.tag--info {
+  color: var(--color-white);
+
+  background-color: var(--color-blue);
+
+  composes: tag;
+}
+
+.tag--small {
+  font-size: var(--tag--small__font-size);
+
+  composes: tag;
+}
+
+.icon {
+  margin-right: 4px;
+}

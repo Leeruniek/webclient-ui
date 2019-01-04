@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { LUButtonPage } from "./button/button.page"
 import { LUCheckboxPage } from "./checkbox/checkbox.page"
 import { LUCheckboxGroupPage } from "./checkbox-group/checkbox-group.page"
+import { LUTagPage } from "./tag/tag.page"
 
 import "./index.css"
 
@@ -18,6 +19,7 @@ render(
         path="/checkbox-group"
         component={LUCheckboxGroupPage}
       />
+      <Route exact={true} path="/tag" component={LUTagPage} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
