@@ -1,7 +1,6 @@
 :root {
   --tag-padding: 2px var(--distancer-small);
   --tag-margin: 0 var(--distancer-small) 0 0;
-  --tag--small__font-size: 10px;
 }
 
 .tag {
@@ -19,32 +18,36 @@
 
 .tag--is-active {
   color: var(--color-white);
-
-  background-color: var(--color-primary);
-
-  composes: tag;
 }
 
-.tag--warning {
+.tag__type--primary {
+  color: var(--color-white);
+
+  background-color: var(--color-primary);
+}
+
+.tag__type--warning {
   color: var(--color-white);
 
   background-color: var(--color-yellow);
-
-  composes: tag;
 }
 
-.tag--info {
+.tag__type--info {
   color: var(--color-white);
 
   background-color: var(--color-blue);
-
-  composes: tag;
 }
 
-.tag--small {
-  font-size: var(--tag--small__font-size);
+.tag__size--normal {
+  font-size: var(--font-size);
+}
 
-  composes: tag;
+.tag__size--small {
+  font-size: var(--font-size-small);
+}
+
+.tag__size--large {
+  font-size: var(--font-size-large);
 }
 
 .icon {

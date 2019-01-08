@@ -7,27 +7,25 @@ import cx from "classnames"
 
 import css from "./tag.css"
 
-type TagTypeType = "warning" | "info"
-type TagSizeType = "small"
+type TagTypeType = "default" | "primary" | "warning" | "info"
+type TagSizeType = "small" | "normal" | "large"
 
 type LUTagPropsType = {|
-  className?: string,
-  type?: TagTypeType,
+  className: string,
+  type: TagTypeType,
   label: string,
-  size?: TagSizeType,
-  hasIcon?: boolean,
-  isActive?: boolean,
+  size: TagSizeType,
+  hasIcon: boolean,
   onClick?: Function,
 |}
 
 export class LUTag extends React.PureComponent<LUTagPropsType> {
   // Defaults for non-required props
   static defaultProps = {
-    className: undefined,
-    type: undefined,
-    size: undefined,
+    className: "",
+    type: "default",
+    size: "normal",
     hasIcon: true,
-    isActive: false,
     onClick: undefined,
   }
 
@@ -40,17 +38,20 @@ export class LUTag extends React.PureComponent<LUTagPropsType> {
    * @return {Component}
    */
   render = (): React.Node => {
-    const { className, type, label, size, isActive, onClick } = this.props
+    const { className, type, label, size, onClick } = this.props
 
     return (
       <span
         onClick={onClick}
-        className={cx(css.tag, className, {
-          [css[`tag--is-clickable`]]: !!onClick,
-          [css[`tag--is-active`]]: isActive,
-          [css[`tag--${type}`]]: !!type,
-          [css[`tag--${size}`]]: !!size,
-        })}>
+        className={cx(
+          css.tag,
+          className,
+          css[`tag__type--${type}`],
+          css[`tag__size--${size}`],
+          {
+            [css[`tag--is-clickable`]]: !!onClick,
+          }
+        )}>
         {this.renderIcon()}
         {label}
       </span>
