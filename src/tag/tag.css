@@ -8,16 +8,16 @@
   padding: var(--tag-padding);
 
   border-radius: var(--global-radius);
-
-  background-color: var(--color-light-gray);
 }
 
 .tag--is-clickable {
   cursor: pointer;
 }
 
-.tag--is-active {
-  color: var(--color-white);
+.tag__type--default {
+  color: var(--color-black);
+
+  background-color: var(--color-light-gray);
 }
 
 .tag__type--primary {
