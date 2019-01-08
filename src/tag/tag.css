@@ -1,0 +1,55 @@
+:root {
+  --tag-padding: 2px var(--distancer-small);
+  --tag-margin: 0 var(--distancer-small) 0 0;
+}
+
+.tag {
+  margin: var(--tag-margin);
+  padding: var(--tag-padding);
+
+  border-radius: var(--global-radius);
+}
+
+.tag--is-clickable {
+  cursor: pointer;
+}
+
+.tag__type--default {
+  color: var(--color-black);
+
+  background-color: var(--color-light-gray);
+}
+
+.tag__type--primary {
+  color: var(--color-white);
+
+  background-color: var(--color-primary);
+}
+
+.tag__type--warning {
+  color: var(--color-white);
+
+  background-color: var(--color-yellow);
+}
+
+.tag__type--info {
+  color: var(--color-white);
+
+  background-color: var(--color-blue);
+}
+
+.tag__size--normal {
+  font-size: var(--font-size);
+}
+
+.tag__size--small {
+  font-size: var(--font-size-small);
+}
+
+.tag__size--large {
+  font-size: var(--font-size-large);
+}
+
+.icon {
+  margin-right: 4px;
+}
