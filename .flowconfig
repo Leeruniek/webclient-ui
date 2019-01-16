@@ -5,6 +5,7 @@
 
 [libs]
 ./flow-typed
+./node_modules/@leeruniek/functies/dist/index.js.flow
 
 [lints]
 
