@@ -1,0 +1,374 @@
+/* Default scheme */
+:root {
+  --input-height: calc(2.5 * var(--unit));
+  --input-padding: calc(2 * var(--unit));
+  --input-field-padding: calc(.8 * var(--unit));
+  --input-field-font-size: var(--unit);
+  --input-field-padding: calc(var(--distancer) / 3);
+  --input-label-font-size: var(--unit);
+  --input-focus-label-top: calc(-1 * (var(--input-field-padding) + var(--input-field-font-size)));
+  --input-text-background-color: var(--color-light-gray);
+  --input-text-label-color: var(--color-black);
+  --input-text-bottom-border-color: var(--border-gray);
+  --input-text-highlight-color: var(--color-primary);
+  --input-text-disabled-color: var(--input-text-bottom-border-color);
+  --input-text-disabled-text-color: var(--input-text-label-color);
+  --input-text-error-color: var(--color-dark-red);
+  --input-text-required-color: var(--color-dark-red);
+  --input-underline-height: calc(2 * var(--unit));
+  --input-icon-font-size: calc(1.5 * var(--unit));
+  --input-icon-size: var(--input-icon-font-size);
+  --input-icon-offset: 10px;
+  --input-icon-right-space: calc(2 * var(--unit));
+  --input-chevron-offset: calc(.8 * var(--unit));
+  --input-hint-opacity: 1;
+}
+
+.input__wrapper {
+  position: relative;
+}
+
+.input__wrapper.withIcon {
+  display: flex;
+}
+
+.input__caps-warning {
+  position: absolute;
+
+  bottom: 7px;
+  left: calc(100% + 5px);
+
+  padding: 2px 5px;
+
+  white-space: nowrap;
+
+  color: var(--color-dark-red);
+  border: 1px solid var(--color-dark-red);
+  border-radius: var(--global-radius);
+
+  background: var(--color-white);
+
+  font-size: var(--font-size-tiny);
+}
+
+/**
+ * React Toolbox styles
+ */
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+
+  font-family: var(--preferred-font);
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.input__wrapper.withIcon .input {
+  display: flex;
+  flex: 1;
+}
+
+.input *,
+.input *::after,
+.input *::before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+}
+
+.input.withBar {
+  padding-top: calc(var(--input-field-padding) + 2px);
+}
+
+.icon {
+  display: block;
+
+  width: var(--input-icon-size);
+  height: var(--input-height);
+
+  transition: color var(--animation-duration) var(--animation-curve-default);
+  text-align: center;
+
+  color: var(--input-text-label-color);
+
+  font-size: var(--input-icon-font-size) !important;
+  line-height: var(--input-height) !important;
+}
+
+.inputElement {
+  width: 100%;
+  padding: var(--input-field-padding) 0;
+
+  color: var(--color-text);
+  border: 0;
+  outline: none;
+  background-color: var(--input-text-background-color);
+
+  font-size: var(--input-field-font-size);
+  font-weight: var(--font-weight-normal);
+}
+
+textarea.inputElement {
+  min-width: 100%;
+  max-width: 100%;
+
+  min-height: calc(var(--unit) * 5 * var(--global-line-height) + var(--input-field-padding) * 2);
+  padding: var(--input-field-padding);
+}
+
+input.inputElement {
+  height: var(--input-height);
+  padding: 0 var(--input-field-padding);
+}
+
+.label {
+  display: block;
+
+  margin-bottom: var(--distancer-small);
+  padding-bottom: var(--distancer-small);
+
+  color: var(--input-text-label-color);
+
+  font-size: var(--input-field-font-size);
+  font-weight: normal;
+  line-height: var(--input-field-font-size);
+}
+
+.label::before,
+.label::after {
+  height: 1px;
+}
+
+.label::before {
+  background-color: var(--border-gray);
+}
+
+.label--focus::after {
+  left: 0;
+
+  width: 100%;
+}
+
+.hint {
+  position: absolute;
+  top: calc(var(--input-padding) + 1.5 * var(--input-field-padding));
+  left: 0;
+
+  transition-timing-function: var(--animation-curve-default);
+  transition-duration: var(--animation-duration);
+  transition-property: opacity;
+  pointer-events: none;
+
+  opacity: var(--input-hint-opacity);
+  color: var(--input-text-label-color);
+
+  font-size: var(--input-field-font-size);
+  line-height: var(--input-field-font-size);
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+
+  display: none;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--color-light-gray);
+}
+
+.withBar .bar {
+  display: block;
+}
+
+.bar::before,
+.bar::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  content: "";
+  transition-timing-function: var(--animation-curve-default);
+  transition-duration: .2s;
+  transition-property: width, background-color;
+
+  background-color: var(--input-text-highlight-color);
+}
+
+.bar::before {
+  left: 50%;
+}
+
+.bar::after {
+  right: 50%;
+}
+
+.error,
+.counter {
+  color: var(--input-text-error-color);
+
+  font-size: var(--font-size-tiny);
+  line-height: var(--input-underline-height);
+
+  position: absolute;
+
+  right: 0;
+  bottom: 50%;
+
+  transform: translateY(50%);
+
+  color: var(--input-text-label-color);
+  background-color: var(--input-text-background-color);
+}
+
+.input--multiline .counter {
+  bottom: 3px;
+
+  transform: none;
+}
+
+.disabled > .inputElement {
+  color: var(--input-text-disabled-text-color);
+  border-bottom-style: dotted;
+}
+
+.errored {
+  padding-bottom: 0;
+}
+
+.errored > .inputElement {
+  margin-top: 1px;
+
+  border-bottom-color: var(--input-text-error-color);
+}
+
+.errored > .counter,
+.errored > .label {
+  color: var(--input-text-error-color);
+}
+
+.errored > .label > .required {
+  color: var(--input-text-required-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.inputElement:focus:not([disabled]):not([readonly]) ~ .bar::before,
+.inputElement:focus:not([disabled]):not([readonly]) ~ .bar::after {
+  width: 50%;
+}
+
+.inputElement.filled ~ .label:not(.fixed),
+.inputElement[type="date"] ~ .label:not(.fixed),
+.inputElement[type="time"] ~ .label:not(.fixed),
+.inputElement:focus:not([disabled]):not([readonly]) ~ .label:not(.fixed) {
+  top: var(--input-focus-label-top);
+
+  font-size: var(--input-label-font-size);
+}
+
+.inputElement:focus:not([disabled]):not([readonly]) ~ .label:not(.fixed) {
+  color: var(--input-text-highlight-color);
+}
+
+.inputElement:focus:not([disabled]):not([readonly]) ~ .label > .required {
+  color: var(--input-text-required-color);
+}
+
+.inputElement.filled ~ .label.fixed,
+.inputElement.filled ~ .hint {
+  display: none;
+}
+
+.inputElement:focus:not([disabled]):not([readonly]) ~ .hint {
+  display: block;
+
+  opacity: var(--input-hint-opacity);
+}
+
+.inputElement:focus:not([disabled]):not([readonly]) ~ .icon {
+  color: var(--input-text-highlight-color);
+}
+
+.inputElement:focus:not([disabled]):not([readonly]).filled ~ .hint {
+  opacity: 0;
+}
+
+/* yellow scheme */
+:root {
+  --yellow-input-text-label-color: var(--color-black);
+  --yellow-input-text-bottom-border-color: var(--border-gray);
+  --yellow-input-text-highlight-color: var(--color-dark-yellow);
+  --yellow-input-text-disabled-color: var(--yellow-input-text-bottom-border-color);
+  --yellow-input-text-disabled-text-color: var(--yellow-input-text-label-color);
+  --yellow-input-text-error-color: var(--color-dark-yellow);
+  --yellow-input-text-required-color: var(--color-dark-yellow);
+}
+
+.yellow .icon {
+  color: var(--yellow-input-text-label-color);
+}
+
+.yellow .inputElement {
+  color: var(--color-text);
+}
+
+.yellow .label {
+  color: var(--yellow-input-text-label-color);
+}
+
+.yellow .hint {
+  color: var(--yellow-input-text-label-color);
+}
+
+.yellow .bar::before,
+.yellow .bar::after {
+  background-color: var(--yellow-input-text-highlight-color);
+}
+
+.yellow .error,
+.yellow .counter {
+  color: var(--yellow-input-text-error-color);
+}
+
+.yellow .counter {
+  color: var(--yellow-input-text-label-color);
+}
+
+.yellow .disabled > .inputElement {
+  color: var(--yellow-input-text-disabled-text-color);
+}
+
+.yellow .errored > .inputElement {
+  border-bottom-color: var(--yellow-input-text-error-color);
+}
+
+.yellow .errored > .counter,
+.yellow .errored > .label {
+  color: var(--yellow-input-text-error-color);
+}
+
+.yellow .errored > .label > .required {
+  color: var(--yellow-input-text-required-color);
+}
+
+.yellow .inputElement:focus:not([disabled]):not([readonly]) ~ .label:not(.fixed) {
+  color: var(--yellow-input-text-highlight-color);
+}
+
+.yellow .inputElement:focus:not([disabled]):not([readonly]) ~ .label > .required {
+  color: var(--yellow-input-text-required-color);
+}
+
+.yellow .inputElement:focus:not([disabled]):not([readonly]) ~ .icon {
+  color: var(--yellow-input-text-highlight-color);
+}

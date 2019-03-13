@@ -6,7 +6,6 @@
   --global-line-height: 1.42857143;
 
   --color-primary: #3dccb4;
-
   --color-white: #fff;
   --color-black: #676a6c;
   --color-blue: #2dace3;
@@ -15,14 +14,19 @@
   --color-light-gray: #f3f3f4;
   --color-purple: #766d91;
   --color-petrol: #293846;
-
-  --font-size: var(--unit);
-  --font-size-small: calc(var(--unit) - 2px);
-  --font-size-big: calc(var(--unit) + 2px);
+  --color-dark-yellow: #F5A623;
+  --color-dark-red: #D0021B;
+  --font-size: 13px;
+  --font-size-tiny: 11px;
+  --font-size-small: 12px;
+  --font-size-normal: var(--font-size);
+  --font-size-medium: 14px;
+  --font-size-big: 18px;
   --font-weight-thin: 300;
   --font-weight-normal: 400;
   --font-weight-semi-bold: 500;
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
+  --font-weight-bolder: 700;
 
   --animation-duration: 0.35s;
   --animation-delay: calc(var(--animation-duration) / 5);
