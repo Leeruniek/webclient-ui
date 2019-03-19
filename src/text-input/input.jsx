@@ -13,10 +13,12 @@ type LUInputPropsType = {|
   type?: "text" | "password" | "hidden",
   value: string,
   defaultValue?: string,
+  placeholder?: string,
   label?: string | React.Node,
   icon: sting | React.Node,
   error?: string[] | string,
   hint?: string | React.Node,
+  role?: string,
   color?: sting,
   maxLength?: number,
   maxRows?: number,
@@ -50,6 +52,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     type,
     value,
     defaultValue,
+    placeholder,
     className,
     icon,
     inputClassName,
@@ -60,14 +63,17 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     error,
     hint,
     maxLength,
+    maxRows,
+    role,
+    onChange,
+    onKeyPress,
+    onFocus,
+    onBlur
   } = props
   let inputNode = React.useRef(null)
 
   const handleAutoresize = (): void => {
     const element = inputNode
-    const { maxRows } = props
-
-    console.log("handleAutoresize")
 
     if (typeof maxRows === "number" && !Number.isNaN(maxRows)) {
       element.style.height = null
@@ -88,7 +94,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
 
   // Lifecycle methods
   React.useEffect(() => {
-    if (props.isMultiline) {
+    if (isMultiline) {
       window.addEventListener("resize", handleAutoresize)
       handleAutoresize()
     }
@@ -105,7 +111,6 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   }, [isMultiline])
 
   const handleChange = (event: SyntheticEvent<HTMLInputElement>): void => {
-    const { onChange } = props
     const valueFromEvent = event.currentTarget.value
 
     // Trim value to maxLength if that exists (only on multiline inputs).
@@ -130,14 +135,13 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   }
 
   const handleKeyPress = (event: SyntheticEvent<HTMLInputElement>): void => {
-    const { onKeyPress } = props
 
     if (isMultiline && maxLength) {
       const isReplacing =
         event.currentTarget.selectionEnd - event.currentTarget.selectionStart
-      const { value } = event.currentTarget
+      const { value: inputValue } = event.currentTarget
 
-      if (!isReplacing && value.length === maxLength) {
+      if (!isReplacing && inputValue.length === maxLength) {
         event.preventDefault()
         event.stopPropagation()
       }
@@ -157,7 +161,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
 
   const isValuePresent = (value: text): bool => (is(value) && !isEmpty(value))
 
-  const valuePresent = isValuePresent(value) || isValuePresent(defaultValue);
+  const valuePresent = isValuePresent(value) || isValuePresent(defaultValue)
 
   const inputElementProps = {
     role,
@@ -167,6 +171,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     required: isRequired,
     type,
     value,
+    placeholder,
     className: cx(css.inputElement, {
       [css.filled]: valuePresent,
     }),
@@ -176,6 +181,15 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     onKeyUp: handleKeyUp,
     onKeyPress: handleKeyPress,
     onChange: handleChange,
+    onFocus,
+    onBlur,
+  }
+  if (!isMultiline) {
+    inputElementProps.maxLength = maxLength;
+    inputElementProps.onKeyPress = onKeyPress
+  } else {
+    inputElementProps.rows = maxRows;
+    inputElementProps.onKeyPress = handleKeyPress;
   }
 
   const inputClass = cx(
@@ -205,6 +219,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
             [css["label--focus"]]: state.hasFocus,
           })}>
           {label}
+          {isRequired ? <span className={css.required}> * </span> : null}
         </label>
       ) : null}
       {icon ? (
