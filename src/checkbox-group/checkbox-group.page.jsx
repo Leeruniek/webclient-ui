@@ -20,12 +20,11 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
     super(props)
     this.state = {
       groupItems: [],
-      multiline: false,
     }
   }
 
   render(): React.Node {
-    const { groupItems, multiline } = this.state
+    const { groupItems } = this.state
 
     return (
       <div>
@@ -38,24 +37,6 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
           <LUCheckbox label="2" name="2" />
           <LUCheckbox label="3" name="3" />
         </LUCheckboxGroup>
-        <LUInput
-          isMultiline={true}
-          label={"asdasd"}
-          hasAutoFocus={true}
-          maxLength={500}
-          type={"text"}
-          rows={10}
-        />
-        <LUInput
-          hasAutoFocus={false}
-          type={"text"}
-          hasBar={true}
-        />
-        <LUInput
-          label={"password"}
-          hasAutoFocus={false}
-          type={"password"}
-        />
       </div>
     )
   }
@@ -66,7 +47,6 @@ class LUCheckboxGroupPage extends React.Component<PropsType, StateType> {
     this.setState(
       (prevState): { groupItems: string[] } => ({
         groupItems: toggle(item)(prevState.groupItems),
-        multiline: !prevState.multiline,
       })
     )
   }

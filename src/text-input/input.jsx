@@ -9,17 +9,17 @@ import css from "./input.css"
 type LUInputPropsType = {|
   className?: string,
   inputClassName?: string,
-  name?: string, 
+  name?: string,
   type?: "text" | "password" | "hidden",
   value: string,
   defaultValue?: string,
   placeholder?: string,
   label?: string | React.Node,
-  icon: sting | React.Node,
+  icon: string | React.Node,
   error?: string[] | string,
   hint?: string | React.Node,
   role?: string,
-  color?: sting,
+  color?: string,
   maxLength?: number,
   maxRows?: number,
   isMultiline?: boolean,
@@ -68,7 +68,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     onChange,
     onKeyPress,
     onFocus,
-    onBlur
+    onBlur,
   } = props
   let inputNode = React.useRef(null)
 
@@ -135,7 +135,6 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   }
 
   const handleKeyPress = (event: SyntheticEvent<HTMLInputElement>): void => {
-
     if (isMultiline && maxLength) {
       const isReplacing =
         event.currentTarget.selectionEnd - event.currentTarget.selectionStart
@@ -159,7 +158,8 @@ const LUInput = (props: LUInputPropsType): React.Node => {
       })
   }
 
-  const isValuePresent = (value: text): bool => (is(value) && !isEmpty(value))
+  const isValuePresent = (value: string): boolean =>
+    is(value) && !isEmpty(value)
 
   const valuePresent = isValuePresent(value) || isValuePresent(defaultValue)
 
@@ -175,7 +175,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     className: cx(css.inputElement, {
       [css.filled]: valuePresent,
     }),
-    ref: node => {
+    ref: (node: HTMLInputElement | HTMLTextAreaElement) => {
       inputNode = node
     },
     onKeyUp: handleKeyUp,
@@ -184,12 +184,13 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     onFocus,
     onBlur,
   }
+
   if (!isMultiline) {
-    inputElementProps.maxLength = maxLength;
+    inputElementProps.maxLength = maxLength
     inputElementProps.onKeyPress = onKeyPress
   } else {
-    inputElementProps.rows = maxRows;
-    inputElementProps.onKeyPress = handleKeyPress;
+    inputElementProps.rows = maxRows
+    inputElementProps.onKeyPress = handleKeyPress
   }
 
   const inputClass = cx(
