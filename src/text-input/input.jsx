@@ -15,7 +15,7 @@ type LUInputPropsType = {|
   defaultValue?: string,
   placeholder?: string,
   label?: string | React.Node,
-  icon: string | React.Node,
+  icon?: string,
   error?: string[] | string,
   hint?: string | React.Node,
   role?: string,
@@ -36,6 +36,20 @@ type LUInputPropsType = {|
 type LUInputStateType = {|
   hasFocus: boolean,
   hasCapsWarning: boolean,
+|}
+
+type LUInputElementRefType<ElementType: React.ElementType> = 
+{current: null | React.ElementRef<ElementType>}
+
+type InputElementPropsType = {|
+  ...LUInputPropsType,
+  ref: LUInputElementRefType<"input" | "textarea">,
+  rows?: number,
+  disabled?: boolean,
+  required?: boolean,
+  onKeyUp?: Function,
+  focus?: Function,
+  blur?: Function,
 |}
 
 const initialState = {
@@ -79,7 +93,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
       element.style.height = null
     } else {
       // compute the height difference between inner height and outer height
-      const style = getComputedStyle(element, null)
+      const style = getComputedStyle(element)
       const heightOffset =
         style.boxSizing === "content-box"
           ? -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom))
@@ -161,9 +175,9 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   const isValuePresent = (value: string): boolean =>
     is(value) && !isEmpty(value)
 
-  const valuePresent = isValuePresent(value) || isValuePresent(defaultValue)
+  const valuePresent = isValuePresent(value) || defaultValue && isValuePresent(defaultValue)
 
-  const inputElementProps = {
+  const inputElementProps:InputElementPropsType = {
     role,
     name,
     defaultValue,
@@ -175,9 +189,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     className: cx(css.inputElement, {
       [css.filled]: valuePresent,
     }),
-    ref: (node: HTMLInputElement | HTMLTextAreaElement) => {
-      inputNode = node
-    },
+    ref: inputNode,
     onKeyUp: handleKeyUp,
     onKeyPress: handleKeyPress,
     onChange: handleChange,
@@ -225,7 +237,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
       ) : null}
       {icon ? (
         <span className={css.icon}>
-          <i className={cx("fa", icon)} />
+          <i className={cx("fa", {[icon || ""]: !!icon})} />
         </span>
       ) : null}
       <div className={inputClass}>
