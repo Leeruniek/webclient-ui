@@ -1,6 +1,7 @@
 {
   "modules": true,
   "plugins": {
+    "postcss-nested": true,
     "postcss-custom-properties": {
       "preserve": false,
       "importFrom": [
