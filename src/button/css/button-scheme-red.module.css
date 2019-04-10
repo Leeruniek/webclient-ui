@@ -1,0 +1,110 @@
+:root {
+  --red-button-primary-color: var(--color-dark-red);
+  --red-button-primary-color-hover: color-mod(var(--color-dark-red) a(20%));
+  --red-button-primary-color-contrast: var(--color-primary-contrast);
+  --red-button-primary-raised-color-hover: color-mod(var(--color-dark-red) shade(20%));
+  --red-button-primary-raised-color-hover: color-mod(var(--red-button-primary-color) shade(20%));
+  --red-button-accent-color-contrast: var(--color-primary-contrast);
+  --red-button-accent-color-hover: color-mod(var(--color-accent) a(20%));
+  --red-button-accent-color: var(--color-accent);
+  --red-button-neutral-color: var(--color-white);
+  --red-button-neutral-color-contrast: var(--palette-grey-900);
+  --red-button-neutral-color-hover: color-mod(var(--palette-grey-900) a(20%));
+  --red-button-disabled-text-color: color-mod(var(--color-black) a(26%));
+  --red-button-disabled-background-color: color-mod(var(--color-dark-red) a(12%));
+  --red-button-disabled-text-color-inverse: color-mod(var(--color-black) a(54%));
+  --red-button-disabled-background-inverse: color-mod(var(--color-black) a(8%));
+}
+
+.red.primary:not([disabled]).raised,
+.red.primary:not([disabled]).floating {
+  color: var(--red-button-primary-color-contrast);
+  background-color: var(--red-button-primary-color);
+}
+
+.red.primary:not([disabled]).raised:hover {
+  background-color: var(--red-button-primary-raised-color-hover);
+}
+
+.red.primary:not([disabled]).flat,
+.red.primary:not([disabled]).toggle {
+  color: var(--red-button-primary-color);
+}
+
+.red.primary:not([disabled]).flat:hover {
+  background-color: var(--red-button-primary-color-hover);
+}
+
+.red.primary:not([disabled]).flat:focus:not(:active),
+.red.primary:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--red-button-primary-color-hover);
+}
+
+.red.accent:not([disabled]).raised,
+.red.accent:not([disabled]).floating {
+  color: var(--red-button-accent-color-contrast);
+  background-color: var(--red-button-accent-color);
+}
+
+.red.accent:not([disabled]).flat,
+.red.accent:not([disabled]).toggle {
+  color: var(--red-button-accent-color);
+}
+
+.red.accent:not([disabled]).flat:hover {
+  background-color: var(--red-button-accent-color-hover);
+}
+
+.red.accent:not([disabled]).flat:focus:not(:active),
+.red.accent:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--red-button-accent-color-hover);
+}
+
+.red.neutral:not([disabled]).raised,
+.red.neutral:not([disabled]).floating {
+  color: var(--red-button-neutral-color-contrast);
+  background-color: var(--red-button-neutral-color);
+}
+
+.red.neutral:not([disabled]).flat,
+.red.neutral:not([disabled]).toggle {
+  color: var(--red-button-neutral-color-contrast);
+}
+
+.red.neutral:not([disabled]).flat:hover {
+  background-color: var(--red-button-neutral-color-hover);
+}
+
+.red.neutral:not([disabled]).flat:focus:not(:active),
+.red.neutral:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--red-button-neutral-color-hover);
+}
+
+.red.neutral:not([disabled]).inverse.raised,
+.red.neutral:not([disabled]).inverse.floating {
+  color: var(--red-button-neutral-color);
+  background-color: var(--red-button-neutral-color-contrast);
+}
+
+.red.solid[disabled] {
+  background-color: var(--red-button-disabled-background-color);
+}
+
+.red.neutral:not([disabled]).inverse.flat,
+.red.neutral:not([disabled]).inverse.toggle {
+  color: var(--red-button-neutral-color);
+}
+
+.red.neutral:not([disabled]).inverse.flat:hover {
+  background-color: var(--red-button-neutral-color-hover);
+}
+
+.red.neutral:not([disabled]).inverse.flat:focus:not(:active),
+.red.neutral:not([disabled]).inverse.toggle:focus:not(:active) {
+  background-color: var(--red-button-neutral-color-hover);
+}
+
+.red.neutral.inverse[disabled] {
+  color: var(--red-button-disabled-text-color-inverse);
+  background-color: var(--red-button-disabled-background-inverse);
+}

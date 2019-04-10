@@ -12,9 +12,8 @@ type PropsType = {
 
 class LUButtonPage extends React.Component<PropsType> {
   render = (): React.Node => {
-    const { text } = this.props
 
-    return <LUButton label={text} onClick={null} />
+    return <LUButton label="Test button" isPrimary={true} onClick={null} />
   }
 }
 

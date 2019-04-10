@@ -1,5 +1,5 @@
-@import "~react-toolbox/lib/colors";
-@import "~react-toolbox/lib/variables";
+/* @import "../../node_modules/react-toolbox/lib/colors.css";
+@import "../../node_modules/react-toolbox/lib/variables.css"; */
 
 :root {
   --border-gray: var(--palette-grey-300);
@@ -22,9 +22,9 @@
   --color-petrol: #293846;
   --color-petrol-light: #2F4050;
   --color-purple: #766D91;
-  --color-petrol-dark: color(var(--color-petrol) shade(5%));
-  --color-primary-dark: color(var(--color-primary) shade(50%));
-  --color-primary-light: color(var(--color-primary) tint(75%));
+  --color-petrol-dark: color-mod(var(--color-petrol) shade(5%));
+  --color-primary-dark: color-mod(var(--color-primary) shade(50%));
+  --color-primary-light: color-mod(var(--color-primary) tint(75%));
   --font-size: 13px;
   --font-size-tiny: 11px;
   --font-size-small: 12px;
@@ -217,7 +217,7 @@
 .ui-box-with-shadow {
   border-radius: calc(2 * var(--global-radius));
   background: var(--color-white);
-  box-shadow: 1px 1px 4px 0 color(var(--color-petrol) a(20%));
+  box-shadow: 1px 1px 4px 0 color-mod(var(--color-petrol) a(20%));
 }
 
 /**

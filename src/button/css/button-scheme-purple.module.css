@@ -1,0 +1,110 @@
+:root {
+  --purple-button-primary-color: var(--color-purple);
+  --purple-button-primary-color-hover: color-mod(var(--color-purple) a(20%));
+  --purple-button-primary-color-contrast: var(--color-primary-contrast);
+  --purple-button-primary-raised-color-hover: color-mod(var(--color-purple) shade(20%));
+  --purple-button-primary-raised-color-hover: color-mod(var(--purple-button-primary-color) shade(20%));
+  --purple-button-accent-color-contrast: var(--color-primary-contrast);
+  --purple-button-accent-color-hover: color-mod(var(--color-accent) a(20%));
+  --purple-button-accent-color: var(--color-accent);
+  --purple-button-neutral-color: var(--color-white);
+  --purple-button-neutral-color-contrast: var(--palette-grey-900);
+  --purple-button-neutral-color-hover: color-mod(var(--palette-grey-900) a(20%));
+  --purple-button-disabled-text-color: color-mod(var(--color-black) a(26%));
+  --purple-button-disabled-background-color: color-mod(var(--color-purple) a(12%));
+  --purple-button-disabled-text-color-inverse: color-mod(var(--color-black) a(54%));
+  --purple-button-disabled-background-inverse: color-mod(var(--color-black) a(8%));
+}
+
+.purple.primary:not([disabled]).raised,
+.purple.primary:not([disabled]).floating {
+  color: var(--purple-button-primary-color-contrast);
+  background-color: var(--purple-button-primary-color);
+}
+
+.purple.primary:not([disabled]).raised:hover {
+  background-color: var(--purple-button-primary-raised-color-hover);
+}
+
+.purple.primary:not([disabled]).flat,
+.purple.primary:not([disabled]).toggle {
+  color: var(--purple-button-primary-color);
+}
+
+.purple.primary:not([disabled]).flat:hover {
+  background-color: var(--purple-button-primary-color-hover);
+}
+
+.purple.primary:not([disabled]).flat:focus:not(:active),
+.purple.primary:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--purple-button-primary-color-hover);
+}
+
+.purple.accent:not([disabled]).raised,
+.purple.accent:not([disabled]).floating {
+  color: var(--purple-button-accent-color-contrast);
+  background-color: var(--purple-button-accent-color);
+}
+
+.purple.accent:not([disabled]).flat,
+.purple.accent:not([disabled]).toggle {
+  color: var(--purple-button-accent-color);
+}
+
+.purple.accent:not([disabled]).flat:hover {
+  background-color: var(--purple-button-accent-color-hover);
+}
+
+.purple.accent:not([disabled]).flat:focus:not(:active),
+.purple.accent:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--purple-button-accent-color-hover);
+}
+
+.purple.neutral:not([disabled]).raised,
+.purple.neutral:not([disabled]).floating {
+  color: var(--purple-button-neutral-color-contrast);
+  background-color: var(--purple-button-neutral-color);
+}
+
+.purple.neutral:not([disabled]).flat,
+.purple.neutral:not([disabled]).toggle {
+  color: var(--purple-button-neutral-color-contrast);
+}
+
+.purple.neutral:not([disabled]).flat:hover {
+  background-color: var(--purple-button-neutral-color-hover);
+}
+
+.purple.neutral:not([disabled]).flat:focus:not(:active),
+.purple.neutral:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--purple-button-neutral-color-hover);
+}
+
+.purple.neutral:not([disabled]).inverse.raised,
+.purple.neutral:not([disabled]).inverse.floating {
+  color: var(--purple-button-neutral-color);
+  background-color: var(--purple-button-neutral-color-contrast);
+}
+
+.purple.solid[disabled] {
+  background-color: var(--purple-button-disabled-background-color);
+}
+
+.purple.neutral:not([disabled]).inverse.flat,
+.purple.neutral:not([disabled]).inverse.toggle {
+  color: var(--purple-button-neutral-color);
+}
+
+.purple.neutral:not([disabled]).inverse.flat:hover {
+  background-color: var(--purple-button-neutral-color-hover);
+}
+
+.purple.neutral:not([disabled]).inverse.flat:focus:not(:active),
+.purple.neutral:not([disabled]).inverse.toggle:focus:not(:active) {
+  background-color: var(--purple-button-neutral-color-hover);
+}
+
+.purple.neutral.inverse[disabled] {
+  color: var(--purple-button-disabled-text-color-inverse);
+  background-color: var(--purple-button-disabled-background-inverse);
+}
