@@ -1,0 +1,230 @@
+
+:root {
+  --progress-height: 2px;
+  --progress-main-color: var(--color-primary);
+  --progress-secondary-color: color-mod(var(--color-primary-contrast) a(70%));
+  --progress-disabled-color: color-mod(var(--color-black) a(26%));
+  --circle-wrapper-width: 60;
+  --circle-radius: 25;
+  --scale-ratio: calc(var(--circle-radius) / 20);
+  --yellow-progress-main-color: var(--color-dark-yellow);
+  --yellow-progress-secondary-color: color-mod(var(--color-primary-contrast) a(70%));
+  --yellow-progress-disabled-color: color-mod(var(--color-black) a(26%));
+  --red-progress-main-color: var(--color-dark-red);
+  --red-progress-secondary-color: color-mod(var(--color-primary-contrast) a(70%));
+  --red-progress-disabled-color: color-mod(var(--color-black) a(26%));
+}
+
+.linear {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+
+  width: 100%;
+  height: var(--progress-height);
+
+  background: var(--color-divider);
+}
+
+.value,
+.buffer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transition-timing-function: var(--animation-curve-default);
+  transition-duration: var(--animation-duration);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.value {
+  background-color: var(--progress-main-color);
+}
+
+.linear.indeterminate .value {
+  transform-origin: center center;
+  animation: linear-indeterminate-bar 1s linear infinite;
+}
+
+.buffer {
+  background-image:
+    linear-gradient(to right, var(--progress-secondary-color), var(--progress-secondary-color)),
+    linear-gradient(to right, var(--progress-main-color), var(--progress-main-color));
+}
+
+.circular {
+  position: relative;
+
+  display: inline-block;
+
+  width: calc(var(--circle-wrapper-width) * 1px);
+  height: calc(var(--circle-wrapper-width) * 1px);
+
+  transform: rotate(-90deg);
+}
+
+.circular[disabled] .value,
+.linear[disabled] .value {
+  background-color: var(--progress-disabled-color);
+}
+
+.circular[disabled] .buffer,
+.linear[disabled] .buffer {
+  background-image:
+    linear-gradient(to right, var(--progress-secondary-color), var(--progress-secondary-color)),
+    linear-gradient(to right, var(--progress-disabled-color), var(--progress-disabled-color));
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+}
+
+.circular.indeterminate .circle {
+  animation: circular-indeterminate-bar-rotate 2s linear infinite;
+}
+
+.path {
+  fill: none;
+  stroke: var(--progress-main-color);
+  stroke-dasharray: 0, calc(var(--scale-ratio) * 200);
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-miterlimit: 20;
+  stroke-width: 4;
+
+  transition: stroke-dasharray var(--animation-duration) var(--animation-curve-default);
+}
+
+.circular.indeterminate .path {
+  animation: circular-indeterminate-bar-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: calc(var(--scale-ratio) * 1), calc(var(--scale-ratio) * 200);
+  stroke-dashoffset: 0;
+}
+
+.circular.indeterminate.multicolor .path {
+  animation:
+    circular-indeterminate-bar-dash 1.5s ease-in-out infinite,
+    colors calc(1.5s * 4) ease-in-out infinite;
+}
+
+/* yellow color scheme */
+
+.yellow .value {
+  background-color: var(--yellow-progress-main-color);
+}
+
+.yellow .buffer {
+  background-image:
+    linear-gradient(to right, var(--yellow-progress-secondary-color), var(--yellow-progress-secondary-color)),
+    linear-gradient(to right, var(--yellow-progress-main-color), var(--yellow-progress-main-color));
+}
+
+.yellow .circular[disabled] .value,
+.yellow .linear[disabled] .value {
+  background-color: var(--yellow-progress-disabled-color);
+}
+
+.yellow .circular[disabled] .buffer,
+.yellow .linear[disabled] .buffer {
+  background-image:
+    linear-gradient(to right, var(--yellow-progress-secondary-color), var(--yellow-progress-secondary-color)),
+    linear-gradient(to right, var(--yellow-progress-disabled-color), var(--yellow-progress-disabled-color));
+}
+
+.yellow .path {
+  stroke: var(--yellow-progress-main-color);
+}
+
+/* red color scheme */
+
+.red .value {
+  background-color: var(--red-progress-main-color);
+}
+
+.red .buffer {
+  background-image:
+    linear-gradient(to right, var(--red-progress-secondary-color), var(--red-progress-secondary-color)),
+    linear-gradient(to right, var(--red-progress-main-color), var(--red-progress-main-color));
+}
+
+.red .circular[disabled] .value,
+.red .linear[disabled] .value {
+  background-color: var(--red-progress-disabled-color);
+}
+
+.red .circular[disabled] .buffer,
+.red .linear[disabled] .buffer {
+  background-image:
+    linear-gradient(to right, var(--red-progress-secondary-color), var(--red-progress-secondary-color)),
+    linear-gradient(to right, var(--red-progress-disabled-color), var(--red-progress-disabled-color));
+}
+
+.red .path {
+  stroke: var(--red-progress-main-color);
+}
+
+
+@keyframes linear-indeterminate-bar {
+  0% {
+    transform: translate(-50%) scaleX(0);
+  }
+
+  50% {
+    transform: translate(-0%) scaleX(.3);
+  }
+
+  100% {
+    transform: translate(50%) scaleX(0);
+  }
+}
+
+@keyframes circular-indeterminate-bar-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circular-indeterminate-bar-dash {
+  0% {
+    stroke-dasharray: calc(var(--scale-ratio) * 1), calc(var(--scale-ratio) * 200);
+    stroke-dashoffset: calc(var(--scale-ratio) * 0);
+  }
+
+  50% {
+    stroke-dasharray: calc(var(--scale-ratio) * 89), calc(var(--scale-ratio) * 200);
+    stroke-dashoffset: calc(var(--scale-ratio) * -35);
+  }
+
+  100% {
+    stroke-dasharray: calc(var(--scale-ratio) * 89), calc(var(--scale-ratio) * 200);
+    stroke-dashoffset: calc(var(--scale-ratio) * -124);
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+
+  25% {
+    stroke: #DE3E35;
+  }
+
+  50% {
+    stroke: #F7C223;
+  }
+
+  75% {
+    stroke: #1B9A59;
+  }
+
+  100% {
+    stroke: #4285F4;
+  }
+}
