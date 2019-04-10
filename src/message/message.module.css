@@ -1,0 +1,38 @@
+.message {
+  margin-bottom: 0;
+  padding: calc(var(--distancer) / 3);
+
+  border-radius: var(--global-radius);
+}
+
+.message p:last-child {
+  margin-bottom: 0;
+}
+
+.message--info {
+  background-color: var(--palette-grey-100);
+
+  composes: message;
+}
+
+.message--success {
+  background-color: var(--palette-green-100);
+
+  composes: message;
+}
+
+.message--error {
+  background-color: var(--palette-red-100);
+
+  composes: message;
+}
+
+.message--hidden {
+  display: none;
+}
+
+.icon {
+  float: left;
+
+  margin-right: calc(var(--distancer) / 3);
+}
