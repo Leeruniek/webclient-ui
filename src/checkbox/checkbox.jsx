@@ -6,7 +6,7 @@ import * as React from "react"
 import cx from "classnames"
 import { isEmpty } from "@leeruniek/functies"
 
-import css from "./checkbox.css"
+import css from "./checkbox.module.css"
 
 type LUCheckboxPropsType = {
   className?: string,

@@ -1,0 +1,110 @@
+:root {
+  --yellow-button-primary-color: var(--color-dark-yellow);
+  --yellow-button-primary-color-hover: color-mod(var(--color-dark-yellow) a(20%));
+  --yellow-button-primary-color-contrast: var(--color-primary-contrast);
+  --yellow-button-primary-raised-color-hover: color-mod(var(--color-dark-yellow) shade(20%));
+  --yellow-button-primary-raised-color-hover: color-mod(var(--yellow-button-primary-color) shade(20%));
+  --yellow-button-accent-color-contrast: var(--color-primary-contrast);
+  --yellow-button-accent-color-hover: color-mod(var(--color-accent) a(20%));
+  --yellow-button-accent-color: var(--color-accent);
+  --yellow-button-neutral-color: var(--color-white);
+  --yellow-button-neutral-color-contrast: var(--palette-grey-900);
+  --yellow-button-neutral-color-hover: color-mod(var(--palette-grey-900) a(20%));
+  --yellow-button-disabled-text-color: color-mod(var(--color-black) a(26%));
+  --yellow-button-disabled-background-color: color-mod(var(--color-dark-yellow) a(12%));
+  --yellow-button-disabled-text-color-inverse: color-mod(var(--color-black) a(54%));
+  --yellow-button-disabled-background-inverse: color-mod(var(--color-black) a(8%));
+}
+
+.yellow.primary:not([disabled]).raised,
+.yellow.primary:not([disabled]).floating {
+  color: var(--yellow-button-primary-color-contrast);
+  background-color: var(--yellow-button-primary-color);
+}
+
+.yellow.primary:not([disabled]).raised:hover {
+  background-color: var(--yellow-button-primary-raised-color-hover);
+}
+
+.yellow.primary:not([disabled]).flat,
+.yellow.primary:not([disabled]).toggle {
+  color: var(--yellow-button-primary-color);
+}
+
+.yellow.primary:not([disabled]).flat:hover {
+  background-color: var(--yellow-button-primary-color-hover);
+}
+
+.yellow.primary:not([disabled]).flat:focus:not(:active),
+.yellow.primary:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--yellow-button-primary-color-hover);
+}
+
+.yellow.accent:not([disabled]).raised,
+.yellow.accent:not([disabled]).floating {
+  color: var(--yellow-button-accent-color-contrast);
+  background-color: var(--yellow-button-accent-color);
+}
+
+.yellow.accent:not([disabled]).flat,
+.yellow.accent:not([disabled]).toggle {
+  color: var(--yellow-button-accent-color);
+}
+
+.yellow.accent:not([disabled]).flat:hover {
+  background-color: var(--yellow-button-accent-color-hover);
+}
+
+.yellow.accent:not([disabled]).flat:focus:not(:active),
+.yellow.accent:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--yellow-button-accent-color-hover);
+}
+
+.yellow.neutral:not([disabled]).raised,
+.yellow.neutral:not([disabled]).floating {
+  color: var(--yellow-button-neutral-color-contrast);
+  background-color: var(--yellow-button-neutral-color);
+}
+
+.yellow.neutral:not([disabled]).flat,
+.yellow.neutral:not([disabled]).toggle {
+  color: var(--yellow-button-neutral-color-contrast);
+}
+
+.yellow.neutral:not([disabled]).flat:hover {
+  background-color: var(--yellow-button-neutral-color-hover);
+}
+
+.yellow.neutral:not([disabled]).flat:focus:not(:active),
+.yellow.neutral:not([disabled]).toggle:focus:not(:active) {
+  background-color: var(--yellow-button-neutral-color-hover);
+}
+
+.yellow.neutral:not([disabled]).inverse.raised,
+.yellow.neutral:not([disabled]).inverse.floating {
+  color: var(--yellow-button-neutral-color);
+  background-color: var(--yellow-button-neutral-color-contrast);
+}
+
+.yellow.solid[disabled] {
+  background-color: var(--yellow-button-disabled-background-color);
+}
+
+.yellow.neutral:not([disabled]).inverse.flat,
+.yellow.neutral:not([disabled]).inverse.toggle {
+  color: var(--yellow-button-neutral-color);
+}
+
+.yellow.neutral:not([disabled]).inverse.flat:hover {
+  background-color: var(--yellow-button-neutral-color-hover);
+}
+
+.yellow.neutral:not([disabled]).inverse.flat:focus:not(:active),
+.yellow.neutral:not([disabled]).inverse.toggle:focus:not(:active) {
+  background-color: var(--yellow-button-neutral-color-hover);
+}
+
+.yellow.neutral.inverse[disabled] {
+  color: var(--yellow-button-disabled-text-color-inverse);
+  background-color: var(--yellow-button-disabled-background-inverse);
+}
