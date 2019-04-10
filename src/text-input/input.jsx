@@ -84,7 +84,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     onFocus,
     onBlur,
   } = props
-  let inputNode = React.useRef(null)
+  let inputNode = React.useRef()
 
   const handleAutoresize = (): void => {
     const element = inputNode
@@ -93,7 +93,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
       element.style.height = null
     } else {
       // compute the height difference between inner height and outer height
-      const style = getComputedStyle(element)
+      const style = getComputedStyle(element, null)
       const heightOffset =
         style.boxSizing === "content-box"
           ? -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom))
@@ -189,7 +189,9 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     className: cx(css.inputElement, {
       [css.filled]: valuePresent,
     }),
-    ref: inputNode,
+    ref: (node: HTMLInputElement | HTMLTextAreaElement) => {
+      inputNode.current = node
+    },
     onKeyUp: handleKeyUp,
     onKeyPress: handleKeyPress,
     onChange: handleChange,

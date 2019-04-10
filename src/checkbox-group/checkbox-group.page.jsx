@@ -8,7 +8,6 @@ import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroup } from "./checkbox-group"
 import { toggle } from "@leeruniek/functies"
 import css from "./checkbox-group.css"
-import { LUInput } from "../text-input/input"
 
 type PropsType = {||}
 type StateType = {|
