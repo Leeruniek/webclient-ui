@@ -1,7 +1,12 @@
 {
   "modules": true,
   "plugins": {
-    "postcss-nested": true,
+    "postcss-preset-env": {
+      stage: 3,
+      features: {
+        'color-mod-function': { unresolved: 'warn' }
+      }
+    },
     "postcss-custom-properties": {
       "preserve": false,
       "importFrom": [
