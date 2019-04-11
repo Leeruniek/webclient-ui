@@ -58,6 +58,7 @@
     "cuid": "^2.1.6",
     "debug": "4.1.1",
     "font-awesome": "4.7.0",
+    "raven-js": "^3.27.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "4.3.1",
