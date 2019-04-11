@@ -2,7 +2,7 @@
 
 const debug = require("debug")("Leeruniek:LULegend")
 
-import React from "react"
+import * as React from "react"
 import cx from "classnames"
 import { is, isEmpty } from "@leeruniek/functies"
 
@@ -21,7 +21,7 @@ type LULegendType = {|
 |}
 
 export const LULegend = React.memo<LULegendType>(
-  ({ className, type = "block", title, items }: LULegendType) => {
+  ({ className, type = "block", title, items }: LULegendType): React.Node => {
     return (
       <div
         className={cx(css.legend, css[`legend--${type}`], {
