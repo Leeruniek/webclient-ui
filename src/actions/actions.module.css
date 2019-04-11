@@ -1,0 +1,92 @@
+:root {
+  --actions-separator-distance: calc(var(--distancer) / 3);
+}
+
+.actions {
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * depends on `props.isBlock`
+ */
+
+.actions--block {
+  display: block;
+}
+
+/**
+ * depends on `props.align`
+ */
+
+.actions--right {
+  text-align: right;
+
+  composes: actions;
+}
+
+.actions--left {
+  text-align: left;
+
+  composes: actions;
+}
+
+/**
+ * depends on `props.type`
+ */
+
+.actions--default {
+  height: calc(2.3 * var(--unit));
+
+  line-height: calc(2.3 * var(--unit));
+}
+
+.actions--small {
+  height: calc(1.6 * var(--unit));
+
+  line-height: calc(1.6 * var(--unit));
+}
+
+/**
+ * depends on `props.hasSeparator`
+ */
+
+.actions__separator {
+  display: inline-block;
+
+  width: 0;
+  margin-right: var(--actions-separator-distance);
+
+  vertical-align: top;
+}
+
+/**
+ * depends on `props.type` & `props.hasSeparator`
+ */
+
+.actions__separator--default {
+  height: calc(2.3 * var(--unit));
+
+  composes: actions__separator;
+}
+
+.actions__separator--small {
+  height: calc(1.6 * var(--unit));
+
+  composes: actions__separator;
+}
+
+/**
+ * depends on `props.hasSeparatorLine`
+ */
+
+.actions__separator__line {
+  width: 1px;
+
+  margin-right: calc(var(--actions-separator-distance) / 2 - 1px);
+  margin-left: calc(var(--actions-separator-distance) / 2);
+
+  background-color: var(--color-gray-light);
+}
