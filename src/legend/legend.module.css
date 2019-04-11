@@ -1,0 +1,49 @@
+:root {
+  --legend__title__font-weight: var(--font-weight-bold);
+}
+
+.legend {
+  position: relative;
+}
+
+.legend__title {
+  font-weight: var(--legend__title__font-weight);
+}
+
+.legend--inline,
+.legend__item__color,
+.legend__item__label {
+  display: inline-block;
+}
+
+.legend__item__color {
+  margin-right: var(--distancer-small);
+}
+
+/**
+ * Inline legend type
+ */
+
+.legend--inline .legend__title {
+  display: inline-block;
+
+  margin-right: var(--distancer-small);
+}
+
+.legend--inline .legend__item,
+.legend--inline .legend__item__color,
+.legend--inline .legend__item__label {
+  display: inline-block;
+}
+
+.legend--inline .legend__item {
+  margin-right: calc(2 * var(--distancer-small));
+}
+
+/**
+ * Block legend type
+ */
+
+.legend--block .legend__item {
+  margin-bottom: var(--distancer-small);
+}
