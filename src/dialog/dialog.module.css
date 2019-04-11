@@ -1,0 +1,225 @@
+:root {
+  --dialog-border-radius: calc(var(--global-radius));
+  --dialog-color-title: var(--palette-blue-grey-800);
+  --dialog-color-white: var(--color-white);
+  --dialog-content-padding: calc(var(--distancer) * 1.5);
+  --dialog-navigation-padding: calc(var(--distancer) / 2);
+  --dialog-translate-y: calc(4 * var(--unit));
+}
+
+.wrapper {
+  position: fixed;
+  z-index: var(--z-index-higher);
+  top: 0;
+
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: color-mod(var(--dialog-color-title) a(30%));
+
+  font-family: var(--preferred-font);
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.wrapper *,
+.wrapper *::after,
+.wrapper *::before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+}
+
+.dialog {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 96vw;
+  max-height: 96vh;
+
+  overflow: auto;
+
+  transition:
+    opacity var(--animation-duration) var(--animation-curve-default),
+    transform var(--animation-duration) var(--animation-curve-default);
+  transition-delay: var(--animation-delay);
+  transform: translateY(calc(-1 * var(--dialog-translate-y)));
+
+  opacity: 0;
+  border-radius: var(--dialog-border-radius);
+  background-color: var(--dialog-color-white);
+  box-shadow: var(--zdepth-shadow-5);
+}
+
+.dialog.active {
+  transform: translateY(0%);
+
+  opacity: 1;
+}
+
+.small {
+  width: 30vw;
+}
+
+@media screen and (--sm-tablet-viewport) {
+  .small {
+    width: 60vw;
+  }
+}
+
+@media screen and (--xs-viewport) {
+  .small {
+    width: 75vw;
+  }
+}
+
+.normal {
+  width: 60vw;
+}
+
+@media screen and (--xs-viewport) {
+  .normal {
+    width: 96vw;
+  }
+}
+
+.large {
+  width: 96vw;
+}
+
+.fullscreen {
+  width: 96vw;
+}
+
+@media screen and (--xs-viewport) {
+  .fullscreen {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+
+    max-height: 100vh;
+
+    border-radius: 0;
+  }
+}
+
+.title {
+  margin: 0 0 var(--distancer) 0;
+  padding-bottom: calc(var(--distancer) / 2);
+
+  letter-spacing: .02em;
+
+  color: var(--dialog-color-title);
+  border-bottom: 2px solid var(--color-primary);
+
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-thin);
+  font-weight: 500;
+
+  line-height: 1;
+  flex-grow: 0;
+}
+
+.body {
+  padding: var(--dialog-content-padding);
+
+  color: var(--color-text-secondary);
+  flex-grow: 2;
+}
+
+.body p {
+  margin: 0 0 calc(var(--distancer) / 3) 0;
+
+  letter-spacing: 0;
+
+  font-size: var(--font-size);
+  font-weight: 400;
+  line-height: var(--global-line-height);
+}
+
+.button {
+  min-width: 0;
+  margin-left: var(--dialog-navigation-padding);
+  padding-right: var(--dialog-navigation-padding);
+  padding-left: var(--dialog-navigation-padding);
+}
+
+.dialog__navigation {
+  padding: var(--dialog-navigation-padding) 0 0 0;
+
+  text-align: right;
+
+  border-top: 1px solid var(--border-gray);
+  flex-grow: 0;
+}
+
+.dialog__icon {
+  margin-right: calc(var(--distancer) / 3);
+}
+
+.dialog__content {
+  margin-bottom: var(--distancer);
+}
+
+.dialog__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 3px;
+}
+
+.dialog__close {
+  position: absolute;
+  top: calc(var(--distancer) / 2);
+  right: calc(var(--distancer) / 2);
+
+  display: block;
+
+  width: 19px;
+  height: 19px;
+
+  cursor: pointer;
+
+  background: transparent url("./images/close-button.png") 0 0 no-repeat;
+}
+
+.dialog__close:hover {
+  background: transparent url("./images/close-button--hover.png") 0 0 no-repeat;
+}
+
+/**
+ * props.color === red
+ */
+
+.dialog--red .title {
+  border-bottom-color: var(--color-dark-red);
+}
+
+.dialog--red .dialog__icon {
+  color: var(--color-dark-red);
+}
+
+/**
+ * props.color === yellow
+ */
+
+.dialog--yellow .title {
+  border-bottom-color: var(--color-dark-yellow);
+}
+
+.dialog--yellow .dialog__icon {
+  color: var(--color-dark-yellow);
+}

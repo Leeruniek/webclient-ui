@@ -32,7 +32,7 @@ export const LUMessage = ({
 
   React.useEffect(() => {
     hideAfter && hide()
-  })
+  }, [])
 
   React.useEffect(
     () => {

@@ -44,3 +44,9 @@ export const oneOfComponentType = ({ types, errorMessage }) => props =>
     map(isOfComponentType(types)),
     ifThen(all(_ => _ === true), () => null, () => new Error(errorMessage))
   )(props.children)
+
+export function usePrevious(value) {
+  const ref = React.useRef(value)
+
+  return ref.current
+}
