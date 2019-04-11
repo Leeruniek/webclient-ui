@@ -1,16 +1,16 @@
 :root {
   --checkbox-color: var(--color-primary);
-  --checkbox-disabled-color: color(var(--color-black) a(26%));
-  --checkbox-focus-checked-color: color(var(--color-primary) a(26%));
+  --checkbox-disabled-color: color-mod(var(--color-black) a(26%));
+  --checkbox-focus-checked-color: color-mod(var(--color-primary) a(26%));
   --checkbox-size: calc(1.5 * var(--unit));
-  --checkbox-focus-color: color(var(--color-black) a(1%));
+  --checkbox-focus-color: color-mod(var(--color-black) a(1%));
   --checkbox-focus-size: calc(var(--checkbox-size) * 2.3);
   --checkbox-text-color: var(--color-black);
   --checkbox-text-font-size: var(--font-size);
   --checkbox-total-height: calc(1.5 * var(--unit));
   --checkbox-is-checked-color: var(--color-white);
   --yellow-checkbox-color: var(--color-yellow);
-  --yellow-checkbox-disabled-color: color(var(--color-black) a(26%));
+  --yellow-checkbox-disabled-color: color-mod(var(--color-black) a(26%));
   --yellow-checkbox-text-color: var(--color-black);
   --yellow-checkbox-is-checked-color: var(--color-white);
 }

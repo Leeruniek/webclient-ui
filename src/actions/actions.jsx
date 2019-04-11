@@ -10,7 +10,7 @@ import { LUButton } from "../button/button"
 
 import css from "./actions.module.css"
 
-type ActionType = {|
+export type ActionType = {|
   label: string,
   icon?: string,
   isPrimary?: boolean,
