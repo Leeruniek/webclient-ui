@@ -7,7 +7,7 @@ import { RadioButton } from "react-toolbox/lib/radio/RadioButton"
 
 import css from "./radio.module.css"
 
-type LURadioType = {|
+type LURadioPropsType = {|
   className?: string,
   label: string | React.Node,
   type?: string,
@@ -18,20 +18,16 @@ type LURadioType = {|
   onChange?: Function,
 |}
 
-export const LURadio =
-  React.memo<LURadioType>(({
-    className = "",
-    label,
-    type,
-    value,
-    other = {},
-    isDisabled = false,
-    isChecked = false,
-    onChange,
-  }: LURadioType): React.Node => {
-    const handleChange = () => {
-      onChange && onChange({ value, label, type, other })
-    }
+export class LURadio extends React.PureComponent<LURadioPropsType> {
+  static defaultProps = {
+    className: "",
+    other: {},
+    isDisabled: false,
+    isChecked: false,
+  }
+
+  render = (): React.Node => {
+    const { className, label, value, isDisabled, isChecked } = this.props
 
     return (
       <RadioButton
@@ -41,8 +37,14 @@ export const LURadio =
         disabled={isDisabled}
         checked={isChecked}
         theme={css}
-        onChange={handleChange}
+        onChange={this.handleChange}
       />
     )
   }
-)
+
+  handleChange = (): void => {
+    const { onChange, label, value, type, other } = this.props
+
+    onChange && onChange({ value, label, type, other })
+  }
+}

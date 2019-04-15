@@ -2,7 +2,7 @@
 
 const debug = require("debug")("Leeruniek:LUDialog")
 
-import React from "react"
+import * as React from "react"
 import cx from "classnames"
 import { Dialog } from "react-toolbox/lib/dialog/Dialog"
 import { is } from "@leeruniek/functies"
