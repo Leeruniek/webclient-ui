@@ -51,7 +51,7 @@ export const LUSection = ({
 }: LUSectionPropsType): React.Node => (
   <section
     className={cx(css.section, {
-      [className]: !!className,
+      [className || ""]: !!className,
       [css["sub-section"]]: isSubsection,
       [css["section--disabled"]]: isDisabled,
     })}>
