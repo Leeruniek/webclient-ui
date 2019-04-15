@@ -10,7 +10,7 @@
 }
 
 .overlay--loading {
-  background-color: color(var(--color-primary) a(10%));
+  background-color: color-mod(var(--color-primary) a(10%));
 }
 
 .overlay--transparent {

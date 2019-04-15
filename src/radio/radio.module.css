@@ -3,10 +3,10 @@
   --radio-button-size: calc(1.1 * var(--unit));
   --radio-inner-margin: calc(var(--radio-button-size) / 4);
   --radio-inner-color: var(--color-primary);
-  --radio-focus-color: color(var(--color-black) a(10%));
-  --radio-checked-focus-color: color(var(--color-primary) a(26%));
+  --radio-focus-color: color-mod(var(--color-black) a(10%));
+  --radio-checked-focus-color: color-mod(var(--color-primary) a(26%));
   --radio-text-color: var(--color-gray);
-  --radio-disabled-color: color(var(--color-black) a(26%));
+  --radio-disabled-color: color-mod(var(--color-black) a(26%));
   --radio-text-font-size: var(--font-size-small);
 }
 
