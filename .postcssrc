@@ -13,6 +13,7 @@
         "node_modules/react-toolbox/lib/variables.css",
         "node_modules/react-toolbox/lib/colors.css",
         "node_modules/react-toolbox/lib/ripple/theme.css",
+        "node_modules/react-toolbox/lib/switch/theme.css",
         "node_modules/react-toolbox/lib/snackbar/theme.css",
         "src/styles/variables.css",
         ]
