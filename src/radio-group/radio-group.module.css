@@ -1,0 +1,16 @@
+.radio-group__separator {
+  margin-bottom: calc(var(--distancer) / 3);
+
+  color: var(--color-petrol);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-bold);
+}
+
+.radio-group__radio {
+  padding-left: calc(var(--distancer) / 3);
+}
+
+.radio-group label + div {
+  margin-top: calc(var(--distancer) / 2);
+}
