@@ -1,3 +1,5 @@
+@import "../styles/variables.css";
+
 :root {
   --checkbox-color: var(--color-primary);
   --checkbox-disabled-color: color-mod(var(--color-black) a(26%));

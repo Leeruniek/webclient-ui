@@ -23,13 +23,13 @@ type LURadioGroupPropsType = {|
 |}
 
 export class LURadioGroup extends React.Component<LURadioGroupPropsType> {
-  render = ():React.Node => {
+  render = (): React.Node => {
     const { className, scrollHeight } = this.props
 
     return (
       <div
         className={cx(css["radio-group"], {
-          [className]: is(className),
+          [className || ""]: is(className),
         })}>
         {is(scrollHeight) ? (
           <Scrollbars
