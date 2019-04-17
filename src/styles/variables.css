@@ -1,3 +1,5 @@
+@import "../../node_modules/react-toolbox/lib/colors.css";
+@import "../../node_modules/react-toolbox/lib/variables.css";
 :root {
   --border-gray: var(--palette-grey-300);
   --preferred-font: "open sans", Helvetica, Arial, sans-serif;
