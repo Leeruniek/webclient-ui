@@ -1,4 +1,5 @@
 @import "../styles/variables.css";
+
 :root {
   --tag-padding: 2px var(--distancer-small);
   --tag-margin: 0 var(--distancer-small) 0 0;
