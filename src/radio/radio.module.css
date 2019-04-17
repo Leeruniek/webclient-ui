@@ -1,3 +1,6 @@
+@import "../../node_modules/react-toolbox/lib/ripple/theme.css";
+@import "../styles/variables.css";
+
 :root {
   --radio-field-margin-bottom: calc(var(--distancer-small) * 2);
   --radio-button-size: calc(1.1 * var(--unit));

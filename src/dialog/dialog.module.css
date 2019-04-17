@@ -1,3 +1,4 @@
+@import "../styles/variables.css";
 :root {
   --dialog-border-radius: calc(var(--global-radius));
   --dialog-color-title: var(--palette-blue-grey-800);

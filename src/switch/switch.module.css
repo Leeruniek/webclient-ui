@@ -1,3 +1,7 @@
+@import "../../node_modules/react-toolbox/lib/ripple/theme.css";
+@import "../../node_modules/react-toolbox/lib/switch/theme.css";
+@import "../styles/variables.css";
+
 :root {
   --switch-color: var(--color-primary);
   --switch-text-color: #676A6C;

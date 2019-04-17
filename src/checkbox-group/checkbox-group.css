@@ -1,3 +1,4 @@
+@import "../styles/variables.css";
 .checkbox-group__header {
   margin-bottom: calc(var(--distancer) / 3);
 

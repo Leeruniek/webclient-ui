@@ -1,3 +1,5 @@
+@import "../styles/variables.css";
+
 :root {
   --loader-thickness: 5px;
   --loader-color-blue: var(--color-leer-blue);

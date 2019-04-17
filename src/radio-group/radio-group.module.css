@@ -1,3 +1,5 @@
+@import "../styles/variables.css";
+
 .radio-group__separator {
   margin-bottom: calc(var(--distancer) / 3);
 
