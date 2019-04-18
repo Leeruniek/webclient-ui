@@ -52,9 +52,7 @@
     "----TEST-------------------------------------": "",
     "test": "tape -r @babel/register -r ignore-styles src/**/*.test.jsx",
     "test:cover": "nyc --extension .jsx npm test && nyc report --reporter=text-lcov",
-    "tdd": "nodemon --watch src/** --exec \"npm run test | tap-diff\"",
-    "----DEPLOY-----------------------------------": "",
-    "deploy-storybook": "storybook-to-ghpages"
+    "tdd": "nodemon --watch src/** --exec \"npm run test | tap-diff\""
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
@@ -86,7 +84,6 @@
     "@babel/register": "^7.4.0",
     "@leeruniek/eslint-config": "^4.3.0",
     "@storybook/react": "^5.0.8",
-    "@storybook/storybook-deployer": "^2.8.1",
     "babel-eslint": "10.0.1",
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.3",
