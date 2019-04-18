@@ -16,6 +16,10 @@
 
 <!-- /MarkdownTOC -->
 
+## Docs
+
+Check our [storybook](https://leeruniek.github.io/functies/) to see components.
+
 ## Install
 
 ```bash
