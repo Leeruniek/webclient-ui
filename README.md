@@ -18,7 +18,7 @@
 
 ## Docs
 
-Check our [storybook](https://leeruniek.github.io/functies/) to see components.
+Check our [storybook](https://leeruniek.github.io/webclient-ui/) to see components that we use.
 
 ## Install
 
