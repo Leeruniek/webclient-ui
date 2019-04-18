@@ -3,7 +3,6 @@
 const debug = require("debug")("Leeruniek:LUTable")
 
 import * as React from "react"
-// import PropTypes from "prop-types"
 import cx from "classnames"
 import { map } from "@leeruniek/functies"
 
