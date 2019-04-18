@@ -1,3 +1,9 @@
+@import "../../../node_modules/react-toolbox/lib/ripple/theme.css";
+@import "../../styles/variables.css";
+@import "./button-scheme-purple.module.css";
+@import "./button-scheme-red.module.css";
+@import "./button-scheme-yellow.module.css";
+
 :root {
   --button-font-size: calc(var(--unit) - 1px);
   --button-border-radius: var(--global-radius);

@@ -1,3 +1,5 @@
+@import "../styles/variables.css";
+
 /* Default scheme */
 :root {
   --input-height: calc(2.5 * var(--unit));

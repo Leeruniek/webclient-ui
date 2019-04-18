@@ -1,0 +1,74 @@
+@import "../styles/variables.css";
+
+:root {
+  --table-cell-hover-color: var(--palette-grey-200);
+}
+
+.table {
+  display: table;
+
+  width: 100%;
+
+  border-collapse: separate;
+}
+
+.table__row {
+  display: table-row;
+
+  width: 100%;
+}
+
+.table__row--selected {
+  background-color: color(var(--color-primary) a(10%));
+}
+
+.table__row--hoverable:hover {
+  cursor: pointer;
+
+  background-color: var(--table-cell-hover-color);
+}
+
+.table__row--selected.table__row--hoverable:hover {
+  background-color: color(var(--color-primary) a(20%));
+}
+
+.table__cell,
+.table__head {
+  display: table-cell;
+  overflow: hidden;
+
+  padding: calc(var(--distancer) / 3);
+
+  vertical-align: top;
+
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.table__head {
+  font-weight: var(--font-weight-bold);
+}
+
+.table__head--sortable {
+  cursor: pointer;
+}
+
+.table__head--sortable:hover {
+  background-color: var(--table-cell-hover-color);
+}
+
+.table__row--selected .table__cell {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.table__cell-icon {
+  margin-left: var(--distancer-small);
+}
+
+.table__cell-icon:global(.fa-sort) {
+  opacity: .5;
+}
+
+.table__cell-icon:global(.fa-sort-up),
+.table__cell-icon:global(.fa-sort-down) {
+  opacity: 1;
+}

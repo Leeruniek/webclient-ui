@@ -1,3 +1,6 @@
+@import "../../node_modules/react-toolbox/lib/snackbar/theme.css";
+@import "../styles/variables.css";
+
 :root {
   --snackbar-color-cancel: var(--palette-red-500);
   --snackbar-color-accept: var(--palette-green-500);
