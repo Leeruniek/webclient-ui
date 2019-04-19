@@ -71,13 +71,14 @@ export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
 
     const childrenArr = React.Children.map(
       children,
-      (child: React.Node): React.Node => {
+      (child: React.Node, index: number): React.Node => {
         if (isOfComponentType([LUCheckbox])(child)) {
           return React.cloneElement(child, {
             className: cx(
               child.props.className,
               css["checkbox-group__checkbox"]
             ),
+            key: `checkbox-group__checkbox_${index}`,
             isChecked:
               child.props.isChecked || has(child.props.name)(selectedValues),
             onChange,
@@ -92,6 +93,7 @@ export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
       const header = React.createElement(LUCheckboxGroupHeader, {
         label,
         className: headerClassName,
+        key: "checkbox-header",
       })
 
       return [header, ...childrenArr]

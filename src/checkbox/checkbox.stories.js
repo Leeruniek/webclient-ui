@@ -2,16 +2,33 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { LUCheckbox } from "./checkbox"
 
-storiesOf("LUCheckbox", module).add("simple LUCheckbox", () => {
-  let checked = false
+const LUСheckboxContainer = props => {
+  const [isChecked, setChecked] = React.useState(false)
+
+  const handleChange = () => {
+    setChecked(!isChecked)
+  }
 
   return (
     <LUCheckbox
-      label="Click me"
-      isChecked={checked}
-      onChange={() => {
-        checked = !checked
-      }}
+      isChecked={isChecked}
+      onChange={handleChange}
+      {...props}
     />
   )
-})
+}
+
+storiesOf("LUCheckbox", module).add("LUCheckbox", () => (
+    <LUСheckboxContainer
+    />
+  )).add("LUCheckbox with label", () => (
+    <LUСheckboxContainer
+      label="Click me"
+    />
+  )).add("Disabled LUCheckbox", () => (
+    <LUСheckboxContainer
+      label="Click me"
+      isDisabled={true}
+      isChecked={true}
+    />
+  ))
