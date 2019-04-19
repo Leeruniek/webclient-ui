@@ -13,9 +13,9 @@ storiesOf("LUTag", module)
   ))
   .add("Different types of LUTag", () => (
     <React.Fragment>
-      <LUTag label="small" type="default" />
-      <LUTag label="LUTab" type="primary" />
-      <LUTag label="LUTab" type="warning" />
-      <LUTag label="LUTab" type="info" />
+      <LUTag label="default" type="default" />
+      <LUTag label="primary" type="primary" />
+      <LUTag label="warning" type="warning" />
+      <LUTag label="info" type="info" />
     </React.Fragment>
   ))
