@@ -1,0 +1,117 @@
+@import "../../node_modules/react-toolbox/lib/ripple/theme.css";
+@import "../styles/variables.css";
+
+:root {
+  --tabs-font-size: 14px;
+  --tabs-height: calc(2.8 * var(--unit));
+  --tabs-distance: calc(var(--distancer) / 3);
+  --tabs-border-color: var(--color-petrol);
+  --tabs-icon-color: var(--color-gray);
+  --tabs-icon-active-color: var(--color-petrol);
+}
+
+.tabs ul {
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  width: 150px;
+  height: var(--tabs-height);
+  margin: 0 var(--tabs-distance) 0 0;
+
+  list-style-type: none;
+
+  cursor: pointer;
+
+  border-top-left-radius: var(--global-radius);
+  border-top-right-radius: var(--global-radius);
+
+  font-size: var(--tabs-font-size);
+  font-weight: var(--font-weight-bolder);
+  line-height: var(--tabs-height);
+
+  composes: ui-border-bottom-focus;
+}
+
+.tab::before {
+  background-color: var(--tabs-border-color);
+}
+
+.tab:hover::after {
+  left: 0;
+
+  width: 100%;
+}
+
+.tab__label {
+  cursor: pointer;
+
+  composes: ellipsis;
+}
+
+/*
+ * depends on `props.hasAdd`
+ */
+
+.tab--add {
+  text-decoration: underline;
+  text-transform: lowercase;
+
+  color: var(--color-gray);
+
+  font-size: calc(var(--unit) - 1px);
+  font-weight: var(--font-weight-normal);
+}
+
+.tab--add::before {
+  background-color: var(--border-gray);
+}
+
+/*
+ * depends on `props.isActive` && `state.isHover`
+ */
+
+.tab--hover::after,
+.tab--active::after {
+  left: 0;
+
+  width: 100%;
+}
+
+/*
+ * depends on `state.shouldBlink`
+ */
+
+.tab--blink {
+  animation: blink .5s linear infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: .3;
+  }
+}
+
+/*
+ * depends on `props.icon`
+ */
+
+.tab__icon {
+  display: inline-block;
+
+  margin: 0 var(--tabs-distance) 0 0;
+
+  opacity: .4;
+  color: var(--tabs-icon-color);
+}
+
+.tab__icon--active {
+  opacity: 1;
+  color: var(--tabs-icon-active-color);
+}
