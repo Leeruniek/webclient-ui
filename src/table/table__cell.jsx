@@ -4,20 +4,19 @@ const debug = require("debug")("Leeruniek:LUTableCell")
 
 import * as React from "react"
 import cx from "classnames"
-import Ripple  from "../../node_modules/react-toolbox/lib/ripple"
+import Ripple from "../../node_modules/react-toolbox/lib/ripple"
 
 import css from "./table.module.css"
-import { is } from "@leeruniek/functies"
+import { is, isEmpty } from "@leeruniek/functies"
 
 type LUTableCellPropsType = {|
   className?: string,
   children: React.Node[] | React.Node,
-  sortDirection?: string,
   isHeader?: boolean,
   onClick?: Function,
 |}
 
-const RippleableDiv:React.Node = Ripple({ spread: 2 })(props => {
+const RippleableDiv: React.Node = Ripple({ spread: 2 })(props => {
   const { children } = props
 
   return (
@@ -29,15 +28,14 @@ const RippleableDiv:React.Node = Ripple({ spread: 2 })(props => {
 
 export const LUTableCell = React.memo<LUTableCellPropsType>(
   ({
-    className,
+    className = "",
     children,
-    sortDirection,
     isHeader = false,
     onClick,
   }: LUTableCellPropsType): React.Node => (
     <div
       className={cx(css.table__cell, {
-        [className]: !!className,
+        [className]: !isEmpty(className),
         [css.table__head]: isHeader,
       })}
       onClick={onClick}>
