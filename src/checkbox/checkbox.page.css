@@ -1,0 +1,10 @@
+@import "../styles/variables.css";
+.demo_controllers {
+  display: flex;
+
+  padding: 15px 0;
+}
+
+.demo_controllers span {
+  margin-right: var(--distancer);
+}
