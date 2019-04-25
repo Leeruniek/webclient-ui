@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.4] - 25 April 2019
+## [0.3.5] - 25 April 2019
 
 ### Fixed
-- Fix webpack build result
+- Fixed colors for LUTable, LUSwitch

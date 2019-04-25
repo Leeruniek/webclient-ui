@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.5] - 25 April 2019
+
+### Fixed
+- Fixed colors for LUTable, LUSwitch
+
 ## [0.3.4] - 25 April 2019
 
 ### Fixed
