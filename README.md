@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### [0.3.1] - 25 April 2019
+## [0.3.3] - 25 April 2019
 
 ### Change
-- Update corejs version
+- Use webpack to build dist
