@@ -6,6 +6,7 @@ import { LUButtonPage } from "./button/button.page"
 import { LUCheckboxPage } from "./checkbox/checkbox.page"
 import { LUCheckboxGroupPage } from "./checkbox-group/checkbox-group.page"
 import { LUTagPage } from "./tag/tag.page"
+import { LUTimelinePage } from "./timeline/timeline.page"
 
 import "./index.css"
 
@@ -20,6 +21,7 @@ render(
         component={LUCheckboxGroupPage}
       />
       <Route exact={true} path="/tag" component={LUTagPage} />
+      <Route exact={true} path="/timeline" component={LUTimelinePage} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

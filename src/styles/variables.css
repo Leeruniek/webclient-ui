@@ -1,6 +1,8 @@
 :root {
   --unit: 13px;
+  --distancer-large: 35px;
   --distancer: 30px;
+  --distancer-medium: 10px;
   --distancer-small: 5px;
   --global-radius: 3px;
   --global-line-height: 1.42857143;
@@ -12,13 +14,13 @@
   --color-blue: #2dace3;
   --color-yellow: #f49606;
   --color-gray: #8a8c8e;
-  --color-light-gray: #f3f3f4;
+  --color-light-gray: #ddd;
   --color-purple: #766d91;
   --color-petrol: #293846;
 
   --font-size: var(--unit);
-  --font-size-small: calc(var(--unit) - 2px);
-  --font-size-big: calc(var(--unit) + 2px);
+  --font-size-small: calc(var(--unit) - 1em);
+  --font-size-big: calc(var(--unit) + 1em);
   --font-weight-thin: 300;
   --font-weight-normal: 400;
   --font-weight-semi-bold: 500;
