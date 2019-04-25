@@ -52,8 +52,9 @@ npm run tdd
 
 ## Changelog
 
-### 0.2.0 - 13 December
+History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-#### Add
+## [0.3.1] - 25 April 2013
 
-- Render LUCheckboxGroupHeader when passing label props to LUCheckboxGroup
+### Fixed
+- Fixed build configuration for css files

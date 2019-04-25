@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.1] - 25 April 2013
+
+### Fixed
+- Fixed build configuration for css files
+
 ## [0.3.0] - 24 April 2013
 
 ### Add
