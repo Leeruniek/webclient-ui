@@ -39,7 +39,7 @@
     "----BUILD------------------------------------": "",
     "build:css": "postcss src/**/*.css src/**/**/*.css --base src --dir dist",
     "build:babel": "babel src --out-dir dist --ignore src/**/*.test.jsx,src/**/*.stories.js,src/**/*.page.jsx",
-    "build": "npm run build:babel && npm run build:css",
+    "build": "webpack --mode=production --config ./webpack/webpack.config.js --display-error-details",
     "prepare": "npm run clean:build && npm audit fix && npm test && npm run build",
     "prepublishOnly": "npm run test:cover | coveralls",
     "build-storybook": "build-storybook -c .storybook -o docs",
