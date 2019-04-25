@@ -31,12 +31,13 @@ const cssConfig = ({ isCSSModules = false } = {}) => [
 ]
 
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
-  mode: "development",
+  entry: `${SRC_DIR}/components.js`,
   output: {
     path: DIST_DIR,
+    filename: "components.js",
+    library: "webclient-ui",
+    libraryTarget: "commonjs",
   },
-  target: "web",
   module: {
     rules: [
       {
@@ -44,6 +45,28 @@ module.exports = {
         exclude: /node_modules/,
         include: [SRC_DIR, /node_modules\/debug/],
         use: ["babel-loader"],
+      },
+      {
+        /*
+         * The url-loader works like the file-loader, but can return a
+         * DataURL if the file is smaller than a byte limit.
+         *
+         * All images under 2KB are inlined, if more than 2KB pass to
+         * file-loader
+         */
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "url-loader",
+        options: {
+          limit: 2048,
+          name: "images/[name].[hash].[ext]",
+        },
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        loader: "file-loader",
+        options: {
+          name: "fonts/[name].[hash].[ext]",
+        },
       },
       {
         test: /\.(less|scss|sass|css)$/,
