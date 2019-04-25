@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.3] - 25 April 2019
+## [0.3.4] - 25 April 2019
 
-### Change
-- Use webpack to build dist
+### Fixed
+- Fix webpack build result

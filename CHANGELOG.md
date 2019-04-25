@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.4] - 25 April 2019
+
+### Fixed
+- Fix webpack build result
+
 ## [0.3.3] - 25 April 2019
 
 ### Change
