@@ -76,6 +76,7 @@
     "@babel/preset-flow": "7.0.0",
     "@babel/preset-react": "7.0.0",
     "@babel/register": "^7.4.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "@leeruniek/eslint-config": "^4.3.0",
     "@storybook/react": "^5.0.8",
     "babel-eslint": "10.0.1",

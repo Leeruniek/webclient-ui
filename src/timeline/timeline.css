@@ -1,15 +1,14 @@
+@import "../styles/variables.css";
+
 .timeline__item {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
 
-  &:first-child {
-    margin-right: var(--distancer-small);
-  }
-
-  &:last-child {
-    margin-right: var(--distancer-small);
-  }
+.timeline__item:first-child,
+.timeline__item:last-child {
+  margin-right: var(--distancer-small);
 }
 
 .timeline__item-icon-container {
@@ -17,7 +16,7 @@
   align-items: center;
   width: var(--distancer-large);
   height: var(--distancer-large);
-  border: 2px solid var(--color-light-gray);
+  border: 2px solid var(--color-gray-light);
   border-radius: 50%;
 }
 
@@ -33,7 +32,7 @@
   display: block;
   width: 2px;
   height: var(--distancer);
-  background-color: var(--color-light-gray);
+  background-color: var(--color-gray-light);
   margin-left: calc(var(--distancer-large) / 2);
 }
 
