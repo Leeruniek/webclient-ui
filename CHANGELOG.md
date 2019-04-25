@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.3.1] - 25 April 2019
 
+### Change
+- Update corejs version
+
+## [0.3.1] - 25 April 2019
+
 ### Fixed
 - Fixed build configuration for css files
 

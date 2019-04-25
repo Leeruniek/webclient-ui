@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.1] - 25 April 2019
+### [0.3.1] - 25 April 2019
 
-### Fixed
-- Fixed build configuration for css files
+### Change
+- Update corejs version
