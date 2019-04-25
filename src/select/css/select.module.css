@@ -9,7 +9,7 @@
   --select-text-label-color: var(--color-black);
 
   /* same as button neutral color */
-  --select-arrow-color: color(var(--palette-grey-900) a(40%));
+  --select-arrow-color: color-mod(var(--palette-grey-900) a(40%));
   --select-arrow-color-hover: vanvm r(--palette-grey-900);
 }
 
