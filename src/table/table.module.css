@@ -19,7 +19,7 @@
 }
 
 .table__row--selected {
-  background-color: color(var(--color-primary) a(10%));
+  background-color: color-mod(var(--color-primary) a(10%));
 }
 
 .table__row--hoverable:hover {
@@ -29,7 +29,7 @@
 }
 
 .table__row--selected.table__row--hoverable:hover {
-  background-color: color(var(--color-primary) a(20%));
+  background-color: color-mod(var(--color-primary) a(20%));
 }
 
 .table__cell,

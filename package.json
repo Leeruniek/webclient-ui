@@ -41,7 +41,7 @@
     "build:babel": "babel src --out-dir dist --ignore src/**/*.test.jsx,src/**/*.stories.js,src/**/*.page.jsx",
     "build": "webpack --mode=production --config ./webpack/webpack.config.js --display-error-details",
     "prepare": "npm run clean:build && npm audit fix && npm test && npm run build",
-    "prepublishOnly": "npm run test:cover | coveralls",
+    "prepublishOnly": "npm run test:cover",
     "build-storybook": "build-storybook -c .storybook -o docs",
     "----LINT-------------------------------------": "",
     "lint:css": "stylelint src/**/*.css",

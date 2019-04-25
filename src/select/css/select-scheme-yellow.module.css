@@ -5,7 +5,7 @@
   --yellow-select-text-highlight-color: var(--color-dark-yellow);
 
   /* same as button neutral color */
-  --yellow-select-arrow-color: color(var(--palette-grey-900) a(40%));
+  --yellow-select-arrow-color: color-mod(var(--palette-grey-900) a(40%));
   --yellow-select-arrow-color-hover: var(--palette-grey-900);
 }
 
@@ -23,12 +23,12 @@
 
 .yellow .inner-select :global(.Select-option.is-selected) {
   color: #333;
-  background-color: color(var(--yellow-select-text-highlight-color) a(6%));
+  background-color: color-mod(var(--yellow-select-text-highlight-color) a(6%));
 }
 
 .yellow .inner-select :global(.Select-option.is-focused) {
   color: #333;
-  background-color: color(var(--yellow-select-text-highlight-color) a(12%));
+  background-color: color-mod(var(--yellow-select-text-highlight-color) a(12%));
 }
 
 .yellow .inner-select :global(.Select-arrow-zone .Select-arrow):hover {
