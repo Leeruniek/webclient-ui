@@ -35,7 +35,7 @@ module.exports = {
   output: {
     path: DIST_DIR,
     filename: "components.js",
-    library: "webclient-ui",
+    library: "",
     libraryTarget: "commonjs",
   },
   module: {
