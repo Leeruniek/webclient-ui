@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.5] - 25 April 2019
+## [0.3.6] - 26 April 2019
 
-### Fixed
-- Fixed colors for LUTable, LUSwitch
+### Change
+- Replace react, react-dom, etc. from dependencies to devDependencies

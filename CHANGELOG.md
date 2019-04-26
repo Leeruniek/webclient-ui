@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.6] - 26 April 2019
+
+### Change
+- Replace react, react-dom, etc. from dependencies to devDependencies
+
+
 ## [0.3.5] - 25 April 2019
 
 ### Fixed
