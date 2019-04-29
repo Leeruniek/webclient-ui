@@ -6,6 +6,14 @@ const HTMLPlugin = require("html-webpack-plugin")
 const SRC_DIR = path.resolve(__dirname, "../src")
 const DIST_DIR = path.resolve(__dirname, "../dist")
 
+const getExcludedJSPath = () => {
+  if (process.env.NODE_ENV === "development") {
+    return /node_modules/
+  }
+
+  return [/node_modules/, /.storybook/, /\.stories.(js|jsx)$/]
+}
+
 const cssConfig = ({ isCSSModules = false } = {}) => [
   {
     loader: "style-loader",
@@ -42,7 +50,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: getExcludedJSPath(),
         include: [SRC_DIR, /node_modules\/debug/],
         use: ["babel-loader"],
       },
