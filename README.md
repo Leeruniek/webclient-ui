@@ -54,7 +54,8 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.6] - 26 April 2019
+## [0.3.7] - 29 April 2019
 
 ### Change
-- Replace react, react-dom, etc. from dependencies to devDependencies
+- Remove stories files from build production
+- Export [LULoaderOverlay](src/components.js#L25) component

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.7] - 29 April 2019
+
+### Change
+- Remove stories files from build production
+- Export [LULoaderOverlay](src/components.js#L25) component
+
 ## [0.3.6] - 26 April 2019
 
 ### Change
