@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.8] - 29 April 2019
+
+### Change
+- Add react and react-dom to [externals in webpack build](webpack/webpack.config.js#L49)
+
 ## [0.3.7] - 29 April 2019
 
 ### Change

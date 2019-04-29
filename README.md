@@ -54,8 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.7] - 29 April 2019
+## [0.3.8] - 29 April 2019
 
 ### Change
-- Remove stories files from build production
-- Export [LULoaderOverlay](src/components.js#L25) component
+- Add react and react-dom to [externals in webpack build](webpack/webpack.config.js#L49)
