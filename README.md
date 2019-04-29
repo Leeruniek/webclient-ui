@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.8] - 29 April 2019
+## [0.3.9] - 29 April 2019
 
-### Change
-- Add react and react-dom to [externals in webpack build](webpack/webpack.config.js#L49)
+### Fixed
+- Fix typos in [externals in webpack build](webpack/webpack.config.js#L49)

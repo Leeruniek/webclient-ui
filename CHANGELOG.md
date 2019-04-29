@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.9] - 29 April 2019
+
+### Fixed
+- Fix typos in [externals in webpack build](webpack/webpack.config.js#L49)
+
 ## [0.3.8] - 29 April 2019
 
 ### Change
