@@ -46,6 +46,10 @@ module.exports = {
     library: "",
     libraryTarget: "commonjs",
   },
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM",
+  },
   module: {
     rules: [
       {
