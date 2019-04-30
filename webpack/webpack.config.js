@@ -42,7 +42,7 @@ module.exports = {
   entry: `${SRC_DIR}/components.js`,
   output: {
     path: DIST_DIR,
-    filename: "[name].js",
+    filename: "components.js",
     library: "",
     libraryTarget: "commonjs",
   },
