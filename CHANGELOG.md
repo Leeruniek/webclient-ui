@@ -8,6 +8,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.3.12] - 30 April 2019
+
+### Change
+- Change build output
+
+## [0.3.11] - 30 April 2019
+
+### Change
+- Remove [minimization](webpack/webpack.config.js#L50) for build
 
 ## [0.3.10] - 30 April 2019
 
