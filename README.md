@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.9] - 29 April 2019
+## [0.3.10] - 30 April 2019
 
-### Fixed
-- Fix typos in [externals in webpack build](webpack/webpack.config.js#L49)
+### Change
+- Remove [minimization](webpack/webpack.config.js#L50) for build

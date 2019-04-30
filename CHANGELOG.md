@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.10] - 30 April 2019
+
+### Change
+- Remove [minimization](webpack/webpack.config.js#L50) for build
+
+
 ## [0.3.9] - 29 April 2019
 
 ### Fixed
