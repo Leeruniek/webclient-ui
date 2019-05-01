@@ -1,6 +1,6 @@
 const path = require("path")
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HTMLPlugin = require("html-webpack-plugin")
 
 const SRC_DIR = path.resolve(__dirname, "../src")
@@ -47,10 +47,10 @@ module.exports = {
     libraryTarget: "commonjs",
   },
   optimization: {
-    minimize: false
+    minimize: false,
   },
   externals: {
-    "react": "react",
+    react: "react",
     "react-dom": "react-dom",
   },
   module: {
