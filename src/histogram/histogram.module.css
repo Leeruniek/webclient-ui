@@ -1,0 +1,17 @@
+@import "../styles/variables.css";
+
+.histogram__title {
+  margin-bottom: var(--distancer-small);
+
+  font-weight: var(--font-weight-bolder);
+}
+
+.histogram--table .histogram__item {
+  display: inline-block;
+
+  margin-right: calc(var(--distancer) / 3);
+}
+
+.histogram--table .histogram__item:last-child {
+  margin-right: 0;
+}
