@@ -19,7 +19,7 @@ const LUСheckboxContainer = props => {
 }
 
 storiesOf("LUCheckbox", module).add("LUCheckbox", () => (
-    <LUСheckboxContainer
+    <LUСheckboxContainer color="yellow"
     />
   )).add("LUCheckbox with label", () => (
     <LUСheckboxContainer

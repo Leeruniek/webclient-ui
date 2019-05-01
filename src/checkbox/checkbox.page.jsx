@@ -5,7 +5,7 @@ const debug = require("debug")("WebclientUI:LUCheckboxPage")
 import * as React from "react"
 import { LUCheckbox } from "./checkbox"
 
-import css from "./checkbox.page.css"
+import css from "./css/checkbox.page.css"
 
 type PropsType = {||}
 type StateType = {|

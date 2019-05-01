@@ -6,11 +6,11 @@ import * as React from "react"
 import cx from "classnames"
 import { isEmpty } from "@leeruniek/functies"
 
-import css from "./checkbox.module.css"
+import css from "./css/checkbox.module.css"
 
 type LUCheckboxPropsType = {
   className?: string,
-  customStyle?: string,
+  color?: string,
   label: string,
   name?: string,
   isDisabled?: boolean,
@@ -22,7 +22,7 @@ export class LUCheckbox extends React.Component<LUCheckboxPropsType> {
   static defaultProps = {
     className: "",
     name: "",
-    customStyle: "",
+    color: "",
     isDisabled: false,
     isChecked: false,
     onChange: null,
@@ -35,7 +35,7 @@ export class LUCheckbox extends React.Component<LUCheckboxPropsType> {
       name,
       label,
       className,
-      customStyle,
+      color,
       onChange,
     } = this.props
 
@@ -44,7 +44,7 @@ export class LUCheckbox extends React.Component<LUCheckboxPropsType> {
         className={cx(css.field, {
           [css.disabled]: isDisabled,
           [className || ""]: !isEmpty(className),
-          [css[customStyle]]: !isEmpty(customStyle),
+          [css[color]]: !isEmpty(color),
         })}>
         <input
           type="checkbox"

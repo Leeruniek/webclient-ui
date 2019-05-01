@@ -1,0 +1,74 @@
+@import "../../styles/variables.css";
+
+:root {
+  --yellow-checkbox-disabled-color: color-mod(var(--color-black) a(26%));
+  --yellow-checkbox-focus-checked-color: color-mod(var(--color-dark-yellow) a(26%));
+  --yellow-checkbox-focus-color: color-mod(var(--color-black) a(1%));
+  --yellow-checkbox-text-color: var(--color-black);
+  --yellow-checkbox-color: var(--color-yellow);
+  --yellow-checkbox-disabled-color: color-mod(var(--color-black) a(26%));
+  --yellow-checkbox-text-color: var(--color-black);
+  --yellow-checkbox-is-checked-color: var(--color-white);
+}
+
+.yellow.field .ripple {
+  background-color: var(--color-dark-yellow);
+}
+
+.yellow .text {
+  color: var(--yellow-checkbox-text-color);
+}
+
+.yellow .input ~ .check::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: var(--checkbox-focus-size);
+  height: var(--checkbox-focus-size);
+  margin-top: calc(-1 * var(--checkbox-focus-size) / 2);
+  margin-left: calc(-1 * var(--checkbox-focus-size) / 2);
+
+  content: "";
+  transform: scale(0);
+  pointer-events: none;
+
+  border-radius: 50%;
+  background-color: var(--color-dark-yellow);
+}
+
+.yellow .input:focus ~ .check::before {
+  animation: ripple var(--animation-duration) ease-out;
+
+  background-color: var(--color-dark-yellow);
+}
+
+.yellow .input:focus ~ .check.checked::before {
+  background-color: var(--color-dark-yellow);
+}
+
+.yellow .check {
+  border-color: var(--yellow-checkbox-text-color);
+}
+
+.yellow .check.checked {
+  border-color: var(--color-dark-yellow);
+  background-color: var(--color-dark-yellow);
+}
+
+.yellow .check.checked::after {
+  border-color: var(--color-background);
+}
+
+.yellow.disabled > .text {
+  color: var(--yellow-checkbox-disabled-color);
+}
+
+.yellow.disabled > .check {
+  border-color: var(--yellow-checkbox-disabled-color);
+}
+
+.yellow.disabled > .check.checked {
+  border-color: transparent;
+  background-color: var(--yellow-checkbox-disabled-color);
+}

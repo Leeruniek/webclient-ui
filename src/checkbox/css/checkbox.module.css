@@ -1,4 +1,5 @@
-@import "../styles/variables.css";
+@import "../../styles/variables.css";
+@import "./checkbox-scheme-yellow.module.css";
 
 :root {
   --checkbox-color: var(--color-primary);
@@ -11,10 +12,6 @@
   --checkbox-text-font-size: var(--font-size);
   --checkbox-total-height: calc(1.5 * var(--unit));
   --checkbox-is-checked-color: var(--color-white);
-  --yellow-checkbox-color: var(--color-yellow);
-  --yellow-checkbox-disabled-color: color-mod(var(--color-black) a(26%));
-  --yellow-checkbox-text-color: var(--color-black);
-  --yellow-checkbox-is-checked-color: var(--color-white);
 }
 
 .field {
@@ -168,24 +165,6 @@
   background-color: var(--checkbox-disabled-color);
 }
 
-@keyframes checkmark-expand {
-  0% {
-    top: calc(.9 * var(--unit));
-    left: calc(.6 * var(--unit));
-
-    width: 0;
-    height: 0;
-  }
-
-  100% {
-    top: calc(-.1 * var(--unit));
-    left: calc(.4 * var(--unit));
-
-    width: calc(.7 * var(--unit));
-    height: var(--unit);
-  }
-}
-
 @keyframes ripple {
   0% {
     transform: scale(0, 0);
@@ -198,44 +177,4 @@
 
     opacity: 0;
   }
-}
-
-/* CSS rules for comonents with not empty props.customStyle */
-
-.yellow {
-  color: var(--yellow-checkbox-text-color);
-}
-
-.yellow .text {
-  color: var(--yellow-checkbox-text-color);
-}
-
-.yellow .input:focus ~ .check::before {
-  background-color: var(--yellow-checkbox-color);
-}
-
-.yellow .check {
-  border-color: var(--yellow-checkbox-text-color);
-}
-
-.yellow .check.checked {
-  border-color: var(--yellow-checkbox-color);
-  background-color: var(--yellow-checkbox-color);
-}
-
-.yellow .check.checked::after {
-  border-color: var(--yellow-checkbox-is-checked-color);
-}
-
-.yellow.disabled > .text {
-  color: var(--yellow-checkbox-disabled-color);
-}
-
-.yellow.disabled > .check {
-  border-color: var(--yellow-checkbox-disabled-color);
-}
-
-.yellow.disabled > .check.checked {
-  border-color: transparent;
-  background-color: var(--yellow-checkbox-disabled-color);
 }
