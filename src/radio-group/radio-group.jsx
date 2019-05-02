@@ -65,7 +65,7 @@ export class LURadioGroup extends React.Component<LURadioGroupPropsType> {
         return (
           <React.Fragment>
             {child.props.children.map(nestedChild => {
-              if (deepEqual(nestedChild)(LURadio)) {
+              if (deepEqual(nestedChild.type.name)(LURadio.name)) {
                 return nestedChild.map(wrapLURadio)
               }
 
@@ -74,7 +74,7 @@ export class LURadioGroup extends React.Component<LURadioGroupPropsType> {
           </React.Fragment>
         )
       }
-      if (deepEqual(child.type)(LURadio)) {
+      if (deepEqual(child.type.name)(LURadio.name)) {
         return wrapLURadio(child)
       }
 
