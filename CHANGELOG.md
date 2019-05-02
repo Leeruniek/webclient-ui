@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.13] - 02 May 2019
+
+### Add
+- [LUHistogramm](src/histogram/histogram.jsx)
+- [LUTextHighlight](src/text-highlight/text-highlight.jsx)
+
+### Fixed
+- Fixed yellow color scheme in LUCheckbox
+- Fixed passing props to child components in LURadioGroup
+
 ## [0.3.12] - 30 April 2019
 
 ### Change
