@@ -1,41 +1,41 @@
+// @flow
+
 const debug = require("debug")("Leeruniek:LUSelect")
 
 import React from "react"
-import PropTypes from "prop-types"
 import cx from "classnames"
 import Select, { Creatable } from "react-select"
-import { type, hasWith, isEmpty } from "@leeruniek/functies"
+import { type, hasWith, isEmpty, is } from "@leeruniek/functies"
 
 import css from "./css/select.module.css"
-import { is } from "@leeruniek/functies/dist/is/is"
 
-class LUSelect extends React.PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string,
-    placeholder: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    options: PropTypes.arrayOf(PropTypes.object).isRequired,
-    color: PropTypes.oneOf(["yellow"]),
-    noResultsText: PropTypes.string,
-    optionRenderer: PropTypes.func,
-    promptTextCreator: PropTypes.func,
+type LUSelectPropsType = {
+  className?: string,
+  label?: string,
+  placeholder?: string,
+  value?: Object[] | Object,
+  options: Object[],
+  color?: "" | "yellow",
+  noResultsText?: string,
+  optionRenderer?: Function,
+  promptTextCreator?: Function,
 
-    hasFocus: PropTypes.bool,
-    hasMultipleValues: PropTypes.bool,
-    hasToggleAll: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    isCreatable: PropTypes.bool,
-    isClearable: PropTypes.bool,
-    isMenuOpenOnFocus: PropTypes.bool,
-    isDisabled: PropTypes.bool,
+  hasFocus?: boolean,
+  hasMultipleValues?: boolean,
+  hasToggleAll?: boolean,
+  isLoading?: boolean,
+  isCreatable?: boolean,
+  isClearable?: boolean,
+  isMenuOpenOnFocus?: boolean,
+  isDisabled?: boolean,
 
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onInputChange: PropTypes.func,
-  }
+  onChange: Function,
+  onFocus?: Function,
+  onBlur?: Function,
+  onInputChange?: Function,
+}
 
+class LUSelect extends React.PureComponent<LUSelectPropsType> {
   // Default props values for non-required props
   static defaultProps = {
     className: null,
@@ -57,7 +57,7 @@ class LUSelect extends React.PureComponent {
     isMenuOpenOnFocus: false,
     isDisabled: false,
 
-    onChange: null,
+    onChange: () => {},
     onFocus: null,
     onBlur: null,
     onInputChange: null,
@@ -103,7 +103,7 @@ class LUSelect extends React.PureComponent {
     return (
       <div
         className={cx(css.select, {
-          [className]: !!className,
+          [className || ""]: !!className,
           [css["select--disabled"]]: isDisabled,
           [css["select--focused"]]: hasFocus,
           [css["select-has-value"]]: !isEmpty(value),
@@ -158,13 +158,14 @@ class LUSelect extends React.PureComponent {
 
     const byType = {
       Array: () => {
-        if(hasWith({ value: "NONE" })(currentValues)) {
+        if (hasWith({ value: "NONE" })(currentValues)) {
           return []
-        } if(hasWith({ value: "ALL" })(currentValues)) {
-          return options
-        } else {
-          return currentValues
         }
+        if (hasWith({ value: "ALL" })(currentValues)) {
+          return options
+        }
+
+        return currentValues
       },
       Other: () => currentValues,
     }

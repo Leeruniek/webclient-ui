@@ -6,13 +6,15 @@ import * as React from "react"
 
 import css from "./loader.module.css"
 
+type LULoaderPropsType = {
+  isLoading: boolean,
+  children: React.Node,
+}
+
 export const LULoader = ({
   isLoading,
   children,
-}: {
-  isLoading: boolean,
-  children: React.Node,
-}): React.Node =>
+}: LULoaderPropsType): React.Node =>
   isLoading ? (
     <div className={css.loader}>
       <div className={css.loader__spinner1} />

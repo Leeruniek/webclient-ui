@@ -8,19 +8,21 @@ import { isEmpty } from "@leeruniek/functies"
 
 import css from "./message.module.css"
 
+type LUMessagePropsType = {
+  className?: string,
+  type?: "success" | "info" | "error",
+  content?: string,
+  children?: React.Node,
+  hideAfter?: number,
+}
+
 export const LUMessage = ({
   className,
   type = "info",
   content,
   children,
   hideAfter,
-}: {
-  className?: string,
-  type?: "success" | "info" | "error",
-  content?: string,
-  children?: React.Node,
-  hideAfter?: number,
-}): React.Node => {
+}: LUMessagePropsType): React.Node => {
   const [isHidden, setHidden] = React.useState(false)
 
   const hide = () => {

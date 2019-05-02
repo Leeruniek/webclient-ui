@@ -9,25 +9,27 @@ import { isEmpty } from "@leeruniek/functies"
 
 import css from "./progress-bar.module.css"
 
-export const LUProgressBar = ({
-  className = "",
-  color,
-  mode = "indeterminate",
-  max = 100,
-  value = 0,
-  isVisible = false,
-}: {
+type LUProgressBarPropsType = {
   className?: string,
   color?: string,
   mode?: string,
   max?: number,
   value?: number,
   isVisible: boolean,
-}): React.Node =>
+}
+
+export const LUProgressBar = ({
+  className = "",
+  color = "",
+  mode = "indeterminate",
+  max = 100,
+  value = 0,
+  isVisible = false,
+}: LUProgressBarPropsType): React.Node =>
   isVisible ? (
     <ProgressBar
       className={cx(className, {
-        [css[color]]: !isEmpty(color),
+        [css[color] || ""]: !isEmpty(color),
       })}
       theme={css}
       mode={mode}

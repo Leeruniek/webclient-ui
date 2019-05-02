@@ -1,27 +1,23 @@
+// @flow
+
 const debug = require("debug")("Leeruniek:LUErrorBoundary")
 
-import React from "react"
-import PropTypes from "prop-types"
+import * as React from "react"
 import Raven from "raven-js"
 
 import { LUMessage } from "../message/message"
 import { is } from "@leeruniek/functies"
 
-export class LUErrorBoundary extends React.Component {
-  static propTypes = {
-    tag: PropTypes.string,
-    message: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]),
-  }
+type LUErrorBoundaryPropsType = {
+  tag?: string,
+  message?: string,
+  children?: React.Node | React.Node[],
+}
 
+export class LUErrorBoundary extends React.Component<LUErrorBoundaryPropsType> {
   // Defaults for non-required props
   static defaultProps = {
-    tag: null,
     message: "Uuuupsilon",
-    children: null,
   }
 
   // Initial component state

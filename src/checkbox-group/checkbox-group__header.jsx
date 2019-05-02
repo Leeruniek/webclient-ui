@@ -7,7 +7,7 @@ import cx from "classnames"
 
 import css from "./checkbox-group.css"
 
-export type PropType = {
+export type LUCheckboxGroupHeaderPropType = {
   className?: string,
   label: string,
 }
@@ -15,6 +15,6 @@ export type PropType = {
 export const LUCheckboxGroupHeader = ({
   className = "",
   label,
-}: PropType): React.Node => (
+}: LUCheckboxGroupHeaderPropType): React.Node => (
   <div className={cx(css["checkbox-group__header"], className)}>{label}</div>
 )

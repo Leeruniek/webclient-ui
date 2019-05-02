@@ -5,7 +5,7 @@ const debug = require("debug")("Leeruniek:LUDialog")
 import * as React from "react"
 import cx from "classnames"
 import { Dialog } from "react-toolbox/lib/dialog/Dialog"
-import { is } from "@leeruniek/functies"
+import { is, isEmpty } from "@leeruniek/functies"
 
 import { LUProgressBar } from "../progress-bar/progress-bar"
 import { LUActions } from "../actions/actions"
@@ -15,36 +15,43 @@ import css from "./dialog.module.css"
 
 import type { ActionType } from "../actions/actions"
 
-export const LUDialog = ({
-  title,
-  color,
-  icon,
-  children,
-  actions = [],
-  isLoading = false,
-  isVisible,
-  onCancel,
-  onOpen
-} : {
+type LUDialodPropsType = {
   title: string | React.Node | React.Node[],
-  color?: "yellow" | "red",
+  color?: "" | "yellow" | "red",
   icon?: string,
   children: React.Node,
   actions?: ActionType[],
   isLoading?: boolean,
   isVisible: boolean,
   onCancel: Function,
-  onOpen?: Function
-}) => {
+  onOpen?: Function,
+}
 
-  const handleOpen = ({ wasVisible, isVisible } : {wasVisible: boolean, isVisible: boolean}):void => {
+export const LUDialog = ({
+  title,
+  color = "",
+  icon,
+  children,
+  actions = [],
+  isLoading = false,
+  isVisible,
+  onCancel,
+  onOpen,
+}: LUDialodPropsType): React.Node => {
+  const handleOpen = ({
+    wasVisible,
+    isVisible,
+  }: {
+    wasVisible: boolean,
+    isVisible: boolean,
+  }): void => {
     onOpen && isVisible && !wasVisible && onOpen()
   }
 
   React.useEffect(() => {
     handleOpen({
       wasVisible: false,
-      isVisible: isVisible,
+      isVisible,
     })
   }, [])
 
@@ -53,14 +60,14 @@ export const LUDialog = ({
   React.useEffect(() => {
     handleOpen({
       wasVisible: prevIsVisibleProp.isVisible,
-      isVisible: isVisible,
+      isVisible,
     })
   }, [isVisible])
 
   return (
     <Dialog
       className={cx({
-        [css[`dialog--${color}`] || ""]: is(color),
+        [css[`dialog--${color}`] || ""]: !isEmpty(color),
       })}
       active={isVisible}
       onEscKeyDown={onCancel}
@@ -74,7 +81,7 @@ export const LUDialog = ({
       />
 
       <h6 className={css.title}>
-        {is(icon)? <i className={cx("fa", icon, css.dialog__icon)} /> : null}
+        {is(icon) ? <i className={cx("fa", icon, css.dialog__icon)} /> : null}
         {title}
         <span className={css.dialog__close} onClick={onCancel} />
       </h6>

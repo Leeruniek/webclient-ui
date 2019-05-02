@@ -8,7 +8,7 @@ import { replace, isEmpty } from "@leeruniek/functies"
 import css from "./text-highlight.module.css"
 
 type LUTextHighlightPropsType = {
-  query: string,
+  query?: string,
   value: string,
 }
 

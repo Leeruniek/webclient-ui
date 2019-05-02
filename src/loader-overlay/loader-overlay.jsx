@@ -7,13 +7,15 @@ import cx from "classnames"
 
 import css from "./loader-overlay.module.css"
 
+type LULoaderOverlayPropsType = {
+  isTransparent?: boolean,
+  isVisible: boolean,
+}
+
 export const LULoaderOverlay = ({
   isTransparent = false,
   isVisible,
-}: {
-  isTransparent?: boolean,
-  isVisible: boolean,
-}): React.Node => (
+}: LULoaderOverlayPropsType): React.Node => (
   <div
     style={{
       display: isVisible ? "block" : "none",
