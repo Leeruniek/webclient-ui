@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.14] - 02 May 2019
+
+### Change
+- Check child type in [LURadioGroup](src/radio-group/radio-group.jsx) by type.name
+
 ## [0.3.13] - 02 May 2019
 
 ### Add

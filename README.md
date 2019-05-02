@@ -54,12 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.13] - 02 May 2019
+## [0.3.14] - 02 May 2019
 
-### Add
-- [LUHistogramm](src/histogram/histogram.jsx)
-- [LUTextHighlight](src/text-highlight/text-highlight.jsx)
-
-### Fixed
-- Fixed yellow color scheme in LUCheckbox
-- Fixed passing props to child components in LURadioGroup
+### Change
+- Check child type in [LURadioGroup](src/radio-group/radio-group.jsx) by type.name
