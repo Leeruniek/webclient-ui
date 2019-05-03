@@ -14,9 +14,11 @@ const LURadioGroupContainer = props => {
   return (
     <div>
       <LURadioGroup value={selectedValue} onChange={handleRadioGroupChange}>
-        <LURadio label="1" value="1" />
-        <LURadio label="2" value="2" />
-        <LURadio label="3" value="3" />
+        <React.Fragment>
+          {["1", "2", "3", "4", "5", "6", "7", "8", "9" ,"10"].map((el) =><LURadio label={el} value={el} />)}
+        </React.Fragment>
+        <LURadio label="11" value="11" />
+        <LURadio label="12" value="12" />
       </LURadioGroup>
     </div>
   )
