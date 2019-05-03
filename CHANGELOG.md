@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.16] - 03 May 2019
+
+### Change
+- Add to [LURadioGroup](src/radio-group/radio-group.jsx) checking is children elements is array
+
 ## [0.3.15] - 03 May 2019
 
 ### Fixed
