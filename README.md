@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.14] - 02 May 2019
+## [0.3.15] - 03 May 2019
 
-### Change
-- Check child type in [LURadioGroup](src/radio-group/radio-group.jsx) by type.name
+### Fixed
+- Fix [LURadioGroup](src/radio-group/radio-group.jsx)
