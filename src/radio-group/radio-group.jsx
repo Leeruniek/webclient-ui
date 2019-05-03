@@ -6,7 +6,7 @@ import * as React from "react"
 import { isFragment } from "react-is"
 import cx from "classnames"
 import Scrollbars from "react-custom-scrollbars"
-import { is, deepEqual } from "@leeruniek/functies"
+import { is, deepEqual, all } from "@leeruniek/functies"
 
 import { LURadio } from "../radio/radio"
 import { LURadioSeparator } from "./radio-group__separator"
@@ -65,7 +65,15 @@ export class LURadioGroup extends React.Component<LURadioGroupPropsType> {
         return (
           <React.Fragment>
             {child.props.children.map(nestedChild => {
-              if (deepEqual(nestedChild.type.name)(LURadio.name)) {
+              if (
+                Array.isArray(nestedChild) &&
+                all(el => deepEqual(el.type.name)(LURadio.name))(nestedChild)
+              ) {
+                return nestedChild.map(wrapLURadio)
+              } else if (
+                !Array.isArray(nestedChild) &&
+                deepEqual(nestedChild.type.name)(LURadio.name)
+              ) {
                 return wrapLURadio(nestedChild)
               }
 
