@@ -20,6 +20,17 @@ storiesOf("LUButton", module)
       onClick={handleClick}
     />
   ))
+  .add("small button", () => (
+    <LUButton
+      type="small"
+      label="LUButton"
+      isPrimary={true}
+      isNeutral={true}
+      hasRipple={true}
+      isRaised={true}
+      onClick={handleClick}
+    />
+  ))
   .add("props: {isPrimary: true}", () => (
     <LUButton label="LUButton" isPrimary={true} onClick={handleClick} />
   ))
