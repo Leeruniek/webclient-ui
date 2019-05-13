@@ -124,7 +124,7 @@
     "react-router-dom": "^5.0.0",
     "react-select": "^2.4.3",
     "react-toolbox": "2.0.0-beta.13",
-    "resolve-url-loader": "^3.1.0",
+    "resolve-url-loader": "^2.3.1",
     "style-loader": "^0.23.1",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
