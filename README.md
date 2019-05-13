@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.16] - 03 May 2019
+## [0.3.17] - 13 May 2019
 
-### Change
-- Add to [LURadioGroup](src/radio-group/radio-group.jsx) checking is children elements is array
+### Fix
+- Fix styles for LUButton

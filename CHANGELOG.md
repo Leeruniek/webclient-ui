@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.17] - 13 May 2019
+
+### Fix
+- Fix styles for LUButton
+
 ## [0.3.16] - 03 May 2019
 
 ### Change
