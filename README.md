@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.17] - 13 May 2019
+## [0.3.18] - 28 May 2019
 
 ### Fix
-- Fix styles for LUButton
+- Fix LUIput component
