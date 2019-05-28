@@ -87,7 +87,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   let inputNode = React.useRef()
 
   const handleAutoresize = (): void => {
-    const element = inputNode
+    const element = inputNode.current
 
     if (typeof maxRows === "number" && !Number.isNaN(maxRows)) {
       element.style.height = null
@@ -112,7 +112,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
       window.addEventListener("resize", handleAutoresize)
       handleAutoresize()
     }
-    props.hasAutoFocus && inputNode.focus()
+    props.hasAutoFocus && inputNode.current.focus()
   }, [])
 
   // instead of componentDidUpdate() method
@@ -141,11 +141,11 @@ const LUInput = (props: LUInputPropsType): React.Node => {
   }
 
   const blur = (): void => {
-    inputNode.blur()
+    inputNode.current.blur()
   }
 
   const focus = (): void => {
-    inputNode.focus()
+    inputNode.current.focus()
   }
 
   const handleKeyPress = (event: SyntheticEvent<HTMLInputElement>): void => {
@@ -189,9 +189,7 @@ const LUInput = (props: LUInputPropsType): React.Node => {
     className: cx(css.inputElement, {
       [css.filled]: valuePresent,
     }),
-    ref: (node: HTMLInputElement | HTMLTextAreaElement) => {
-      inputNode.current = node
-    },
+    ref: inputNode,
     onKeyUp: handleKeyUp,
     onKeyPress: handleKeyPress,
     onChange: handleChange,
