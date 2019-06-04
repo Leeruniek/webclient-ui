@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.19] - 4 June 2019
+
+### Fix
+- Fix styles in LUSelect component
+
 ## [0.3.18] - 28 May 2019
 
 ### Fix

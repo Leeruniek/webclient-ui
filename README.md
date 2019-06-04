@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.18] - 28 May 2019
+## [0.3.19] - 4 June 2019
 
 ### Fix
-- Fix LUIput component
+- Fix styles in LUSelect component
