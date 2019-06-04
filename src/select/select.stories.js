@@ -8,4 +8,6 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' }
 ];
 
-storiesOf("LUSelect", module).add("Simple select", () => <LUSelect options={options} label="LUSelect"/>)
+storiesOf("LUSelect", module)
+  .add("Simple select", () => <LUSelect options={options} label="LUSelect"/>)
+  .add("Yellow select", () => <LUSelect options={options} color="yellow" label="LUSelect"/>)

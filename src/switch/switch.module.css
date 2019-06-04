@@ -33,8 +33,8 @@
 
 .red .off {
   background: color-mod(var(--color-dark-red) a(22%));
+}
 
-  .thumb {
-    background: color-mod(var(--color-dark-red) a(50%));
-  }
+.red .off .thumb {
+  background: color-mod(var(--color-dark-red) a(50%));
 }

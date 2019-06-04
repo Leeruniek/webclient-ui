@@ -48,27 +48,12 @@
   color: var(--color-primary);
 }
 
-.select--focused :global(.Select-control) {
-  border-bottom: 1px solid var(--border-gray);
-  box-shadow: none;
-}
-
 .select-has-value .label {
   top: var(--select-focus-label-top);
 }
 
 .inner-select {
   position: relative;
-
-  /* z-index: 1; */
-}
-
-.inner-select :global(.Select-arrow-zone) {
-  padding-right: 0;
-}
-
-.inner-select :global(.Select-control) {
-  border-bottom: 1px solid var(--border-gray);
 }
 
 .inner-select :global(.Select-arrow) {
@@ -77,4 +62,14 @@
 
 .inner-select :global(.Select-arrow-zone .Select-arrow):hover {
   border-top-color: var(--select-arrow-color-hover);
+}
+
+.dropdownIndicator {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  display: inline-block;
+  height: 0;
+  width: 0;
+  position: relative;
 }

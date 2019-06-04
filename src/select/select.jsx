@@ -5,7 +5,8 @@ const debug = require("debug")("Leeruniek:LUSelect")
 import React from "react"
 import cx from "classnames"
 import Select, { Creatable } from "react-select"
-import { type, hasWith, isEmpty, is } from "@leeruniek/functies"
+import { type, hasWith, isEmpty, is, mergeTwo } from "@leeruniek/functies"
+import { DropdownIndicator } from "./dropdown-indicator"
 
 import css from "./css/select.module.css"
 
@@ -33,6 +34,83 @@ type LUSelectPropsType = {
   onFocus?: Function,
   onBlur?: Function,
   onInputChange?: Function,
+}
+
+const defaultThemeStyles = {
+  control: (provided, state) => {
+    const isFocusedStyle = state.isFocused
+      ? {
+          borderBottom: "1px solid rgb(38, 166, 154)",
+          boxShadow: "none",
+        }
+      : {}
+
+    return {
+      ...provided,
+      borderTop: 0,
+      borderRight: 0,
+      borderLeft: 0,
+      borderRadius: 0,
+      borderBottom: "1px solid #e0e0e0",
+      ...isFocusedStyle,
+      "&:hover": {
+        boxShadow: "none",
+      },
+    }
+  },
+  menuList: () => ({
+    borderTop: 0,
+    borderRight: 0,
+    borderLeft: 0,
+    borderRadius: 0,
+    boxShadow: "none",
+  }),
+  menu: () => ({
+    border: "1px solid rgba(0, 0, 0, 0.12)",
+    borderRadius: 0,
+    boxShadow: "none",
+  }),
+  indicatorsContainer: () => ({
+    paddingRight: 0,
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+  multiValue: () => ({
+    marginRight: "5px",
+    marginLeft: 0,
+    color: "#676a6c",
+    borderRadius: "3px",
+  }),
+  multiValueLabel: () => ({
+    padding: "3px 7px",
+  }),
+  multiValueRemove: () => ({
+    padding: "0px 5px",
+  }),
+}
+
+const yellowThemeStyles = {
+  option: (provided, state) => {
+    const isSelectedStyle = state.isSelected
+      ? {
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
+      : {}
+    const isFocusedStyle = state.isFocused
+      ? {
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
+      : {}
+
+    return {
+      ...provided,
+      ...isFocusedStyle,
+      ...isSelectedStyle,
+    }
+  },
 }
 
 class LUSelect extends React.PureComponent<LUSelectPropsType> {
@@ -116,6 +194,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
         ) : null}
 
         <SelectType
+          components={{ DropdownIndicator }}
           value={value}
           multi={hasMultipleValues}
           options={
@@ -148,6 +227,11 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           onFocus={this.handleSelectFocus}
           onInputChange={onInputChange}
           onChange={this.handleOnChange}
+          styles={
+            isEmpty(color)
+              ? defaultThemeStyles
+              : mergeTwo(defaultThemeStyles)(yellowThemeStyles)
+          }
         />
       </div>
     )
