@@ -12,6 +12,7 @@ import css from "./css/select.module.css"
 
 type LUSelectPropsType = {
   className?: string,
+  classNamePrefix?: string,
   label?: string,
   placeholder?: string,
   value?: Object[] | Object,
@@ -20,15 +21,18 @@ type LUSelectPropsType = {
   noResultsText?: string,
   optionRenderer?: Function,
   promptTextCreator?: Function,
+  providedStyles?: Object,
+  components?: React.Element[],
 
   hasFocus?: boolean,
-  hasMultipleValues?: boolean,
+  isMulti?: boolean,
   hasToggleAll?: boolean,
   isLoading?: boolean,
   isCreatable?: boolean,
   isClearable?: boolean,
   isMenuOpenOnFocus?: boolean,
   isDisabled?: boolean,
+  closeMenuOnSelect?: boolean,
 
   onChange: Function,
   onFocus?: Function,
@@ -40,9 +44,9 @@ const defaultThemeStyles = {
   control: (provided, state) => {
     const isFocusedStyle = state.isFocused
       ? {
-          borderBottom: "1px solid rgb(38, 166, 154)",
-          boxShadow: "none",
-        }
+        borderBottom: "1px solid rgb(38, 166, 154)",
+        boxShadow: "none",
+      }
       : {}
 
     return {
@@ -65,7 +69,8 @@ const defaultThemeStyles = {
     borderRadius: 0,
     boxShadow: "none",
   }),
-  menu: () => ({
+  menu: (provided) => ({
+    ...provided,
     border: "1px solid rgba(0, 0, 0, 0.12)",
     borderRadius: 0,
     boxShadow: "none",
@@ -76,33 +81,21 @@ const defaultThemeStyles = {
   indicatorSeparator: () => ({
     display: "none",
   }),
-  multiValue: () => ({
-    marginRight: "5px",
-    marginLeft: 0,
-    color: "#676a6c",
-    borderRadius: "3px",
-  }),
-  multiValueLabel: () => ({
-    padding: "3px 7px",
-  }),
-  multiValueRemove: () => ({
-    padding: "0px 5px",
-  }),
 }
 
 const yellowThemeStyles = {
   option: (provided, state) => {
     const isSelectedStyle = state.isSelected
       ? {
-          color: "#333",
-          backgroundColor: "rgba(245, 166, 35, 0.12)",
-        }
+        color: "#333",
+        backgroundColor: "rgba(245, 166, 35, 0.12)",
+      }
       : {}
     const isFocusedStyle = state.isFocused
       ? {
-          color: "#333",
-          backgroundColor: "rgba(245, 166, 35, 0.12)",
-        }
+        color: "#333",
+        backgroundColor: "rgba(245, 166, 35, 0.12)",
+      }
       : {}
 
     return {
@@ -127,15 +120,16 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
     optionRenderer: null,
 
     hasFocus: false,
-    hasMultipleValues: false,
+    isMulti: false,
     hasToggleAll: false,
     isLoading: false,
     isClearable: false,
-    isCreatable: true,
+    isCreatable: false,
+    closeMenuOnSelect: true,
     isMenuOpenOnFocus: false,
     isDisabled: false,
 
-    onChange: () => {},
+    onChange: () => { },
     onFocus: null,
     onBlur: null,
     onInputChange: null,
@@ -157,6 +151,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
   render() {
     const {
       className,
+      classNamePrefix,
       label,
       color,
       hasFocus,
@@ -171,9 +166,12 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
       isClearable,
       isDisabled,
       isMenuOpenOnFocus,
-      hasMultipleValues,
+      closeMenuOnSelect,
+      isMulti,
       hasToggleAll,
       onInputChange,
+      providedStyles,
+      components
     } = this.props
 
     const SelectType = isCreatable ? Creatable : Select
@@ -194,29 +192,31 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
         ) : null}
 
         <SelectType
-          components={{ DropdownIndicator }}
+          components={{ DropdownIndicator, ...components }}
           value={value}
-          multi={hasMultipleValues}
+          isMulti={isMulti}
           options={
-            hasToggleAll && hasMultipleValues
+            hasToggleAll && isMulti
               ? [
-                  value.length === options.length
-                    ? {
-                        value: "NONE",
-                        label: `- none -`,
-                      }
-                    : {
-                        value: "ALL",
-                        label: `- all -`,
-                      },
-                  ...options,
-                ]
+                value.length === options.length
+                  ? {
+                    value: "NONE",
+                    label: `- none -`,
+                  }
+                  : {
+                    value: "ALL",
+                    label: `- all -`,
+                  },
+                ...options,
+              ]
               : options
           }
           className={css["inner-select"]}
+          classNamePrefix={classNamePrefix}
           autoFocus={hasFocus}
           openOnFocus={isMenuOpenOnFocus}
           isLoading={isLoading}
+          closeMenuOnSelect={closeMenuOnSelect}
           placeholder={placeholder}
           noResultsText={noResultsText}
           optionRenderer={optionRenderer}
@@ -229,8 +229,8 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           onChange={this.handleOnChange}
           styles={
             isEmpty(color)
-              ? defaultThemeStyles
-              : mergeTwo(defaultThemeStyles)(yellowThemeStyles)
+              ? { ...defaultThemeStyles, ...providedStyles }
+              : { ...defaultThemeStyles, ...yellowThemeStyles, ...providedStyles }
           }
         />
       </div>
