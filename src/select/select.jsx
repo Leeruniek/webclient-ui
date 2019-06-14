@@ -5,7 +5,7 @@ const debug = require("debug")("Leeruniek:LUSelect")
 import React from "react"
 import cx from "classnames"
 import Select, { Creatable } from "react-select"
-import { type, hasWith, isEmpty, is, mergeTwo } from "@leeruniek/functies"
+import { type, hasWith, isEmpty, is } from "@leeruniek/functies"
 import { DropdownIndicator } from "./dropdown-indicator"
 
 import css from "./css/select.module.css"
@@ -34,6 +34,9 @@ type LUSelectPropsType = {
   isDisabled?: boolean,
   closeMenuOnSelect?: boolean,
 
+  minMenuHeight?: number,
+  maxMenuHeight?: number,
+
   onChange: Function,
   onFocus?: Function,
   onBlur?: Function,
@@ -44,9 +47,9 @@ const defaultThemeStyles = {
   control: (provided, state) => {
     const isFocusedStyle = state.isFocused
       ? {
-        borderBottom: "1px solid rgb(38, 166, 154)",
-        boxShadow: "none",
-      }
+          borderBottom: "1px solid rgb(38, 166, 154)",
+          boxShadow: "none",
+        }
       : {}
 
     return {
@@ -62,18 +65,44 @@ const defaultThemeStyles = {
       },
     }
   },
-  menuList: () => ({
+  menuList: provided => ({
+    ...provided,
     borderTop: 0,
     borderRight: 0,
     borderLeft: 0,
     borderRadius: 0,
     boxShadow: "none",
   }),
-  menu: (provided) => ({
+  menu: provided => ({
     ...provided,
     border: "1px solid rgba(0, 0, 0, 0.12)",
     borderRadius: 0,
     boxShadow: "none",
+  }),
+  multiValue: provided => ({
+    ...provided,
+    border: "1px solid rgba(0,126,255,0.24)",
+    backgroundColor: "rgba(0,126,255,0.08)",
+    padding: "2px",
+    borderRadius: "3px",
+    color: "#676a6c",
+    fontSize: "1.1em",
+  }),
+  multiValueLabel: provided => ({
+    ...provided,
+    padding: "3px 6px",
+  }),
+  multiValueRemove: provided => ({
+    ...provided,
+    borderLeft: `1px solid rgba(0,126,255,0.24)`,
+    padding: "0px 5px",
+    "&:hover": {
+      backgroundColor: `rgba(0,113,230,0.08)`,
+      color: "#676a6c",
+    },
+  }),
+  clearIndicator: () => ({
+    display: "none",
   }),
   indicatorsContainer: () => ({
     paddingRight: 0,
@@ -87,15 +116,15 @@ const yellowThemeStyles = {
   option: (provided, state) => {
     const isSelectedStyle = state.isSelected
       ? {
-        color: "#333",
-        backgroundColor: "rgba(245, 166, 35, 0.12)",
-      }
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
       : {}
     const isFocusedStyle = state.isFocused
       ? {
-        color: "#333",
-        backgroundColor: "rgba(245, 166, 35, 0.12)",
-      }
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
       : {}
 
     return {
@@ -129,7 +158,10 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
     isMenuOpenOnFocus: false,
     isDisabled: false,
 
-    onChange: () => { },
+    minMenuHeight: 50,
+    maxMenuHeight: 300,
+
+    onChange: () => {},
     onFocus: null,
     onBlur: null,
     onInputChange: null,
@@ -171,7 +203,9 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
       hasToggleAll,
       onInputChange,
       providedStyles,
-      components
+      components,
+      minMenuHeight,
+      maxMenuHeight,
     } = this.props
 
     const SelectType = isCreatable ? Creatable : Select
@@ -198,17 +232,17 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           options={
             hasToggleAll && isMulti
               ? [
-                value.length === options.length
-                  ? {
-                    value: "NONE",
-                    label: `- none -`,
-                  }
-                  : {
-                    value: "ALL",
-                    label: `- all -`,
-                  },
-                ...options,
-              ]
+                  value.length === options.length
+                    ? {
+                        value: "NONE",
+                        label: `- none -`,
+                      }
+                    : {
+                        value: "ALL",
+                        label: `- all -`,
+                      },
+                  ...options,
+                ]
               : options
           }
           className={css["inner-select"]}
@@ -227,10 +261,16 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           onFocus={this.handleSelectFocus}
           onInputChange={onInputChange}
           onChange={this.handleOnChange}
+          minMenuHeight={minMenuHeight}
+          maxMenuHeight={maxMenuHeight}
           styles={
             isEmpty(color)
               ? { ...defaultThemeStyles, ...providedStyles }
-              : { ...defaultThemeStyles, ...yellowThemeStyles, ...providedStyles }
+              : {
+                  ...defaultThemeStyles,
+                  ...yellowThemeStyles,
+                  ...providedStyles,
+                }
           }
         />
       </div>
