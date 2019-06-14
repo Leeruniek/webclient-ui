@@ -44,9 +44,9 @@ const defaultThemeStyles = {
   control: (provided, state) => {
     const isFocusedStyle = state.isFocused
       ? {
-        borderBottom: "1px solid rgb(38, 166, 154)",
-        boxShadow: "none",
-      }
+          borderBottom: "1px solid rgb(38, 166, 154)",
+          boxShadow: "none",
+        }
       : {}
 
     return {
@@ -69,7 +69,7 @@ const defaultThemeStyles = {
     borderRadius: 0,
     boxShadow: "none",
   }),
-  menu: (provided) => ({
+  menu: provided => ({
     ...provided,
     border: "1px solid rgba(0, 0, 0, 0.12)",
     borderRadius: 0,
@@ -87,15 +87,15 @@ const yellowThemeStyles = {
   option: (provided, state) => {
     const isSelectedStyle = state.isSelected
       ? {
-        color: "#333",
-        backgroundColor: "rgba(245, 166, 35, 0.12)",
-      }
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
       : {}
     const isFocusedStyle = state.isFocused
       ? {
-        color: "#333",
-        backgroundColor: "rgba(245, 166, 35, 0.12)",
-      }
+          color: "#333",
+          backgroundColor: "rgba(245, 166, 35, 0.12)",
+        }
       : {}
 
     return {
@@ -129,7 +129,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
     isMenuOpenOnFocus: false,
     isDisabled: false,
 
-    onChange: () => { },
+    onChange: () => {},
     onFocus: null,
     onBlur: null,
     onInputChange: null,
@@ -171,7 +171,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
       hasToggleAll,
       onInputChange,
       providedStyles,
-      components
+      components,
     } = this.props
 
     const SelectType = isCreatable ? Creatable : Select
@@ -198,17 +198,17 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           options={
             hasToggleAll && isMulti
               ? [
-                value.length === options.length
-                  ? {
-                    value: "NONE",
-                    label: `- none -`,
-                  }
-                  : {
-                    value: "ALL",
-                    label: `- all -`,
-                  },
-                ...options,
-              ]
+                  value.length === options.length
+                    ? {
+                        value: "NONE",
+                        label: `- none -`,
+                      }
+                    : {
+                        value: "ALL",
+                        label: `- all -`,
+                      },
+                  ...options,
+                ]
               : options
           }
           className={css["inner-select"]}
@@ -230,7 +230,11 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           styles={
             isEmpty(color)
               ? { ...defaultThemeStyles, ...providedStyles }
-              : { ...defaultThemeStyles, ...yellowThemeStyles, ...providedStyles }
+              : {
+                  ...defaultThemeStyles,
+                  ...yellowThemeStyles,
+                  ...providedStyles,
+                }
           }
         />
       </div>

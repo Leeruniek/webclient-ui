@@ -1,0 +1,42 @@
+:root {
+  --checkbox-color: var(--color-primary);
+  --checkbox-disabled-color: color-mod(var(--color-black) a(26%));
+  --checkbox-focus-checked-color: color-mod(var(--color-primary) a(26%));
+  --checkbox-small-size: var(--unit);
+  --checkbox-focus-color: color-mod(var(--color-black) a(1%));
+  --checkbox-small-focus-size: calc(var(--checkbox-small-size) * 2.3);
+  --checkbox-text-color: var(--color-black);
+  --checkbox-text-font-size: var(--font-size);
+  --checkbox-total-height: var(--unit);
+  --checkbox-is-checked-color: var(--color-white);
+}
+
+.small.field {
+  height: var(--checkbox-small-size);
+}
+
+.small .text {
+  line-height: var(--checkbox-small-size);
+}
+
+.small .input ~ .check::before {
+  width: var(--checkbox-small-focus-size);
+  height: var(--checkbox-small-focus-size);
+  margin-top: calc(-1 * var(--checkbox-small-focus-size) / 2);
+  margin-left: calc(-1 * var(--checkbox-small-focus-size) / 2);
+}
+
+.small .check {
+  width: var(--checkbox-small-size);
+  height: var(--checkbox-small-size);
+  border-width: 1px;
+}
+
+.small .check.checked::after {
+    position: absolute;
+    top: calc(-.2 * var(--unit));
+    left: calc(.2 * var(--unit));
+  
+    width: calc(.35 * var(--unit));
+  }
+  

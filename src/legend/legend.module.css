@@ -48,3 +48,28 @@
 .legend--block .legend__item {
   margin-bottom: var(--distancer-small);
 }
+
+/* Styles for storybook example */
+/* .chocolate {
+  border: 1px solid red;
+} */
+.chocolate {
+  border-color: #700808;
+  background-color: #700808;
+}
+
+.strawberry {
+  border-color: #FF4136;
+  background-color: #FF4136;
+}
+
+.vanilla {
+  border-color: #f3e5ab;
+  background-color: #f3e5ab;
+}
+/* .strawberry{
+  color: #FF4136;
+}
+.vanilla{
+  color: #f3e5ab;
+} */
