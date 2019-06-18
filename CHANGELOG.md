@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.22] - 18 June 2019
+
+### Change
+- Add `inputPlaceholder` prop to LUSelect component
+- Add custom input in LUSelect component
+
+## [0.3.21] - 14 June 2019
+
+### Change
+- Add small size theme to LUCheckbox component
+- Add interactive mode to LULegend component
+
+
 ## [0.3.20] - 7 June 2019
 
 ### Change
