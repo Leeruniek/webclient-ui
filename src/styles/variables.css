@@ -2,13 +2,16 @@
 @import "../../node_modules/react-toolbox/lib/variables.css";
 
 :root {
+<<<<<<< HEAD
   --border-gray: var(--palette-grey-300);
   --preferred-font: "open sans", Helvetica, Arial, sans-serif;
   --global-radius: 3px;
   --global-line-height: 1.42857143;
   --unit: 13px;
   --distancer-small: 5px;
+  --distancer-medium: 10px;
   --distancer: 30px;
+  --distancer-large: 35px;
   --background-content: #F3F3F4;
   --color-black: #676A6C;
   --color-primary: #3DCCB4;

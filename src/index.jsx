@@ -5,8 +5,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { LUButtonPage } from "./button/button.page"
 import { LUCheckboxGroupPage } from "./checkbox-group/checkbox-group.page"
 import { LUTagPage } from "./tag/tag.page"
+import { LUTimelinePage } from "./timeline/timeline.page"
 
 import "./index.css"
+
 class App extends React.Component {
   render = () => {
     return (
@@ -24,6 +26,7 @@ class App extends React.Component {
     )
   }
 }
+
 render(<App />, document.getElementById("root"))
 
 if (module.hot) {
