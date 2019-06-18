@@ -9,5 +9,5 @@ const options = [
 ];
 
 storiesOf("LUSelect", module)
-  .add("Simple select", () => <LUSelect options={options} label="LUSelect"/>)
+  .add("Simple select", () => <LUSelect options={options} inputPlaceholder="Sompe placeholder"/>)
   .add("Yellow select", () => <LUSelect options={options} color="yellow" label="LUSelect"/>)

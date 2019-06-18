@@ -7,6 +7,7 @@ import cx from "classnames"
 import Select, { Creatable } from "react-select"
 import { type, hasWith, isEmpty, is } from "@leeruniek/functies"
 import { DropdownIndicator } from "./dropdown-indicator"
+import { Input } from "./select-input"
 
 import css from "./css/select.module.css"
 
@@ -15,6 +16,7 @@ type LUSelectPropsType = {
   classNamePrefix?: string,
   label?: string,
   placeholder?: string,
+  inputPlaceholder?: string,
   value?: Object[] | Object,
   options: Object[],
   color?: "" | "yellow",
@@ -141,6 +143,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
     className: null,
     label: null,
     placeholder: "",
+    inputPlaceholder: "",
     value: null,
     color: null,
 
@@ -194,6 +197,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
       optionRenderer,
       noResultsText,
       placeholder,
+      inputPlaceholder,
       isLoading,
       isClearable,
       isDisabled,
@@ -226,7 +230,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
         ) : null}
 
         <SelectType
-          components={{ DropdownIndicator, ...components }}
+          components={{ DropdownIndicator, Input, ...components }}
           value={value}
           isMulti={isMulti}
           options={
@@ -252,6 +256,7 @@ class LUSelect extends React.PureComponent<LUSelectPropsType> {
           isLoading={isLoading}
           closeMenuOnSelect={closeMenuOnSelect}
           placeholder={placeholder}
+          inputPlaceholder={inputPlaceholder}
           noResultsText={noResultsText}
           optionRenderer={optionRenderer}
           allowCreate={isCreatable}
