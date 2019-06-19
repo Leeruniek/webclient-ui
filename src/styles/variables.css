@@ -4,6 +4,11 @@
 :root {
   --border-gray: var(--palette-grey-300);
   --preferred-font: "open sans", Helvetica, Arial, sans-serif;
+  --unit: 13px;
+  --distancer-large: 35px;
+  --distancer: 30px;
+  --distancer-medium: 10px;
+  --distancer-small: 5px;
   --global-radius: 3px;
   --global-line-height: 1.42857143;
   --unit: 13px;
