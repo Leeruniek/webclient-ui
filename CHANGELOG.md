@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.23] - 19 June 2019
+
+### Change
+- Remove `debug` library from the project
+
+
 ## [0.3.22] - 18 June 2019
 
 ### Change

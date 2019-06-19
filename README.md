@@ -54,8 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.22] - 18 June 2019
+## [0.3.23] - 19 June 2019
 
 ### Change
-- Add `inputPlaceholder` prop to LUSelect component
-- Add custom input in LUSelect component
+- Remove `debug` library from the project
