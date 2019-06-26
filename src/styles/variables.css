@@ -4,24 +4,31 @@
 :root {
   --border-gray: var(--palette-grey-300);
   --preferred-font: "open sans", Helvetica, Arial, sans-serif;
+  --unit: 13px;
+  --distancer-large: 35px;
+  --distancer: 30px;
+  --distancer-medium: 10px;
+  --distancer-small: 5px;
   --global-radius: 3px;
   --global-line-height: 1.42857143;
   --unit: 13px;
   --distancer-small: 5px;
+  --distancer-medium: 10px;
   --distancer: 30px;
-  --background-content: #F3F3F4;
-  --color-black: #676A6C;
-  --color-primary: #3DCCB4;
+  --distancer-large: 35px;
+  --background-content: #f3f3f4;
+  --color-black: #676a6c;
+  --color-primary: #3dccb4;
   --color-warning: var(--palette-orange-300);
-  --color-leer-blue: #2DACE3;
-  --color-leer-yellow: #F49606;
-  --color-gray-light: #F3F3F4;
-  --color-gray-medium-light: #E0E0E0;
-  --color-gray-medium: #888A8C;
-  --color-gray: #8A8C8E;
+  --color-leer-blue: #2dace3;
+  --color-leer-yellow: #f49606;
+  --color-gray-light: #f3f3f4;
+  --color-gray-medium-light: #e0e0e0;
+  --color-gray-medium: #888a8c;
+  --color-gray: #8a8c8e;
   --color-petrol: #293846;
-  --color-petrol-light: #2F4050;
-  --color-purple: #766D91;
+  --color-petrol-light: #2f4050;
+  --color-purple: #766d91;
   --color-petrol-dark: color-mod(var(--color-petrol) shade(5%));
   --color-primary-dark: color-mod(var(--color-primary) shade(50%));
   --color-primary-light: color-mod(var(--color-primary) tint(75%));
@@ -36,15 +43,15 @@
   --font-weight-semi-bold: 500;
   --font-weight-bold: 600;
   --font-weight-bolder: 700;
-  --color-dark-yellow: #F5A623;
-  --color-dark-red: #D0021B;
-  --color-subject-DMT: #FE6B6B;
-  --color-subject-RW: #5CB8E6;
-  --color-subject-SP: #FFC800;
-  --color-subject-TBL: #A48AD5;
-  --color-subject-WST: #B8D916;
-  --color-subject-RvK: #5CB8E6;
-  --color-subject-TvK: #B8D916;
+  --color-dark-yellow: #f5a623;
+  --color-dark-red: #d0021b;
+  --color-subject-DMT: #fe6b6b;
+  --color-subject-RW: #5cb8e6;
+  --color-subject-SP: #ffc800;
+  --color-subject-TBL: #a48ad5;
+  --color-subject-WST: #b8d916;
+  --color-subject-RvK: #5cb8e6;
+  --color-subject-TvK: #b8d916;
   --h3-padding: calc(var(--distancer) / 3);
   --h3-border-width: 2px;
   --h3-height: var(--distancer);
@@ -94,7 +101,7 @@
 .disabled {
   pointer-events: none;
 
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .ellipsis {
@@ -257,7 +264,7 @@
   content: "";
 
   transition-timing-function: var(--animation-curve-default);
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   transition-property: width, left, background-color;
 }
 
@@ -314,7 +321,7 @@
 
   border-radius: var(--global-radius);
   background: var(--color-white);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .dnd__preview-title {
