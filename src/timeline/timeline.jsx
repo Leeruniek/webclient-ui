@@ -23,6 +23,7 @@ type TimelineItemType = {|
 
 type Props = {|
   items: TimelineItemType[],
+  sortDirection: ?string,
   itemClassName: ?string,
   titleClassName: ?string,
   dateClassName: ?string,
@@ -31,6 +32,7 @@ type Props = {|
 
 const LUTimeline = ({
   items,
+  sortDirection,
   itemClassName,
   titleClassName,
   dateClassName,
@@ -38,7 +40,7 @@ const LUTimeline = ({
 }: Props): React.Node => (
   <Fragment>
     {pipe(
-      sortBy("date", "desc"),
+      sortBy("date", sortDirection || "desc"),
       map(
         (item): React.Node => (
           <div
