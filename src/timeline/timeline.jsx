@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUButton")
-
 import * as React from "react"
 import cx from "classnames"
 import { is, pipe, sortBy, map } from "@leeruniek/functies"
@@ -16,6 +14,7 @@ type TimelineItemType = {|
   title: string,
   date: string,
   user: string,
+  color?: string,
   className: ?string,
   titleClassName: ?string,
   dateClassName: ?string,
@@ -54,6 +53,7 @@ const LUTimeline = ({
                     "fa",
                     `fa-${item.icon}`
                   )}
+                  style={{ color: item.color }}
                 />
               </div>
             </div>
