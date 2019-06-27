@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUCheckboxGroup")
-
 import * as React from "react"
 import cx from "classnames"
 import Scrollbars from "react-custom-scrollbars"
@@ -23,6 +21,7 @@ export type LUCheckboxGroupPropsType = {
   scrollHeight?: number | string,
   selectedValues: number[] | string[],
   onChange: Function,
+  direction?: "vertical" | "horizontal"
 }
 
 export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
@@ -30,15 +29,16 @@ export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
     label: "",
     headerClassName: "",
     className: "",
+    direction: "vertical",
     scrollHeight: 0,
   }
 
   render(): React.Node {
-    const { className, scrollHeight } = this.props
+    const { className, scrollHeight, direction } = this.props
 
     return (
       <div
-        className={cx(css["checkbox-group"], {
+        className={cx(css["checkbox-group"], css[direction], {
           [className || ""]: is(className),
         })}>
         {scrollHeight ? (
@@ -81,7 +81,7 @@ export class LUCheckboxGroup extends React.Component<LUCheckboxGroupPropsType> {
             key: `checkbox-group__checkbox_${index}`,
             isChecked:
               child.props.isChecked || has(child.props.name)(selectedValues),
-            onChange,
+            onChange: child.props.onChange ? child.props.onChange : onChange,
           })
         }
 

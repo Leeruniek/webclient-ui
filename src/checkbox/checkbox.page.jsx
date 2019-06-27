@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUCheckboxPage")
-
 import * as React from "react"
 import { LUCheckbox } from "./checkbox"
 

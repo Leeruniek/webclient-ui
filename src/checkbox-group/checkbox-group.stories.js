@@ -31,6 +31,9 @@ const LUCheckboxGroupContainer = props => {
 
 storiesOf("LUCheckboxGroup", module)
   .add("LUCheckboxGroup", () => <LUCheckboxGroupContainer />)
+  .add("Horisontal LUCheckboxGroup", () => (
+    <LUCheckboxGroupContainer direction="horizontal" />
+  ))
   .add("LUCheckboxGroup with header", () => (
     <LUCheckboxGroupContainer label="LUCheckbox group header" />
   ))

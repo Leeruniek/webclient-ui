@@ -19,3 +19,15 @@
 .checkbox-group__header__test {
   border-bottom: 2px solid var(--color-petrol);
 }
+
+.checkbox-group {
+  display: flex;
+}
+
+.checkbox-group.vertical {
+  flex-direction: column;
+}
+
+.checkbox-group.horisontal {
+  flex-direction: row;
+}

@@ -1,6 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUCheckboxGroupHeader")
 
 import * as React from "react"
 import cx from "classnames"

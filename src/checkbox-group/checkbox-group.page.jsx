@@ -1,8 +1,6 @@
 /* eslint flowtype/no-weak-types: 0 */
 // @flow
 
-const debug = require("debug")("WebclientUI:LUCheckboxPage")
-
 import * as React from "react"
 import { LUCheckbox } from "../checkbox/checkbox"
 import { LUCheckboxGroup } from "./checkbox-group"
