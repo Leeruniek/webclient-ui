@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.26] - 27 June 2019
+
+### Change
+- Add arrows coloring to LUTimeline component
+- Add `direction` property to LUCheckboxGroup component
+
 ## [0.3.25] - 26 June 2019
 
 ### Add
