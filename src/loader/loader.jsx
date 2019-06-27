@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LULoader")
-
 import * as React from "react"
 
 import css from "./loader.module.css"

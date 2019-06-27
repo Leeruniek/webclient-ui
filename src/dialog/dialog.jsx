@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUDialog")
-
 import * as React from "react"
 import cx from "classnames"
 import { Dialog } from "react-toolbox/lib/dialog/Dialog"

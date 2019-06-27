@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUTable")
-
 import * as React from "react"
 import cx from "classnames"
 import { map } from "@leeruniek/functies"

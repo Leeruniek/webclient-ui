@@ -1,5 +1,3 @@
-const debug = require("debug")("Leeruniek:LUButton")
-
 import React from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"

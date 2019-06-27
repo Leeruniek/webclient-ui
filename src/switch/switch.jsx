@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUSwitch")
-
 import React from "react"
 import { Switch } from "react-toolbox/lib/switch/Switch"
 import cx from "classnames"

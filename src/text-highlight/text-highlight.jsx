@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUTextHighlight")
-
 import * as React from "react"
 import { replace, isEmpty } from "@leeruniek/functies"
 

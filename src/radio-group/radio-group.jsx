@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LURadioGroup")
-
 import * as React from "react"
 import { isFragment } from "react-is"
 import cx from "classnames"

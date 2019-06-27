@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUTag")
-
 import * as React from "react"
 import cx from "classnames"
 

@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUButtonPage")
-
 import * as React from "react"
 
 import { LUButton } from "./button"

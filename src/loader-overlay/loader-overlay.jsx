@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LULoaderOverlay")
-
 import * as React from "react"
 import cx from "classnames"
 

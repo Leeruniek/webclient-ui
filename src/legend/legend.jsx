@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LULegend")
-
 import * as React from "react"
 import cx from "classnames"
 import { is, isEmpty } from "@leeruniek/functies"

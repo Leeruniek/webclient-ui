@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUTabs")
-
 import * as React from "react"
 import cx from "classnames"
 import { isEmpty, map } from "@leeruniek/functies"

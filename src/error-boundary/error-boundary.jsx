@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUErrorBoundary")
-
 import * as React from "react"
 import Raven from "raven-js"
 

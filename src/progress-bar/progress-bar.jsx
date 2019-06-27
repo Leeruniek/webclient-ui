@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUProgressBar")
-
 import * as React from "react"
 import cx from "classnames"
 import { ProgressBar } from "react-toolbox/lib/progress_bar/ProgressBar"

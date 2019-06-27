@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUActions")
-
 import * as React from "react"
 import cx from "classnames"
 import { isEmpty } from "@leeruniek/functies"

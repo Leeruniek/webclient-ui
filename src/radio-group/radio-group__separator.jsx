@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LURadioSeparator")
-
 import * as React from "react"
 
 import css from "./radio-group.module.css"

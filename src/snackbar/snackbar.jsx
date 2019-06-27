@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUSnackbar")
-
 import * as React from "react"
 import { Snackbar } from "react-toolbox/lib/snackbar/Snackbar"
 

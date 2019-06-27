@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUHistogram")
-
 import * as React from "react"
 import { map, reduce } from "@leeruniek/functies"
 

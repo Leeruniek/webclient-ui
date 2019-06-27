@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUSelect")
-
 import React from "react"
 import cx from "classnames"
 import Select, { Creatable } from "react-select"

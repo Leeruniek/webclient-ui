@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUSection")
-
 import * as React from "react"
 import cx from "classnames"
 import Scrollbars from "react-custom-scrollbars"

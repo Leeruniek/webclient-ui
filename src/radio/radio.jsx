@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LURadio")
-
 import * as React from "react"
 import { RadioButton } from "react-toolbox/lib/radio/RadioButton"
 

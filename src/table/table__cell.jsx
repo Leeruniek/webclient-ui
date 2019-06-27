@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("Leeruniek:LUTableCell")
-
 import * as React from "react"
 import cx from "classnames"
 import Ripple from "../../node_modules/react-toolbox/lib/ripple"

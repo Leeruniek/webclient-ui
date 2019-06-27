@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:LUTimelinePage")
-
 import * as React from "react"
 
 import { LUTimeline } from "./timeline"

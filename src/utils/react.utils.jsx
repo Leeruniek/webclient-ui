@@ -1,7 +1,5 @@
 // @flow
 
-const debug = require("debug")("WebclientUI:ReactUtils")
-
 import * as React from "react"
 import { pipe, map, has, ifThen, all } from "@leeruniek/functies"
 
