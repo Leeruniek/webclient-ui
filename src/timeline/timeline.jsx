@@ -3,6 +3,7 @@
 import * as React from "react"
 import cx from "classnames"
 import { is, pipe, sortBy, map } from "@leeruniek/functies"
+import { format } from "date-fns"
 
 import css from "./timeline.css"
 
@@ -14,6 +15,7 @@ type TimelineItemType = {|
   title: string,
   date: string,
   user: string,
+  subjectId?: number,
   color?: string,
   className: ?string,
   titleClassName: ?string,
@@ -73,7 +75,7 @@ const LUTimeline = ({
                   dateClassName,
                   item.dateClassName
                 )}>
-                {item.date}
+                {format(item.date, "DD MMMM YYYY HH:mm")}
                 {item.user && <Fragment> | {item.user}</Fragment>}
               </small>
             </p>
