@@ -54,8 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.26] - 27 June 2019
+## [0.3.26] - 2 July 2019
 
 ### Change
-- Add arrows coloring to LUTimeline component
-- Add `direction` property to LUCheckboxGroup component
+- Add date format to LUTimeline component
