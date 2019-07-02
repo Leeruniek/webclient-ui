@@ -7,6 +7,8 @@ import { format } from "date-fns"
 
 import css from "./timeline.css"
 
+const nlLocale = require('date-fns/locale/nl')
+
 const { Fragment } = React
 
 type TimelineItemType = {|
@@ -75,7 +77,7 @@ const LUTimeline = ({
                   dateClassName,
                   item.dateClassName
                 )}>
-                {format(item.date, "DD MMMM YYYY HH:mm")}
+                {format(item.date, "DD MMMM YYYY HH:mm", {locale: nlLocale})}
                 {item.user && <Fragment> | {item.user}</Fragment>}
               </small>
             </p>
