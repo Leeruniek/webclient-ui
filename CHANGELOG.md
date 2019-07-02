@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.3.26] - 2 July 2019
+## [0.3.28] - 2 July 2019
+
+### Change
+- Add Dutch i18n to date in LUTimeline component
+
+## [0.3.27] - 2 July 2019
 
 ### Change
 - Add date format to LUTimeline component
