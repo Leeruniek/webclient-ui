@@ -45,6 +45,10 @@ const LUTimeline = ({
 }: Props): React.Node => {
   const [isTimelineExpanded, setIsTimelineExpanded] = React.useState(false)
 
+  React.useEffect(() => {
+    setIsTimelineExpanded(false)
+  }, [items])
+
   const visibleItems =
     isTimelineExpanded || items.length <= 3
       ? sortBy("date", sortDirection || "desc")(items)
