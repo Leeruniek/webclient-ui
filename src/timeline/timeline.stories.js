@@ -4,25 +4,28 @@ import { LUTimeline } from "./timeline"
 
 const items = [
   {
-    key: 1,
+    id: 1,
     title: "Verrijkt (huidig)",
     date: "26 - 03 - 2019",
     user: "Joyce Bakker",
     icon: "arrows-h",
+    tooltipText: "Test 1",
   },
   {
-    key: 2,
+    id: 2,
     title: "Basis",
     date: "20 - 12 - 2018",
     user: "Juf Joyce",
     icon: "arrows-h",
+    tooltipText: "Test 2",
   },
   {
-    key: 3,
+    id: 3,
     title: "Verrijkt",
     date: "15 - 10 - 2018",
     user: "Leeruniek",
     icon: "arrows-h",
+    tooltipText: "Test 3  ",
   },
 ]
 

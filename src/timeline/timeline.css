@@ -63,3 +63,9 @@
 .timeline__item-date {
   color: var(--color-gray);
 }
+
+.timeline_expand-ctrl {
+  display: block;
+  text-decoration: underline;
+  margin: 15px 5px 10px;
+}
