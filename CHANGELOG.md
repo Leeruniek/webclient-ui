@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.29] - 9 July 2019
+
+### Change
+- Add tooltip for icons in LUTimeline component 
+
 ## [0.3.28] - 2 July 2019
 
 ### Change

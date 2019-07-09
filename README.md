@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.28] - 2 July 2019
+## [0.3.29] - 9 July 2019
 
 ### Change
-- Add Dutch i18n to date in LUTimeline component
+- Add tooltip for icons in LUTimeline component 
