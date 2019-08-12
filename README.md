@@ -54,7 +54,7 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.29] - 9 July 2019
+## [0.3.30] - 12 August 2019
 
-### Change
-- Add tooltip for icons in LUTimeline component 
+### Fixed
+- Add keys to the LUActions component

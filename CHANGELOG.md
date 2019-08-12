@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.30] - 12 August 2019
+
+### Fixed
+- Add keys to the LUActions component
+
+
 ## [0.3.29] - 9 July 2019
 
 ### Change
