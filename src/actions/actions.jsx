@@ -27,45 +27,44 @@ type LUActionsType = {|
   hasSeparatorLine?: boolean,
 |}
 
-export const LUActions = React.memo<LUActionsType>(
-  ({
-    className,
-    actions,
-    type = "default",
-    align = "left",
-    isBlock = true,
-    hasSeparator = true,
-    hasSeparatorLine = true,
-  }: LUActionsType): React.Node => {
-    const visibleActions = actions.filter(action => action.isVisible !== false)
+export const LUActions = ({
+  className,
+  actions,
+  type = "default",
+  align = "left",
+  isBlock = true,
+  hasSeparator = true,
+  hasSeparatorLine = true,
+}: LUActionsType): React.Node => {
+  const visibleActions = actions.filter(action => action.isVisible !== false)
 
-    return isEmpty(visibleActions) ? null : (
-      <span
-        className={cx(
-          className,
-          css[`actions--${align}`],
-          css[`actions--${type}`],
-          {
-            [css["actions--block"] || ""]: isBlock,
-          }
-        )}>
-        {visibleActions.map((action, idx) => (
-          <React.Fragment>
-            <LUButton
-              key={`actions-button-${action.label}-${idx}`}
-              {...Object.assign({}, action, { type })}
+  return isEmpty(visibleActions) ? null : (
+    <span
+      className={cx(
+        className,
+        css[`actions--${align}`],
+        css[`actions--${type}`],
+        {
+          [css["actions--block"] || ""]: isBlock,
+        }
+      )}>
+      {visibleActions.map((action, idx) => (
+        <React.Fragment key={`actions__action-${idx}`}>
+          <LUButton
+            key={`actions__button-${action.label}-${idx}`}
+            {...Object.assign({}, action, { type })}
+          />
+          {hasSeparator && idx !== visibleActions.length - 1 ? (
+            <span
+              key={`actions__separator_${idx}`}
+              className={cx({
+                [css[`actions__separator--${type}`]]: hasSeparator,
+                [css.actions__separator__line]: hasSeparatorLine,
+              })}
             />
-            {hasSeparator && idx !== visibleActions.length - 1 ? (
-              <span
-                className={cx({
-                  [css[`actions__separator--${type}`]]: hasSeparator,
-                  [css.actions__separator__line]: hasSeparatorLine,
-                })}
-              />
-            ) : null}
-          </React.Fragment>
-        ))}
-      </span>
-    )
-  }
-)
+          ) : null}
+        </React.Fragment>
+      ))}
+    </span>
+  )
+}
