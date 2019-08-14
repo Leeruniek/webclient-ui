@@ -53,6 +53,10 @@ export class LUErrorBoundary extends React.Component<LUErrorBoundaryPropsType> {
     const { message, children } = this.props
     const { error } = this.state
 
+    if (!children) {
+      return null
+    }
+
     return is(error) ? <LUMessage type="error" content={message} /> : children
   }
 }

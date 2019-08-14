@@ -31,7 +31,6 @@
   --button-disabled-text-color-inverse: color-mod(var(--color-black) a(54%));
   --button-disabled-background-inverse: color-mod(var(--color-black) a(8%));
   --small-button-squared-icon-margin: calc(.4 * var(--unit));
-  --small-button-squared-icon-margin: 0;
   --small-button-squared-padding: 0 calc(.5 * var(--unit));
 }
 
