@@ -54,7 +54,8 @@ npm run tdd
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-## [0.3.30] - 12 August 2019
+## [0.3.31] - 14 August 2019
 
 ### Fixed
-- Add keys to the LUActions component
+- Add margin to icon in LUButton component
+- Add handling case of no passed `children` prop to LUErrorBoundary

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.31] - 14 August 2019
+
+### Fixed
+- Add margin to icon in LUButton component
+- Add handling case of no passed `children` prop to LUErrorBoundary
+
 ## [0.3.30] - 12 August 2019
 
 ### Fixed
